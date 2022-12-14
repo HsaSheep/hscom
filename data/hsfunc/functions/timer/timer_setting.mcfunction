@@ -13,9 +13,5 @@ scoreboard players add "秒：" list 0
 scoreboard players add "分：" list 0
 #計算
 function hsfunc:timer/timer_setting_update_display
-#タイマーをセットさせる
-tellraw @s ["",{"text":"--- タイマー設定 ---","color":"green"}]
-tellraw @s ["",{"text":"+ 1分","color":"green","clickEvent":{"action":"run_command","value":"/function hsfunc:timer/timer_add_60"}}]
-tellraw @s ["",{"text":"+30秒","color":"green","clickEvent":{"action":"run_command","value":"/function hsfunc:timer/timer_add_30"}}]
-tellraw @s ["",{"text":"-30秒","color":"green","clickEvent":{"action":"run_command","value":"/function hsfunc:timer/timer_rem_30"}}]
-tellraw @s ["",{"text":"- 1分","color":"green","clickEvent":{"action":"run_command","value":"/function hsfunc:timer/timer_rem_60"}}]
+#タイマー設定を表示
+give @s written_book{title:"タイマー設定",author:"",pages:['[{"text":"-------------------\\n","color":"black"},{"text":"\\n+ 1分\\n","color":"dark_green","clickEvent":{"action":"run_command","value":"/function hsfunc:timer/timer_add_60"}},{"text":"\\n+30秒\\n","color":"dark_green","clickEvent":{"action":"run_command","value":"/function hsfunc:timer/timer_add_30"}},{"text":"\\n-30秒\\n","color":"dark_green","clickEvent":{"action":"run_command","value":"/function hsfunc:timer/timer_rem_30"}},{"text":"\\n- 1分\\n","color":"dark_green","clickEvent":{"action":"run_command","value":"/function hsfunc:timer/timer_rem_60"}},{"text":"\\n-----タイマー削除-----\\n","color":"dark_green","clickEvent":{"action":"run_command","value":"/function hsfunc:timer/timer_setting_remove"}},{"text":"\\n-------------------","color":"black"}]']}
