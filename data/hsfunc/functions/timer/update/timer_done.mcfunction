@@ -6,6 +6,10 @@ title @a actionbar ["",{"text":"！タイマー終了！","color":"dark_red"}]
 scoreboard objectives setdisplay sidebar list
 #タイマーの時間の復元
 scoreboard players operation @e[tag=DummyPlayer,tag=Timer] time = @e[tag=DummyPlayer,tag=Timer] time_backup
-function hsfunc:timer/timer_update_calculation
+function hsfunc:timer/update/timer_update_calculation
 #タイマー開始フラグを0に
 scoreboard players set @e[tag=DummyPlayer,tag=Timer] timer_running 0
+#効果音再生
+function hsfunc:timer/update/timer_done_sound
+schedule function hsfunc:timer/update/timer_done_sound 2t append
+schedule function hsfunc:timer/update/timer_done_sound 4t append
