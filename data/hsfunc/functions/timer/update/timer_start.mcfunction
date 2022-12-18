@@ -6,7 +6,7 @@ scoreboard objectives add timer_countdown dummy
 scoreboard objectives add timer_countdown_odd dummy
 scoreboard objectives add 2 dummy
 #画面表示
-#scoreboard objectives setdisplay sidebar
+scoreboard objectives setdisplay sidebar
 function hsfunc:timer/bossbar/set
 #tellraw @s ["",{"text":"---タイマー停止---","color":"dark_red","clickEvent":{"action":"run_command","value":"/function hsfunc:timer/timer_done"}}]
 #タイマー開始

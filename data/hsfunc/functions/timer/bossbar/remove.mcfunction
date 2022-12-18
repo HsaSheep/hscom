@@ -1,2 +1,2 @@
-bossbar set hsfunc:timer players
-bossbar remove hsfunc:timer
+bossbar set hsfunc:timer_bar players
+bossbar remove hsfunc:timer_bar
