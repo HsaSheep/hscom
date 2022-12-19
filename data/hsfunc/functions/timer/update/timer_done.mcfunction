@@ -1,5 +1,5 @@
 #画面表示
-tellraw @a ["",{"text":"！タイマー終了！","color":"dark_red"}]
+#tellraw @a ["",{"text":"！タイマー終了！","color":"dark_red"}]
 title @a actionbar ["",{"text":"！タイマー終了！","color":"dark_red"}]
 
 #タイマー設定画面の再表示
