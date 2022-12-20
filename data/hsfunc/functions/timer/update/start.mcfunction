@@ -8,7 +8,7 @@ scoreboard objectives add 2 dummy
 #画面表示
 scoreboard objectives setdisplay sidebar
 function hsfunc:timer/bossbar/set
-#tellraw @s ["",{"text":"---タイマー停止---","color":"dark_red","clickEvent":{"action":"run_command","value":"/function hsfunc:timer/timer_done"}}]
+#tellraw @s ["",{"text":"---タイマー停止---","color":"dark_red","clickEvent":{"action":"run_command","value":"/function hsfunc:timer/done"}}]
 #タイマー開始
 scoreboard players set @e[tag=DummyPlayer,tag=Timer,limit=1] time_backup 0
 scoreboard players operation @e[tag=DummyPlayer,tag=Timer,limit=1] time_backup = @e[tag=DummyPlayer,tag=Timer,limit=1] time
@@ -17,4 +17,4 @@ scoreboard players set @e[tag=DummyPlayer,tag=Timer] timer_running 1
 scoreboard players set @e[tag=DummyPlayer,tag=Timer] timer_countdown 4
 scoreboard players set @e[tag=DummyPlayer,tag=Timer] timer_countdown_odd 0
 scoreboard players set @e[tag=DummyPlayer,tag=Timer] 2 2
-function hsfunc:timer/update/timer_countdown
+function hsfunc:timer/update/countdown

@@ -14,5 +14,5 @@ playsound minecraft:block.anvil.place master @a ~ ~ ~ 0.5 1 0.5
 #execute unless score @e[tag=DummyPlayer,tag=Timer,limit=1] timer_countdownodd matches 1.. run playsound minecraft:entity.cat.ambient master @a ~ ~ ~ 0.5 1 0.5
 
 #更新、終了判定
-execute if score @e[tag=DummyPlayer,tag=Timer,limit=1] timer_running matches 1 run execute if score @e[tag=DummyPlayer,tag=Timer,limit=1] timer_countdown matches 2.. run schedule function hsfunc:timer/update/timer_countdown 1s append
-execute if score @e[tag=DummyPlayer,tag=Timer,limit=1] timer_running matches 1 run execute unless score @e[tag=DummyPlayer,tag=Timer,limit=1] timer_countdown matches 2.. run schedule function hsfunc:timer/update/timer_countdown_end 1s append
+execute if score @e[tag=DummyPlayer,tag=Timer,limit=1] timer_running matches 1 run execute if score @e[tag=DummyPlayer,tag=Timer,limit=1] timer_countdown matches 2.. run schedule function hsfunc:timer/update/countdown 1s append
+execute if score @e[tag=DummyPlayer,tag=Timer,limit=1] timer_running matches 1 run execute unless score @e[tag=DummyPlayer,tag=Timer,limit=1] timer_countdown matches 2.. run schedule function hsfunc:timer/update/countdown_end 1s append
