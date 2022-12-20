@@ -1,0 +1,1 @@
+function hsfunc:werewolf/role/player_tag/remove_all
