@@ -1,3 +1,8 @@
 # hscom
 hscom - Minecraft Datapacks
-aaaaa
+
+# Minecraft Version
+* 1.19.3
+
+# Note
+*These Datapacks are for Minecraft Werewolf*
