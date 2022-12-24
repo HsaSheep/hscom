@@ -7,6 +7,7 @@ scoreboard objectives remove timeS
 scoreboard objectives remove timeM
 scoreboard objectives remove time_backup
 scoreboard objectives remove timer_running
+scoreboard objectives remove 2
 scoreboard objectives remove timer_countdown
 scoreboard objectives remove timer_countdown_odd
 
