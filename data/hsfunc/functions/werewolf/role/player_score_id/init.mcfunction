@@ -1,3 +1,5 @@
+function hsfunc:werewolf/role/player_score_id/remove_all
+
 #プレイヤーID設定用
 scoreboard objectives add player_id dummy "PlayerID"
 #参加人数カウント
