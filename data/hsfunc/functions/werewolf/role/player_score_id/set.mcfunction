@@ -3,7 +3,7 @@ execute if score "*" player_id > "*" player_count run tellraw @s [{"text":"--Pla
 execute if score "*" player_id > "*" player_count run scoreboard players set @a[tag=wPlayer] player_id 0
 
 #アドベンチャーモード　かつ　プレイヤータグあり　かつ　PlayerIDが0のプレイヤーがいる場合のみ実行
-execute if entity @a[tag=wPlayer,scores={player_id=0}] run tag @a[sort=random,tag=wPlayer,scores={player_id=0},limit=1] add pidset
+execute if entity @a[tag=wPlayer,scores={player_id=0}] run tag @s add pidset
 #タグ確認
 tag @a list
 
