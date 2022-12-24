@@ -21,4 +21,5 @@ execute if entity @a[tag=wPlayer,scores={player_id=0}] run function hsfunc:werew
 #いない場合、終了表示
 execute unless entity @a[tag=wPlayer,scores={player_id=0}] run tellraw @s [{"text":"--PlayerID-- ","color":"white"},{"score":{"name":"@s","objective":"player_count"},"color":"gold"},{"text":"人登録しました。","color":"white"}]
 
-tellraw @s [{"text":"player_id:","color":"white"},{"score":{"name":"*","objective":"player_id"},"color":"gold"},{"text":", player_count:","color":"white"},{"score":{"name":"*","objective":"player_count"},"color":"gold"}]
+#デバック表示
+tellraw @a [{"text":"player_id:","color":"white"},{"score":{"name":"*","objective":"player_id"},"color":"gold"},{"text":", player_count:","color":"white"},{"score":{"name":"*","objective":"player_count"},"color":"gold"}]
