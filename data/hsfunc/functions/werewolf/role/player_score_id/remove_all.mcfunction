@@ -4,4 +4,4 @@ scoreboard objectives remove player_id
 scoreboard objectives remove player_count
 
 #デバック表示
-tellraw @a [{"text":"player_id:","color":"white"},{"score":{"name":"*","objective":"player_id"},"color":"gold"},{"text":", player_count:","color":"white"},{"score":{"name":"*","objective":"player_count"},"color":"gold"}]
+scoreboard objectives setdisplay sidebar
