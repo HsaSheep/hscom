@@ -1,5 +1,5 @@
 #PlayerIDがPlayerCountを超えているプレイヤーがいた場合、0に
-execute if score "*" player_id > "*" player_count run tellraw @s [{"text":"--PlayerID-- プレイヤーIDの最大値がカウントを超えているため、初期化します。","color":"white"},{"score":{"name":"*","objective":"player_id"},"color":"gold"},{"text":":","color":"white"},{"score":{"name":"*","objective":"player_count"},"color":"gold"}]
+execute if score "*" player_id > "*" player_count run tellraw @a [{"text":"--PlayerID-- プレイヤーIDの最大値がカウントを超えているため、初期化します。","color":"white"},{"score":{"name":"*","objective":"player_id"},"color":"gold"},{"text":":","color":"white"},{"score":{"name":"*","objective":"player_count"},"color":"gold"}]
 execute if score "*" player_id > "*" player_count run scoreboard players set @a[tag=wPlayer] player_count 0
 execute if score "*" player_id > "*" player_count run scoreboard players set @a[tag=wPlayer] player_id 0
 
