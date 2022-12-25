@@ -6,7 +6,7 @@ scoreboard objectives add 60 dummy
 scoreboard objectives add timeM dummy
 scoreboard objectives add timeS dummy
 #変数を保持するエンティティ準備
-summon armor_stand ~2 ~ ~2 {Tags:["DummyPlayer","Timer"],CustomName:'{"text":"Timer"}',CustomNameVisible:false,Marker:true,Invisible:false,NoGravity:true}
+summon armor_stand ~ ~1 ~ {Tags:["DummyPlayer","Timer"],CustomName:'{"text":"Timer"}',CustomNameVisible:false,Marker:true,Invisible:false,NoGravity:true}
 scoreboard players set @e[tag=DummyPlayer,tag=Timer] time 150
 scoreboard players set @e[tag=DummyPlayer,tag=Timer] 60 60
 scoreboard players set @e[tag=DummyPlayer,tag=Timer] timeM 0
