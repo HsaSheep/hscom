@@ -2,7 +2,7 @@
 scoreboard players remove @e[tag=DummyPlayer,tag=Timer] timer_countdown 1
 
 #表示更新
-function hsfunc:timer/update/update_calculation
+function hsfunc:timer/update/calculation
 title @a title ["",{"text":"--- START ---"}]
 #サウンド再生
 stopsound @a

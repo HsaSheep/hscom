@@ -1,4 +1,6 @@
 #タイマーの時間の設定
+#actionbar表示の停止
+schedule clear hsfunc:timer/update/display
 #変数の準備
 scoreboard objectives add timer_running dummy
 scoreboard objectives add time_backup dummy
