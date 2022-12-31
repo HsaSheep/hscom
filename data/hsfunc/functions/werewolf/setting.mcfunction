@@ -1,6 +1,6 @@
 tellraw @a[tag=GM] "-----------ゲーム設定-----------"
 #参加設定
-tellraw @a ["",{"text":" 人狼ゲームに参加する "},{"text":" 開始 ","color":"red","clickEvent":{"action":"run_command","value":"/execute as @p run function hsfunc:werewolf/player_tag/set"}}]
+tellraw @a ["",{"text":" 人狼ゲーム："},{"text":" 参加する ","color":"red","clickEvent":{"action":"run_command","value":"/execute as @p run function hsfunc:werewolf/player_tag/set"}}]
 #タイマー設定
 function hsfunc:werewolf/timer/setting
 #役職設定

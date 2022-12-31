@@ -13,7 +13,7 @@ execute if entity @p[tag=pidset] as @p[tag=pidset] run scoreboard players operat
 tag @a[tag=pidset] remove pidset
 
 #アドベンチャーモード　かつ　プレイヤータグあり　かつ　PlayerIDが0のプレイヤーがいる場合もう一度実行
-execute if entity @a[tag=wPlayer,scores={player_id=0}] run schedule function hsfunc:werewolf/player_score_id/set_update 1t append
+execute if entity @a[tag=wPlayer,scores={player_id=0}] run function hsfunc:werewolf/player_score_id/set_update
 
 #いない場合、終了表示
 execute unless entity @a[tag=wPlayer,scores={player_id=0}] run tellraw @a[tag=GM] [{"text":"--PlayerID-- ","color":"white"},{"score":{"name":"@e[tag=DummyPlayer,tag=Id,limit=1]","objective":"player_count"},"color":"gold"},{"text":"人登録しました。","color":"white"}]

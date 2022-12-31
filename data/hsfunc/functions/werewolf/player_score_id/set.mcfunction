@@ -1,4 +1,5 @@
-scoreboard players set @a[tag=wPlayer] player_id 0 
+scoreboard players set @e[tag=DummyPlayer,tag=Id] player_count 0
+scoreboard players set @a[tag=wPlayer] player_id 0
 
 #デバック表示
 #tellraw @a [{"text":"player_id:","color":"white"},{"score":{"name":"*","objective":"player_id"},"color":"gold"},{"text":", player_count:","color":"white"},{"score":{"name":"*","objective":"player_count"},"color":"gold"}]
