@@ -16,6 +16,9 @@ scoreboard players set "---役職座標セット：" wwsetting 0
 scoreboard players set "---人数座標セット：" wwsetting 0
 scoreboard players set "---時間座標セット：" wwsetting 0
 
+#死亡判定用
+scoreboard objectives add death_count deathCount "死亡回数"
+
 #function hsfunc:werewolf/setting
 tell @a[tag=GM] ゲーム地点（占い看板設置の中心点）に移動し、設定開始をクリックしてください。
 tellraw @a[tag=GM] ["",{"text":" 設定開始: "},{"text":" 開始 ","color":"red","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/game/update/set_place"}}]
