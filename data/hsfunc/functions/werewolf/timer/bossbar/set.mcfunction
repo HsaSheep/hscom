@@ -3,7 +3,7 @@ execute unless score @e[tag=DummyPlayer,tag=Timer,limit=1] timeS matches 10.. ru
 #BossBarのセグメント数(Progressは1セグ)
 #bossbar set hsfunc:werewolf/timer style progress
 bossbar set hsfunc:werewolf/timer_bar style notched_6
-#BossBar文字およびBar色(JSON指定しない場合用)
+#BossBar色および文字色(JSON指定しない場合用)
 execute if score @e[tag=DummyPlayer,tag=Timer,limit=1] night_now matches 1 run bossbar set hsfunc:werewolf/timer_bar color purple
 execute if score @e[tag=DummyPlayer,tag=Timer,limit=1] night_now matches 0 run bossbar set hsfunc:werewolf/timer_bar color yellow
 #BossBar最大値設定
