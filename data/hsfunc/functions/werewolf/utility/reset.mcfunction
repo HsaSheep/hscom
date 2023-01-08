@@ -7,17 +7,18 @@ schedule clear hsfunc:werewolf/utility/update_time
 
 #scoreboard初期化（初期値代入・コメントアウトは他所で初期化）
 ###プレイヤー関係
-scoreboard players reset @e p_id 
-scoreboard players reset @e seer_id
-#scoreboard players reset @e death_count
+scoreboard players set @e p_id 0
+scoreboard players set @e seer_id 0
+scoreboard players set @e death_count 0
 ###ゲーム関係
-scoreboard players set @e p_count 0
-scoreboard players set @e day 0
-scoreboard players set @e night 0
-scoreboard players set @e night_swap 1
-scoreboard players set @e update 0
-scoreboard players set @e setting_done 0
-#scoreboard players reset @e num
+scoreboard players set @e[tag=game] p_count 0
+scoreboard players set @e[tag=game] r_set 0
+scoreboard players set @e[tag=game] day 0
+scoreboard players set @e[tag=game] night 0
+scoreboard players set @e[tag=game] night_swap 1
+scoreboard players set @e[tag=game] update 0
+scoreboard players set @e[tag=game] setting_done 0
+scoreboard players set @e[tag=game] num 0
 ###時間関係
 scoreboard players set @e[tag=game] time 0
 scoreboard players set @e[tag=game] time_total 0

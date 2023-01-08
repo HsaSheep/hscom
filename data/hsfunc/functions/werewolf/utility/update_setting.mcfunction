@@ -51,15 +51,40 @@ execute at @e[tag=wwp] run scoreboard players add "--プレイヤー数：" wwli
 #他スコアからの代入
 scoreboard players operation "人狼の数(-100000)" wwlist = @e[tag=game,limit=1] r_wolf
 scoreboard players operation "狂人の数(-10000)" wwlist = @e[tag=game,limit=1] r_mani
+#scoreboard players operation "吸血の数(-1000)" wwlist = @e[tag=game,limit=1] r_mani
 #ソート対応用加算
 scoreboard players add "人狼の数(+100000)" wwlist 100000
 scoreboard players add "狂人の数(+10000)" wwlist 10000
+#scoreboard players add "吸血の数(+1000)" wwlist 1000
 
 #時間表示
+scoreboard players operation @e[tag=game,limit=1] time_day_m = @e[tag=game,limit=1] time_day
+scoreboard players operation @e[tag=game,limit=1] time_day_m /= @e[tag=game,limit=1] 60
+scoreboard players operation @e[tag=game,limit=1] time_day_s = @e[tag=game,limit=1] time_day
+scoreboard players operation @e[tag=game,limit=1] time_day_s %= @e[tag=game,limit=1] 60
+scoreboard players operation @e[tag=game,limit=1] time_day_first_m = @e[tag=game,limit=1] time_day_first
+scoreboard players operation @e[tag=game,limit=1] time_day_first_m /= @e[tag=game,limit=1] 60
+scoreboard players operation @e[tag=game,limit=1] time_day_first_s = @e[tag=game,limit=1] time_day_first
+scoreboard players operation @e[tag=game,limit=1] time_day_first_s %= @e[tag=game,limit=1] 60
+scoreboard players operation @e[tag=game,limit=1] time_night_m = @e[tag=game,limit=1] time_night
+scoreboard players operation @e[tag=game,limit=1] time_night_m /= @e[tag=game,limit=1] 60
+scoreboard players operation @e[tag=game,limit=1] time_night_s = @e[tag=game,limit=1] time_night
+scoreboard players operation @e[tag=game,limit=1] time_night_s %= @e[tag=game,limit=1] 60
+scoreboard players operation @e[tag=game,limit=1] time_night_first_m = @e[tag=game,limit=1] time_night_first
+scoreboard players operation @e[tag=game,limit=1] time_night_first_m /= @e[tag=game,limit=1] 60
+scoreboard players operation @e[tag=game,limit=1] time_night_first_s = @e[tag=game,limit=1] time_night_first
+scoreboard players operation @e[tag=game,limit=1] time_night_first_s %= @e[tag=game,limit=1] 60
+title @a[tag=wwps] actionbar ["",{"text":"昼…"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_day_m"}},{"text":":"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_day_s"}},{"text":" 夜…"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_night_m"}},{"text":":"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_night_s"}},{"text":" (初日昼…"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_day_first_m"}},{"text":":"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_day_first_s"}},{"text":" 初日夜…"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_night_first_m"}},{"text":":"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_night_first_s"}},{"text":")"}]
 
 
 #設定完了スコアが0の場合、次回呼び出し
-execute if score @e[tag=game,limit=1] setting_done matches 0 run schedule function hsfunc:werewolf/utility/update_setting 10t
-#設定完了スコアが1の場合、次回呼び出しを削除し、カウントダウンを呼び出し
+execute if score @e[tag=game,limit=1] setting_done matches 0 run schedule function hsfunc:werewolf/utility/update_setting 1s
+#設定完了スコアが1の場合、次回呼び出しを削除し、設定情報表示削除、観覧プレイヤーをスペクテイターに、タイトル表示し、ID設定から呼出
 execute if score @e[tag=game,limit=1] setting_done matches 1 run schedule clear hsfunc:werewolf/utility/update_setting
-execute if score @e[tag=game,limit=1] setting_done matches 1 run function hsfunc:werewolf/utility/countdown
+execute if score @e[tag=game,limit=1] setting_done matches 1 run scoreboard objectives setdisplay sidebar
+execute if score @e[tag=game,limit=1] setting_done matches 1 run gamemode spectator @a[tag=wws]
+execute if score @e[tag=game,limit=1] setting_done matches 1 run title @a[tag=wwps] title [{"text":"まもなく開始します…"}]
+execute if score @e[tag=game,limit=1] setting_done matches 1 run title @a[tag=wwps] actionbar ["",{"text":"--- [設定完了、ID設定] ---","color":"gold"}]
+execute if score @e[tag=game,limit=1] setting_done matches 1 run scoreboard players set @e[tag=game] num 0
+execute if score @e[tag=game,limit=1] setting_done matches 1 run function hsfunc:werewolf/utility/id
+#execute if score @e[tag=game,limit=1] setting_done matches 1 run schedule function hsfunc:werewolf/utility/countdown 5s
