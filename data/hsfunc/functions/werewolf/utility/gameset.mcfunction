@@ -18,9 +18,14 @@ execute if entity @p[tag=wwp,tag=wolf,scores={death_count=0}] if entity @p[tag=w
 #終了時情報表示
 tellraw @a[tag=wwps] "\n"
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-------------------- ゲーム終了 -------------------"}]
-##勝利陣営表示
+##勝利陣営表示(メッセージ)
 execute if score @e[tag=game,limit=1] num matches 0 as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"                勝利陣営: "},{"text":"村人","color":"green"}]
 execute if score @e[tag=game,limit=1] num matches 1 as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"                勝利陣営: "},{"text":"人狼","color":"red"}]
+##勝利陣営表示(タイトル)
+execute if score @e[tag=game,limit=1] num matches 0 run title @a[tag=wwps] subtitle ["",{"text":""},{"text":"村人の勝利","color":"green"}]
+execute if score @e[tag=game,limit=1] num matches 1 run title @a[tag=wwps] subtitle ["",{"text":""},{"text":"人狼の勝利","color":"red"}]
+title @a[tag=wwps] title ["",{"text":"--- "},{"text":"ゲーム終了","color":"white"},{"text":" ---"}]
+##区切り表示
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"--------------------------------------------------"}]
 ##役職表示
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"- 役職内訳 -","color":"white"}]
