@@ -22,7 +22,6 @@ scoreboard players set @e[tag=game] num 0
 ###時間関係
 scoreboard players set @e[tag=game] time 0
 scoreboard players set @e[tag=game] time_total 0
-scoreboard players set @e[tag=game] countdown 3
 
 #占い看板削除
 execute if entity @e[tag=game] at @e[tag=game,limit=1] run fill ~-10 ~ ~-10 ~10 ~ ~10 air replace acacia_sign

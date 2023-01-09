@@ -17,18 +17,23 @@ scoreboard objectives add r_set dummy "ロール設定用、役職ごとに増�
 scoreboard objectives add day dummy
 scoreboard objectives add night dummy
 scoreboard objectives add night_swap dummy
+#0/etc... 0…タイマー停止(ゲーム停止)、1…タイマー動作(ゲーム実行中)、2…ゲーム終了(gameset呼出、初期化へ)
 scoreboard objectives add update dummy
+#0/etc... 0…設定未完了、1…設定完了(ゲーム開始)
 scoreboard objectives add setting_done dummy
 scoreboard objectives add num dummy "各処理での作業用変数"
 ###時間関係
+scoreboard objectives add 60 dummy
+scoreboard objectives add 3600 dummy
 scoreboard objectives add time dummy
 scoreboard objectives add time_total dummy
 scoreboard objectives add countdown dummy
-scoreboard objectives add 60 dummy
 scoreboard objectives add time_day dummy
 scoreboard objectives add time_night dummy
 scoreboard objectives add time_day_first dummy
 scoreboard objectives add time_night_first dummy
+###時間関係(時)
+scoreboard objectives add time_total_h dummy
 ###時間関係(分)
 scoreboard objectives add time_m dummy
 scoreboard objectives add time_total_m dummy
@@ -61,24 +66,27 @@ scoreboard players reset @e update
 scoreboard players reset @e setting_done
 scoreboard players reset @e num
 ###時間関係
+scoreboard players set @e[tag=game] 60 60
+scoreboard players set @e[tag=game] 3600 3600
 scoreboard players set @e[tag=game] time 0
 scoreboard players set @e[tag=game] time_total 0
 scoreboard players set @e[tag=game] countdown 3
-scoreboard players set @e[tag=game] 60 60
 scoreboard players set @e[tag=game] time_day 180
 scoreboard players set @e[tag=game] time_night 180
 scoreboard players set @e[tag=game] time_day_first 60
 scoreboard players set @e[tag=game] time_night_first 180
+###時間関係(時)
+scoreboard players reset @e time_total_h
 ###時間関係(分)
-scoreboard players reset @e time_total_m
 scoreboard players reset @e time_m
+scoreboard players reset @e time_total_m
 scoreboard players reset @e time_day_m
 scoreboard players reset @e time_night_m
 scoreboard players reset @e time_day_first_m
 scoreboard players reset @e time_night_first_m
 ###時間関係(秒)
-scoreboard players reset @e time_total_s
 scoreboard players reset @e time_s
+scoreboard players reset @e time_total_s
 scoreboard players reset @e time_day_s
 scoreboard players reset @e time_night_s
 scoreboard players reset @e time_day_first_s

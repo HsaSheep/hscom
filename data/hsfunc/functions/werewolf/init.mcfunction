@@ -60,12 +60,12 @@ summon armor_stand ~ ~ ~ {Tags:["dummy","ww","game"],CustomName:'{"text":"人狼
 
 #DP召喚場所指定をGMへ通知
 execute as @e[tag=game,limit=1] run tellraw @a[tag=gm] ["",{"text":"\n\n\n\n"}]
-execute as @e[tag=game,limit=1] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"---------------------------------------------------------------------","color":"gold"}]
-execute as @e[tag=game,limit=1] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"                 HsCom 人狼ゲーム Ver. 1.00","color":"gold"}]
-execute as @e[tag=game,limit=1] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"---------------------------------------------------------------------","color":"gold"}]
+execute as @e[tag=game,limit=1] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"--------------------------------------------------","color":"gold"}]
+execute as @e[tag=game,limit=1] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"           HsCom 人狼ゲーム Ver. 1.00","color":"gold"}]
+execute as @e[tag=game,limit=1] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"--------------------------------------------------","color":"gold"}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"・必要に応じて、プレイヤーへ権限2を与えてください。(/を付ける必要があります)"}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":" 設定:  "},{"text":"--- 権限付与 ---","color":"red","clickEvent":{"action":"suggest_command","value":"op @a[tag=!gm]"}}]
-execute as @e[tag=game,limit=1] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"---------------------------------------------------------------------"}]
-execute as @e[tag=game,limit=1] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"・ゲーム地点（占い看板設置の中心点）に移動し、設定開始をクリックしてください。"}]
+execute as @e[tag=game,limit=1] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"--------------------------------------------------"}]
+execute as @e[tag=game,limit=1] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"・ゲーム地点（占い看板設置10x10マスの中心点）に移動し、設定開始をクリックしてください。"}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":" 設定:  "},{"text":"--- 設定開始 ---","color":"red","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/set_place"}}]
-execute as @e[tag=game,limit=1] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"---------------------------------------------------------------------"}]
+execute as @e[tag=game,limit=1] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"--------------------------------------------------"}]

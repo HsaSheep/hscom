@@ -79,12 +79,24 @@ execute if entity @a[tag=wwp,scores={P_id=20}] at @e[tag=game,limit=1] run data 
 execute if entity @a[tag=wwp,scores={P_id=20}] at @e[tag=game,limit=1] run data modify block ~-2 ~ ~-6 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/seer_run"}}'
 
 title @a[tag=wwps] actionbar ["",{"text":"--- [初期化完了] ---","color":"gold"}]
+
 #ゲームスタート時のみの初期化
+#スコア関係
+##death_countを0に
 scoreboard players set @a death_count 0
+##dayを0に
+scoreboard players set @e[tag=game,limit=1] day 0
+##timeを0に
+scoreboard players set @e[tag=game,limit=1] time 0
+##nightとnight_swapを入替(1日目昼をセットさせるupdate_day呼出のため)
+scoreboard players operation @e[tag=game,limit=1] night >< @e[tag=game,limit=1] night_swap
+
+#アイテム初期化
 clear @a[tag=wwp]
 give @a[tag=wwp] minecraft:stick{display:{Name:'{"text":"木の棒","color":"dark_purple","bold":true}'},Unbreakable:1b,Enchantments:[{id:"minecraft:smite",lvl:1s},{id:"minecraft:knockback",lvl:1s}]} 1
 give @a[tag=wwp] bow{display:{Name:'{"text":"弓","color":"dark_purple","bold":true}',Lore:['{"text":"人狼ゲーム用の弓","color":"dark_purple"}','{"text":"※1発で壊れる","color":"dark_red"}']},Damage:384,Enchantments:[{id:"minecraft:sharpness",lvl:255s}]} 7
 give @a[tag=wwp] arrow{display:{Name:'{"text":"矢","color":"dark_purple","bold":true}',Lore:['{"text":"人狼ゲーム用の矢","color":"dark_purple"}','{"text":"弓がないと意味がない","color":"dark_purple"}']},PickupDelay:10000} 64
 give @p minecraft:blaze_rod{display:{Name:'{"text":"占い","color":"dark_purple","bold":true}'}} 64
+
 #カウントダウン呼出
 function hsfunc:werewolf/utility/countdown
