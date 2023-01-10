@@ -15,7 +15,8 @@ hscom - Minecraft Datapacks
 [x] Decision
 [x] Summon(Skeleton)
 [ ] Shop
-[ ] TestPlay(SystemTest)
+[ ] SystemTest
+[ ] TestPlay
 
 
 

@@ -23,6 +23,9 @@ scoreboard players set @e[tag=game] num 0
 scoreboard players set @e[tag=game] time 0
 scoreboard players set @e[tag=game] time_total 0
 
+#スコア表示削除
+scoreboard objectives setdisplay sidebar 
+
 #占い看板削除
 execute if entity @e[tag=game] at @e[tag=game,limit=1] run fill ~-10 ~ ~-10 ~10 ~ ~10 air replace acacia_sign
 
@@ -30,4 +33,3 @@ execute if entity @e[tag=game] at @e[tag=game,limit=1] run fill ~-10 ~ ~-10 ~10 
 execute if entity @e[tag=wolf] run tag @e[tag=wolf] remove wolf
 execute if entity @e[tag=mani] run tag @e[tag=mani] remove mani
 execute if entity @e[tag=vill] run tag @e[tag=vill] remove vill
-
