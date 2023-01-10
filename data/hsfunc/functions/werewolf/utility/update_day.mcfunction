@@ -37,6 +37,12 @@ bossbar set hsfunc:werewolf/time_bar players @a[tag=wwps]
 execute if score @e[tag=game,limit=1] night matches 0 run time set day
 execute if score @e[tag=game,limit=1] night matches 1 run time set night
 
+#夜敵Mobスポーン関係
+execute if score @e[tag=game,limit=1] night matches 0 run kill @e[tag=ske]
+execute if score @e[tag=game,limit=1] night matches 1 run scoreboard players operation @e[tag=game,limit=1] num = @e[tag=game,limit=1] p_count
+execute if score @e[tag=game,limit=1] night matches 1 run scoreboard players operation @e[tag=game,limit=1] s_count = @e[tag=game,limit=1] s_multi
+execute if score @e[tag=game,limit=1] night matches 1 run function hsfunc:werewolf/utility/summon_ske
+
 #昼・夜の通知・ミュート指示(プラグインにdiscordのmute足したらここで呼出)
 execute if score @e[tag=game,limit=1] night matches 0 run title @a[tag=wwps] subtitle ["",{"text":"[ ミュートを 解除 してください ]","color":"white"}]
 execute if score @e[tag=game,limit=1] night matches 0 run title @a[tag=wwps] title ["",{"text":"--- 昼 ---","color":"yellow"}]

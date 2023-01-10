@@ -32,7 +32,9 @@ execute unless score @e[tag=game,limit=1] update matches 0 run scoreboard player
 execute unless score @e[tag=game,limit=1] update matches 0 if entity @p[tag=wwp,tag=wolf,scores={death_count=0}] if entity @p[tag=wwp,tag=!wolf,tag=!mani,scores={death_count=0}] run scoreboard players set @e[tag=game,limit=1] update 1
 
 #停止・終了処理
+##updateが-1の場合、setting呼出
+execute if score @e[tag=game,limit=1] update matches -1 run function hsfunc:werewolf/utility/setting
 ##updateが1の時、次回呼出
 execute if score @e[tag=game,limit=1] update matches 1 run schedule function hsfunc:werewolf/utility/update_time 1s replace
-##updateが2の場合、呼出解除、gameset呼出
+##updateが2の場合、gameset呼出
 execute if score @e[tag=game,limit=1] update matches 2 run function hsfunc:werewolf/utility/gameset

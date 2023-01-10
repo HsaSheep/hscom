@@ -14,6 +14,8 @@ scoreboard objectives add p_count dummy "参加プレイヤー数"
 scoreboard objectives add r_wolf dummy "人狼の数"
 scoreboard objectives add r_mani dummy "狂人の数"
 scoreboard objectives add r_set dummy "ロール設定用、役職ごとに増やす"
+scoreboard objectives add s_multi dummy "夜敵Mobの沸きセット数(15秒間隔でs_multi体x p_count沸く)"
+scoreboard objectives add s_count dummy "夜敵Mobの沸き数(処理用)"
 scoreboard objectives add day dummy
 scoreboard objectives add night dummy
 scoreboard objectives add night_swap dummy
@@ -59,6 +61,8 @@ scoreboard players set @e[tag=game] p_count 0
 scoreboard players set @e[tag=game] r_wolf 2
 scoreboard players set @e[tag=game] r_mani 1
 scoreboard players set @e[tag=game] r_set 0
+scoreboard players set @e[tag=game] s_multi 3
+scoreboard players set @e[tag=game] s_count 0
 scoreboard players reset @e day
 scoreboard players reset @e night
 scoreboard players reset @e night_swap

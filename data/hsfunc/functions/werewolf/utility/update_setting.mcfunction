@@ -33,26 +33,28 @@ execute as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=!wwfirst] ["",{"text"
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"参加を取り消す場合、参加取消をクリックしてください。"}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"--- 参加取消 ---","color":"red","clickEvent":{"action":"run_command","value":"/execute if score @e[tag=game,limit=1] setting_done matches 0 run tag @s add leave"}},{"text":"   ※カウントダウン開始後は取消できません。"}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"--------------------------------------------------"}]
-
 #wws通知
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wws,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"\n観戦に登録しました。"}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wws,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"Discordの「MINECTAFTイベント」-「Minecraft人狼 生存者」通話に参加してください。"}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wws,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"観戦を取り消す場合、観戦取消をクリックしてください。"}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wws,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"--- 観戦取消 ---","color":"red","clickEvent":{"action":"run_command","value":"/execute if score @e[tag=game,limit=1] setting_done matches 0 run tag @s add leave"}},{"text":"   ※カウントダウン開始後は取消できません。"}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wws,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"--------------------------------------------------"}]
-
 #wwpsタグのプレイヤーにwwfirstタグ付与
 tag @e[tag=wwps,tag=!wwfirst] add wwfirst
+
+#設定のエラー対応
+##r_wolfが0の場合、1を代入
+execute if score @e[tag=game,limit=1] r_wolf matches ..0 run scoreboard players set @e[tag=game,limit=1] r_wolf 1
 
 #設定(時間以外)表示
 ##wwpタグ保持者のカウント
 scoreboard players reset "--プレイヤー数:" wwlist
 execute at @e[tag=wwp] run scoreboard players add "--プレイヤー数：" wwlist 1
-#他スコアからの代入
+##他スコアからの代入
 scoreboard players operation "人狼の数(-100000)" wwlist = @e[tag=game,limit=1] r_wolf
 scoreboard players operation "狂人の数(-10000)" wwlist = @e[tag=game,limit=1] r_mani
 #scoreboard players operation "吸血の数(-1000)" wwlist = @e[tag=game,limit=1] r_mani
-#ソート対応用加算
+##ソート対応用加算
 scoreboard players add "人狼の数(+100000)" wwlist 100000
 scoreboard players add "狂人の数(+10000)" wwlist 10000
 #scoreboard players add "吸血の数(+1000)" wwlist 1000
@@ -79,12 +81,15 @@ title @a[tag=wwps] actionbar ["",{"text":"昼…"},{"score":{"name":"@e[tag=game
 
 #設定完了スコアが0の場合、次回呼び出し
 execute if score @e[tag=game,limit=1] setting_done matches 0 run schedule function hsfunc:werewolf/utility/update_setting 1s
-#設定完了スコアが1の場合、次回呼び出しを削除し、設定情報表示削除、観覧プレイヤーをスペクテイターに、タイトル表示し、ID設定から呼出
-execute if score @e[tag=game,limit=1] setting_done matches 1 run schedule clear hsfunc:werewolf/utility/update_setting
+#設定完了スコアが1の場合、設定情報表示削除、観覧プレイヤーをスペクテイターに、numを0に
 execute if score @e[tag=game,limit=1] setting_done matches 1 run scoreboard objectives setdisplay sidebar
 execute if score @e[tag=game,limit=1] setting_done matches 1 run gamemode spectator @a[tag=wws]
-execute if score @e[tag=game,limit=1] setting_done matches 1 run title @a[tag=wwps] title [{"text":"まもなく開始します…"}]
-execute if score @e[tag=game,limit=1] setting_done matches 1 run title @a[tag=wwps] actionbar ["",{"text":"--- [設定完了、ID設定] ---","color":"gold"}]
 execute if score @e[tag=game,limit=1] setting_done matches 1 run scoreboard players set @e[tag=game] num 0
-execute if score @e[tag=game,limit=1] setting_done matches 1 run function hsfunc:werewolf/utility/id
-#execute if score @e[tag=game,limit=1] setting_done matches 1 run schedule function hsfunc:werewolf/utility/countdown 5s
+#設定完了スコアが1かつupdateが0の場合、タイトル表示し、ID設定から呼出
+execute if score @e[tag=game,limit=1] setting_done matches 1 if score @e[tag=game,limit=1] update matches 0 run title @a[tag=wwps] title [{"text":"まもなく開始します…"}]
+execute if score @e[tag=game,limit=1] setting_done matches 1 if score @e[tag=game,limit=1] update matches 0 run title @a[tag=wwps] actionbar ["",{"text":"--- [設定完了、ID設定] ---","color":"gold"}]
+execute if score @e[tag=game,limit=1] setting_done matches 1 if score @e[tag=game,limit=1] update matches 0 run function hsfunc:werewolf/utility/id
+#設定完了スコアが1かつupdateが-1の場合、タイトル表示し、ID設定から呼出
+execute if score @e[tag=game,limit=1] setting_done matches 1 if score @e[tag=game,limit=1] update matches -1 run title @a[tag=wwps] title [{"text":"まもなく再開します…"}]
+execute if score @e[tag=game,limit=1] setting_done matches 1 if score @e[tag=game,limit=1] update matches -1 run title @a[tag=wwps] actionbar ["",{"text":"--- [設定完了] ---","color":"gold"}]
+execute if score @e[tag=game,limit=1] setting_done matches 1 if score @e[tag=game,limit=1] update matches -1 run schedule function hsfunc:werewolf/utility/countdown 3s
