@@ -38,6 +38,10 @@ execute if score @e[tag=game,limit=1] night matches 0 run time set day
 execute if score @e[tag=game,limit=1] night matches 1 run time set night
 
 #夜敵Mobスポーン関係
+##summon_skeのエンティティ削除、呼出削除(時間内に終了しなかったとき用)
+kill @e[tag=ww,tag=ske]
+schedule clear hsfunc:werewolf/utility/summon_ske
+##夜の場合、summon_ske呼出
 execute if score @e[tag=game,limit=1] night matches 0 run kill @e[tag=ske]
 execute if score @e[tag=game,limit=1] night matches 1 run scoreboard players operation @e[tag=game,limit=1] num = @e[tag=game,limit=1] p_count
 execute if score @e[tag=game,limit=1] night matches 1 run scoreboard players operation @e[tag=game,limit=1] s_count = @e[tag=game,limit=1] s_multi
