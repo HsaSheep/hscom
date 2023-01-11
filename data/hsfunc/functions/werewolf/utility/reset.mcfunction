@@ -32,4 +32,11 @@ execute if entity @e[tag=game] at @e[tag=game,limit=1] run fill ~-10 ~ ~-10 ~10 
 #タグ初期化
 execute if entity @e[tag=wolf] run tag @e[tag=wolf] remove wolf
 execute if entity @e[tag=mani] run tag @e[tag=mani] remove mani
-execute if entity @e[tag=vill] run tag @e[tag=vill] remove vill
+execute if entity @e[tag=drac] run tag @e[tag=darc] remove darc
+#execute if entity @e[tag=vill] run tag @e[tag=vill] remove vill
+
+#tag=gameへtp
+tp @a[tag=wwp] @e[tag=game,limit=1]
+
+#gamemode変更
+gamemode adventure @a[tag=wwp]

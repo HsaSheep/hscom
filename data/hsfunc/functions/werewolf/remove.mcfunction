@@ -58,6 +58,8 @@ scoreboard objectives remove time_day_s
 scoreboard objectives remove time_night_s
 scoreboard objectives remove time_day_first_s
 scoreboard objectives remove time_night_first_s
+###リスト削除
+scoreboard objectives remove wwlist
 
 #エンティティ削除
 kill @e[tag=ww]

@@ -1,22 +1,26 @@
-#r_setが0の時、numにr_wolfを代入し、r_setを1にする。
-execute if score @e[tag=game,limit=1] r_set matches 0 run scoreboard players operation @e[tag=game,limit=1] num = @e[tag=game,limit=1] r_wolf
-execute if score @e[tag=game,limit=1] r_set matches 0 run scoreboard players set @e[tag=game,limit=1] r_set 1
+#tellraw @a[tag=gm] ["",{"text":"--- [ROLE設定:"},{"score":{"name": "@e[tag=game,limit=1]","objective": "r_set"},"color": "gold"},{"text":"/"},{"score":{"name": "@e[tag=game,limit=1]","objective": "num"},"color": "gold"},{"text":"] ---"}]
+#r_setが0の時、numを0に
+execute if score @e[tag=game,limit=1] r_set matches 0 run scoreboard players set @e[tag=game,limit=1] num 0
+#numが0の時、r_setに+1する。
+execute if score @e[tag=game,limit=1] num matches 0 run scoreboard players add @e[tag=game,limit=1] r_set 1
 
-#r_setが1の時、numが1以上ならtag=wolfをランダムに与え、numを-1する。numが1以下ならnumにr_maniを代入し、r_setを2にする。
+#人狼処理
+##r_setが1でnumが0の時、r_wolfを代入
+execute if score @e[tag=game,limit=1] r_set matches 1 if score @e[tag=game,limit=1] num matches 0 run scoreboard players operation @e[tag=game,limit=1] num = @e[tag=game,limit=1] r_wolf
+##r_setが1の時、tag=wolfをランダムに与える。
 execute if score @e[tag=game,limit=1] r_set matches 1 run tag @a[tag=wwp,tag=!wolf,tag=!mani,sort=random,limit=1] add wolf
-execute if score @e[tag=game,limit=1] r_set matches 1 run scoreboard players remove @e[tag=game,limit=1] num 1
-execute if score @e[tag=game,limit=1] r_set matches 1 run execute if score @e[tag=game,limit=1] num matches 0 run scoreboard players operation @e[tag=game,limit=1] num = @e[tag=game,limit=1] r_mani
-execute if score @e[tag=game,limit=1] r_set matches 1 run execute if score @e[tag=game,limit=1] num matches 0 run scoreboard players set @e[tag=game,limit=1] r_set 2
 
-#r_setが2の時、numが1以上ならtag=maniをランダムに与え、numを-1する。numが1以下ならnumに0を代入し、r_setを3にする。
+#狂人処理
+##r_setが2でnumが0の時、r_maniを代入
+execute if score @e[tag=game,limit=1] r_set matches 2 if score @e[tag=game,limit=1] num matches 0 run scoreboard players operation @e[tag=game,limit=1] num = @e[tag=game,limit=1] r_mani
+##r_setが2の時、tag=maniをランダムに与える。
 execute if score @e[tag=game,limit=1] r_set matches 2 run tag @a[tag=wwp,tag=!wolf,tag=!mani,sort=random,limit=1] add mani
-execute if score @e[tag=game,limit=1] r_set matches 2 run scoreboard players remove @e[tag=game,limit=1] num 1
-#execute if score @e[tag=game,limit=1] r_set matches 2 run execute if score @e[tag=game,limit=1] num matches 0 run scoreboard players operation @e[tag=game,limit=1] num = @e[tag=game,limit=1] r_mani
-execute if score @e[tag=game,limit=1] r_set matches 2 run execute if score @e[tag=game,limit=1] num matches 0 run scoreboard players set @e[tag=game,limit=1] r_set 3
 
-#役職付けが終了していない場合、もう一度呼出。
+#役職付けが終了していない場合、numを-1し、もう一度呼出。
+execute unless score @e[tag=game,limit=1] r_set matches 3 unless score @e[tag=game,limit=1] num matches 0 run scoreboard players remove @e[tag=game,limit=1] num 1
 execute unless score @e[tag=game,limit=1] r_set matches 3 run function hsfunc:werewolf/utility/role
 #すべて終了したらnumを0にし、scheduleのreplaceで次の処理を呼出
+execute if score @e[tag=game,limit=1] r_set matches 3 run tellraw @a[tag=gm] ["",{"text":"--- [ROLE設定完了"},{"text":"] ---"}]
 execute if score @e[tag=game,limit=1] r_set matches 3 run scoreboard players set @e[tag=game,limit=1] num 0
 execute if score @e[tag=game,limit=1] r_set matches 3 run title @a[tag=wwps] actionbar ["",{"text":"--- [設定完了、SEER設定] ---","color":"gold"}]
-execute if score @e[tag=game,limit=1] r_set matches 3 run schedule function hsfunc:werewolf/utility/seer_set 1t replace
+execute if score @e[tag=game,limit=1] r_set matches 3 run schedule function hsfunc:werewolf/utility/seer_set 3s replace

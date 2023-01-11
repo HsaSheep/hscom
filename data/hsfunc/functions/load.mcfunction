@@ -1,1 +1,1 @@
-tellraw @a ["",{"text": "[ ","color": "green"},{"text": "HsFunc", "color": "gold"},{"text": " ] is load.","color": "green"}]
+tellraw @a ["",{"text": "[ ","color": "green"},{"text": "HsFunc", "color": "gold","clickEvent": {"action": "suggest_command","value": "/function hsfunc:werewolf/init"}},{"text": " ] is load.","color": "green"}]

@@ -8,13 +8,13 @@ tag @a[tag=leave] remove leave
 
 #ワールド参加者へゲーム名通知
 execute as @e[tag=game,limit=1] run tellraw @a[tag=!gm,tag=!first] ["",{"text":"\n\n\n\n"}]
-execute as @e[tag=game,limit=1] run tellraw @a[tag=!gm,tag=!first] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"--------------------------------------------------","color":"gold"}]
-execute as @e[tag=game,limit=1] run tellraw @a[tag=!gm,tag=!first] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"                 HsCom 人狼ゲーム","color":"gold"}]
-execute as @e[tag=game,limit=1] run tellraw @a[tag=!gm,tag=!first] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"--------------------------------------------------","color":"gold"}]
+execute as @e[tag=game,limit=1] run tellraw @a[tag=!gm,tag=!first] ["",{"text":"-------------------------------------------","color":"gold"}]
+execute as @e[tag=game,limit=1] run tellraw @a[tag=!gm,tag=!first] ["",{"text":"          HsCom 人狼ゲーム","color":"gold"}]
+execute as @e[tag=game,limit=1] run tellraw @a[tag=!gm,tag=!first] ["",{"text":"-------------------------------------------","color":"gold"}]
 #プレイヤーへ参加するか通知
 execute as @e[tag=game,limit=1] run tellraw @a[tag=!first] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"ゲームに参加する場合、参加をクリックしてください。(見るだけの場合、観戦をクリックしてください。)"}]
-execute as @e[tag=game,limit=1] run tellraw @a[tag=!first] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"--- 参加 ---","color":"red","clickEvent":{"action":"run_command","value":"/execute if entity @s[tag=!wwp] run tag @s add wwp"}},{"text":"   "},{"text":"--- 観戦 ---","color":"green","clickEvent":{"action":"run_command","value":"/execute if entity @s[tag=!wws] run tag @s add wws"}}]
-execute as @e[tag=game,limit=1] run tellraw @a[tag=!first] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"--------------------------------------------------"}]
+execute as @e[tag=game,limit=1] run tellraw @a[tag=!first] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"   --- 参加 ---","color":"green","clickEvent":{"action":"run_command","value":"/execute if entity @s[tag=!wwp] run tag @s add wwp"}},{"text":"   "},{"text":"--- 観戦 ---","color":"blue","clickEvent":{"action":"run_command","value":"/execute if entity @s[tag=!wws] run tag @s add wws"}}]
+execute as @e[tag=game,limit=1] run tellraw @a[tag=!first] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-------------------------------------------"}]
 #すべてのプレイヤーにfirstタグ付与
 tag @a[tag=!first] add first
 
@@ -32,32 +32,30 @@ execute as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=!wwfirst] ["",{"text"
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"Discordの「MINECTAFTイベント」-「Minecraft人狼 生存者」通話に参加してください。"}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"参加を取り消す場合、参加取消をクリックしてください。"}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"--- 参加取消 ---","color":"red","clickEvent":{"action":"run_command","value":"/execute if score @e[tag=game,limit=1] setting_done matches 0 run tag @s add leave"}},{"text":"   ※カウントダウン開始後は取消できません。"}]
-execute as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"--------------------------------------------------"}]
+execute as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-------------------------------------------"}]
 #wws通知
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wws,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"\n観戦に登録しました。"}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wws,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"Discordの「MINECTAFTイベント」-「Minecraft人狼 生存者」通話に参加してください。"}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wws,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"観戦を取り消す場合、観戦取消をクリックしてください。"}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wws,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"--- 観戦取消 ---","color":"red","clickEvent":{"action":"run_command","value":"/execute if score @e[tag=game,limit=1] setting_done matches 0 run tag @s add leave"}},{"text":"   ※カウントダウン開始後は取消できません。"}]
-execute as @e[tag=game,limit=1] run tellraw @a[tag=wws,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"--------------------------------------------------"}]
+execute as @e[tag=game,limit=1] run tellraw @a[tag=wws,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-------------------------------------------"}]
 #wwpsタグのプレイヤーにwwfirstタグ付与
 tag @e[tag=wwps,tag=!wwfirst] add wwfirst
 
-#設定のエラー対応
-##r_wolfが0の場合、1を代入
-execute if score @e[tag=game,limit=1] r_wolf matches ..0 run scoreboard players set @e[tag=game,limit=1] r_wolf 1
-
 #設定(時間以外)表示
+##update_settingの動作確認用
+scoreboard players add "--update動作時間" wwlist 1
 ##wwpタグ保持者のカウント
-scoreboard players reset "--プレイヤー数:" wwlist
-execute at @e[tag=wwp] run scoreboard players add "--プレイヤー数：" wwlist 1
+scoreboard players set "--プレイヤー数" wwlist 0
+execute at @a[tag=wwp] run scoreboard players add "--プレイヤー数" wwlist 1
 ##他スコアからの代入
-scoreboard players operation "人狼の数(-100000)" wwlist = @e[tag=game,limit=1] r_wolf
-scoreboard players operation "狂人の数(-10000)" wwlist = @e[tag=game,limit=1] r_mani
-#scoreboard players operation "吸血の数(-1000)" wwlist = @e[tag=game,limit=1] r_mani
+scoreboard players operation "人狼の数(+100000000)" wwlist = @e[tag=game,limit=1] r_wolf
+scoreboard players operation "狂人の数(+10000000)" wwlist = @e[tag=game,limit=1] r_mani
+#scoreboard players operation "吸血の数(+1000000)" wwlist = @e[tag=game,limit=1] r_drac
 ##ソート対応用加算
-scoreboard players add "人狼の数(+100000)" wwlist 100000
-scoreboard players add "狂人の数(+10000)" wwlist 10000
-#scoreboard players add "吸血の数(+1000)" wwlist 1000
+scoreboard players add "人狼の数(+100000000)" wwlist 100000000
+scoreboard players add "狂人の数(+10000000)" wwlist 10000000
+#scoreboard players add "吸血の数(+1000000)" wwlist 1000000
 
 #時間表示
 scoreboard players operation @e[tag=game,limit=1] time_day_m = @e[tag=game,limit=1] time_day

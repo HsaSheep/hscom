@@ -2,7 +2,7 @@
 execute if entity @e[tag=ww] run kill @e[tag=ww]
 #DP召喚
 summon armor_stand ~ ~ ~ {Tags:["dummy","ww","game"],CustomName:'{"text":"人狼ゲーム"}',CustomNameVisible:true,Marker:true,Invisible:true,NoGravity:true}
-execute as @e[tag=game,limit=1] run tell @a[tag=gm] ゲーム地点を設定しました
+#execute as @e[tag=game,limit=1] run tell @a[tag=gm] ゲーム地点を設定しました
 
 #scoreboard初期化（宣言）
 ###プレイヤー関係
@@ -105,3 +105,6 @@ scoreboard players reset @e wwlist
 
 #設定呼出
 function hsfunc:werewolf/utility/setting
+
+#GM自動参加
+tag @s add wwp

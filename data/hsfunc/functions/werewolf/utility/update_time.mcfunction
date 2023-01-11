@@ -1,10 +1,11 @@
-#timeを1減算
-scoreboard players remove @e[tag=game] time 1
+#say @a[tag=gm] update_day
+#updateが1の時、timeを1減算
+execute if score @e[tag=game,limit=1] update matches 1 run scoreboard players remove @e[tag=game] time 1
 #dayが0の時以外、トータル時間に1加算
 execute unless score @e[tag=game,limit=1] day matches 0 run scoreboard players add @e[tag=game] time_total 1
 
-#時間が-1の場合、update_day呼出
-execute if score @e[tag=game,limit=1] time matches -1 run function hsfunc:werewolf/utility/update_day
+#updateが1かつ時間が-1の場合、update_day呼出
+execute if score @e[tag=game,limit=1] update matches 1 if score @e[tag=game,limit=1] time matches ..-1 run function hsfunc:werewolf/utility/update_day
 
 #時間計算
 scoreboard players operation @e[tag=game,limit=1] time_m = @e[tag=game,limit=1] time
@@ -14,14 +15,17 @@ scoreboard players operation @e[tag=game,limit=1] time_s %= @e[tag=game,limit=1]
 
 #bossbarの名称更新
 ##昼表示
-execute if score @e[tag=game,limit=1] time_s matches 10.. if score @e[tag=game,limit=1] night matches 0 run bossbar set hsfunc:werewolf/time_bar name ["",{"text":"--- ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"day_count"},"color":"yellow"},{"text":"日目 ","color":"white"},{"text":"昼","color":"yellow"},{"text":" 残り ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_m"},"color":"yellow"},{"text":":","color":"yellow"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_s"},"color":"yellow"},{"text":" ---","color":"white"}]
-execute unless score @e[tag=game,limit=1] time_s matches 10.. if score @e[tag=game,limit=1] night matches 0 run bossbar set hsfunc:werewolf/time_bar name ["",{"text":"--- ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"day_count"},"color":"yellow"},{"text":"日目 ","color":"white"},{"text":"昼","color":"yellow"},{"text":" 残り ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_m"},"color":"yellow"},{"text":":0","color":"yellow"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_s"},"color":"yellow"},{"text":" ---","color":"white"}]
+execute if score @e[tag=game,limit=1] time_s matches 10.. if score @e[tag=game,limit=1] night matches 0 run bossbar set hsfunc:werewolf/time_bar name ["",{"text":"--- ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"day"},"color":"yellow"},{"text":"日目 ","color":"white"},{"text":"昼","color":"yellow"},{"text":" 残り ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_m"},"color":"yellow"},{"text":":","color":"yellow"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_s"},"color":"yellow"},{"text":" ---","color":"white"}]
+execute unless score @e[tag=game,limit=1] time_s matches 10.. if score @e[tag=game,limit=1] night matches 0 run bossbar set hsfunc:werewolf/time_bar name ["",{"text":"--- ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"day"},"color":"yellow"},{"text":"日目 ","color":"white"},{"text":"昼","color":"yellow"},{"text":" 残り ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_m"},"color":"yellow"},{"text":":0","color":"yellow"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_s"},"color":"yellow"},{"text":" ---","color":"white"}]
 ##夜表示
-execute if score @e[tag=game,limit=1] time_s matches 10.. if score @e[tag=game,limit=1] night matches 1 run bossbar set hsfunc:werewolf/time_bar name ["",{"text":"--- ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"day_count"},"color":"dark_purple"},{"text":"日目 ","color":"white"},{"text":"夜","color":"dark_purple"},{"text":" 残り ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_m"},"color":"dark_purple"},{"text":":","color":"dark_purple"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_s"},"color":"dark_purple"},{"text":" ---","color":"white"}]
-execute unless score @e[tag=game,limit=1] time_s matches 10.. if score @e[tag=game,limit=1] night matches 1 run bossbar set hsfunc:werewolf/time_bar name ["",{"text":"--- ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"day_count"},"color":"dark_purple"},{"text":"日目 ","color":"white"},{"text":"夜","color":"dark_purple"},{"text":" 残り ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_m"},"color":"dark_purple"},{"text":":0","color":"dark_purple"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_s"},"color":"dark_purple"},{"text":" ---","color":"white"}]
+execute if score @e[tag=game,limit=1] time_s matches 10.. if score @e[tag=game,limit=1] night matches 1 run bossbar set hsfunc:werewolf/time_bar name ["",{"text":"--- ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"day"},"color":"dark_purple"},{"text":"日目 ","color":"white"},{"text":"夜","color":"dark_purple"},{"text":" 残り ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_m"},"color":"dark_purple"},{"text":":","color":"dark_purple"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_s"},"color":"dark_purple"},{"text":" ---","color":"white"}]
+execute unless score @e[tag=game,limit=1] time_s matches 10.. if score @e[tag=game,limit=1] night matches 1 run bossbar set hsfunc:werewolf/time_bar name ["",{"text":"--- ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"day"},"color":"dark_purple"},{"text":"日目 ","color":"white"},{"text":"夜","color":"dark_purple"},{"text":" 残り ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_m"},"color":"dark_purple"},{"text":":0","color":"dark_purple"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_s"},"color":"dark_purple"},{"text":" ---","color":"white"}]
 
 #bossbarの現在値更新
 execute store result bossbar hsfunc:werewolf/time_bar value run scoreboard players get @e[tag=game,limit=1] time
+
+#死亡したプレイヤーのゲームモード変更
+execute as @a[tag=wwp,scores={death_count=1}] run gamemode spectator @s
 
 #終了条件チェック
 ##条件チェック

@@ -1,3 +1,4 @@
+say @a[tag=gm] gameset
 #トータル時間計算
 scoreboard players operation @e[tag=game,limit=1] time_total_h = @e[tag=game,limit=1] time_total
 scoreboard players operation @e[tag=game,limit=1] time_total_h /= @e[tag=game,limit=1] 3600
@@ -21,12 +22,13 @@ execute if entity @p[tag=wwp,tag=wolf,scores={death_count=0}] if entity @p[tag=w
 
 #tellraw終了時情報表示
 tellraw @a[tag=wwps] "\n"
-execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-------------------- ゲーム終了 -------------------"}]
+execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-------------------------------------------"}]
 ##勝利陣営表示(メッセージ)
-execute if score @e[tag=game,limit=1] num matches 0 as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"                勝利陣営: "},{"text":"村人","color":"green"}]
-execute if score @e[tag=game,limit=1] num matches 1 as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"                勝利陣営: "},{"text":"人狼","color":"red"}]
+execute if score @e[tag=game,limit=1] num matches 0 as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"・勝利陣営: "},{"text":"村人","color":"green"}]
+execute if score @e[tag=game,limit=1] num matches 1 as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"・勝利陣営: "},{"text":"人狼","color":"red"}]
+execute if score @e[tag=game,limit=1] num matches 1 as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":" "},{"text":"ゲーム中断","color":"white"}]
 ##区切り表示
-execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"--------------------------------------------------"}]
+execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-------------------------------------------"}]
 ##役職表示
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"- 役職内訳 -","color":"white"}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"人狼","color":"red"},{"text":" : ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"r_wolf"},"color":"white"},{"text":" --","color":"white"}]
@@ -43,7 +45,7 @@ execute if score @e[tag=game,limit=1] time_total_m matches 10.. if score @e[tag=
 execute if score @e[tag=game,limit=1] time_total_m matches 10.. unless score @e[tag=game,limit=1] time_total_s matches 10.. as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"プレイ時間… ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_total_h"},"color":"white"},{"text":":","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_total_m"},"color":"white"},{"text":":0","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_total_s"},"color":"white"}]
 execute unless score @e[tag=game,limit=1] time_total_m matches 10.. if score @e[tag=game,limit=1] time_total_s matches 10.. as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"プレイ時間… ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_total_h"},"color":"white"},{"text":":0","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_total_m"},"color":"white"},{"text":":","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_total_s"},"color":"white"}]
 execute unless score @e[tag=game,limit=1] time_total_m matches 10.. unless score @e[tag=game,limit=1] time_total_s matches 10.. as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"プレイ時間… ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_total_h"},"color":"white"},{"text":":0","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_total_m"},"color":"white"},{"text":":0","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_total_s"},"color":"white"}]
-execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"--------------------------------------------------"}]
+execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-------------------------------------------"}]
 
 #タイトル表示
 ##勝利陣営表示(タイトル)
