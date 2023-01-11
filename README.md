@@ -17,8 +17,9 @@ hscom - Minecraft Datapacks
 [ ] Shop
 [ ] SystemTest
 [ ] TestPlay
+[ ] AddRore
 
-
+[ ] Elements not available in the Bedrock Edition (book, click on text in chat to execute command) are processed differently.
 
 # Note
 
