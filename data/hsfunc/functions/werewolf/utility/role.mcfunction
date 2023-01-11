@@ -7,20 +7,19 @@ execute if score @e[tag=game,limit=1] num matches 0 run scoreboard players add @
 #人狼処理
 ##r_setが1でnumが0の時、r_wolfを代入
 execute if score @e[tag=game,limit=1] r_set matches 1 if score @e[tag=game,limit=1] num matches 0 run scoreboard players operation @e[tag=game,limit=1] num = @e[tag=game,limit=1] r_wolf
-##r_setが1の時、tag=wolfをランダムに与える。
-execute if score @e[tag=game,limit=1] r_set matches 1 run tag @a[tag=wwp,tag=!wolf,tag=!mani,sort=random,limit=1] add wolf
+##r_setが1かつnum>1の時、tag=wolfをランダムに与える。
+execute if score @e[tag=game,limit=1] r_set matches 1 if score @e[tag=game,limit=1] num matches 1.. run tag @a[tag=wwp,tag=!wolf,tag=!mani,sort=random,limit=1] add wolf
 
 #狂人処理
 ##r_setが2でnumが0の時、r_maniを代入
 execute if score @e[tag=game,limit=1] r_set matches 2 if score @e[tag=game,limit=1] num matches 0 run scoreboard players operation @e[tag=game,limit=1] num = @e[tag=game,limit=1] r_mani
-##r_setが2の時、tag=maniをランダムに与える。
-execute if score @e[tag=game,limit=1] r_set matches 2 run tag @a[tag=wwp,tag=!wolf,tag=!mani,sort=random,limit=1] add mani
+##r_setが2かつnum>1の時、tag=maniをランダムに与える。
+execute if score @e[tag=game,limit=1] r_set matches 2 if score @e[tag=game,limit=1] num matches 1.. run tag @a[tag=wwp,tag=!wolf,tag=!mani,sort=random,limit=1] add mani
 
 #役職付けが終了していない場合、numを-1し、もう一度呼出。
 execute unless score @e[tag=game,limit=1] r_set matches 3 unless score @e[tag=game,limit=1] num matches 0 run scoreboard players remove @e[tag=game,limit=1] num 1
 execute unless score @e[tag=game,limit=1] r_set matches 3 run function hsfunc:werewolf/utility/role
 #すべて終了したらnumを0にし、scheduleのreplaceで次の処理を呼出
-execute if score @e[tag=game,limit=1] r_set matches 3 run tellraw @a[tag=gm] ["",{"text":"--- [ROLE設定完了"},{"text":"] ---"}]
 execute if score @e[tag=game,limit=1] r_set matches 3 run scoreboard players set @e[tag=game,limit=1] num 0
-execute if score @e[tag=game,limit=1] r_set matches 3 run title @a[tag=wwps] actionbar ["",{"text":"--- [設定完了、SEER設定] ---","color":"gold"}]
+execute if score @e[tag=game,limit=1] r_set matches 3 run title @a[tag=wwps] actionbar ["",{"text":"--- [ROLE設定完了] ---","color":"gold"}]
 execute if score @e[tag=game,limit=1] r_set matches 3 run schedule function hsfunc:werewolf/utility/seer_set 3s replace

@@ -20,6 +20,15 @@ execute if entity @p[tag=wwp,tag=wolf,scores={death_count=0}] run scoreboard pla
 #どちらも生きているとき(中断)
 execute if entity @p[tag=wwp,tag=wolf,scores={death_count=0}] if entity @p[tag=wwp,tag=!wolf,tag=!mani,scores={death_count=0}] run scoreboard players set @e[tag=game,limit=1] num 100
 
+#wwpタグ保持者のカウント
+scoreboard players set @e[tag=game,limit=1] p_count 0
+execute at @a[tag=wwp] run scoreboard players add @e[tag=game,limit=1] p_count 1
+#村人の数計算
+execute as @e[tag=game,limit=1] run scoreboard players operation @s r_vill = @s p_count
+execute as @e[tag=game,limit=1] run scoreboard players operation @s r_vill -= @s r_wolf
+execute as @e[tag=game,limit=1] run scoreboard players operation @s r_vill -= @s r_mani
+execute as @e[tag=game,limit=1] run scoreboard players operation @s r_vill -= @s r_drac
+
 #tellraw終了時情報表示
 tellraw @a[tag=wwps] "\n"
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-------------------------------------------"}]
@@ -33,9 +42,9 @@ execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"sele
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"- 役職内訳 -","color":"white"}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"人狼","color":"red"},{"text":" : ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"r_wolf"},"color":"white"},{"text":" --","color":"white"}]
 execute as @e[tag=wwp,tag=wolf] run tellraw @a[tag=wwps] ["",{"text":"            "},{"selector":"@s","color":"red"}]
-execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"狂人","color":"gold"},{"text":" : ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"r_wolf"},"color":"white"},{"text":" --","color":"white"}]
+execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"狂人","color":"gold"},{"text":" : ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"r_mani"},"color":"white"},{"text":" --","color":"white"}]
 execute as @e[tag=wwp,tag=mani] run tellraw @a[tag=wwps] ["",{"text":"            "},{"selector":"@s","color":"gold"}]
-execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"村人","color":"green"},{"text":" : ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"r_wolf"},"color":"white"},{"text":" --","color":"white"}]
+execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"村人","color":"green"},{"text":" : ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"r_vill"},"color":"white"},{"text":" --","color":"white"}]
 execute as @e[tag=wwp,tag=!wolf,tag=!mani] run tellraw @a[tag=wwps] ["",{"text":"            "},{"selector":"@s","color":"green"}]
 ##プレイ時間表示
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"- その他情報 -","color":"white"}]

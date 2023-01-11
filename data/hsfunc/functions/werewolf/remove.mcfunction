@@ -21,6 +21,8 @@ scoreboard objectives remove death_count
 scoreboard objectives remove p_count
 scoreboard objectives remove r_wolf
 scoreboard objectives remove r_mani
+scoreboard objectives remove r_drac
+scoreboard objectives remove r_vill
 scoreboard objectives remove r_set
 scoreboard objectives remove s_multi
 scoreboard objectives remove s_count
@@ -62,9 +64,11 @@ scoreboard objectives remove time_night_first_s
 scoreboard objectives remove wwlist
 
 #エンティティ削除
-kill @e[tag=ww]
+kill @e[tag=ww,tag=!shop]
 
 #チーム削除
 team remove wwt
 
 #ゲームルール変更
+gamemode survival @a[tag=!gm,tag=wwps]
+gamemode creative @a[tag=gm]

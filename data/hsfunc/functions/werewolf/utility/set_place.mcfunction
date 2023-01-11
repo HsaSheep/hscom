@@ -13,6 +13,8 @@ scoreboard objectives add death_count deathCount "死亡確認用"
 scoreboard objectives add p_count dummy "参加プレイヤー数"
 scoreboard objectives add r_wolf dummy "人狼の数"
 scoreboard objectives add r_mani dummy "狂人の数"
+scoreboard objectives add r_drac dummy "吸血の数"
+scoreboard objectives add r_vill dummy "村人の数(結果表示用)"
 scoreboard objectives add r_set dummy "ロール設定用、役職ごとに増やす"
 scoreboard objectives add s_multi dummy "夜敵Mobの沸きセット数(15秒間隔でs_multi体x p_count沸く)"
 scoreboard objectives add s_count dummy "夜敵Mobの沸き数(処理用)"
@@ -60,6 +62,8 @@ scoreboard players set @e death_count 0
 scoreboard players set @e[tag=game] p_count 0 
 scoreboard players set @e[tag=game] r_wolf 2
 scoreboard players set @e[tag=game] r_mani 1
+scoreboard players set @e[tag=game] r_drac 0
+scoreboard players set @e[tag=game] r_vill 0
 scoreboard players set @e[tag=game] r_set 0
 scoreboard players set @e[tag=game] s_multi 3
 scoreboard players set @e[tag=game] s_count 0

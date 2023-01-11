@@ -43,7 +43,7 @@ execute if score @e[tag=game,limit=1] night matches 1 run time set night
 scoreboard players set @e[tag=game,limit=1] p_count 0
 execute at @a[tag=wwp,scores={death_count=0}] run scoreboard players add @e[tag=game,limit=1] p_count 1
 ##デバック　人数表示
-title @a[tag=gm] actionbar ["",{"text": "生存者："},{"score":{"name": "@e[tag=game,limit=1]","objective": "p_count"}}]
+#title @a[tag=gm] actionbar ["",{"text": "生存者："},{"score":{"name": "@e[tag=game,limit=1]","objective": "p_count"}}]
 
 #夜敵Mobスポーン関係
 ##summon_skeのエンティティ削除、呼出削除(時間内に終了しなかったとき用)

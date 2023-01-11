@@ -76,7 +76,6 @@ scoreboard players operation @e[tag=game,limit=1] time_night_first_s = @e[tag=ga
 scoreboard players operation @e[tag=game,limit=1] time_night_first_s %= @e[tag=game,limit=1] 60
 title @a[tag=wwps] actionbar ["",{"text":"昼…"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_day_m"}},{"text":":"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_day_s"}},{"text":" 夜…"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_night_m"}},{"text":":"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_night_s"}},{"text":" (初日昼…"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_day_first_m"}},{"text":":"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_day_first_s"}},{"text":" 初日夜…"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_night_first_m"}},{"text":":"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_night_first_s"}},{"text":")"}]
 
-
 #設定完了スコアが0の場合、次回呼び出し
 execute if score @e[tag=game,limit=1] setting_done matches 0 run schedule function hsfunc:werewolf/utility/update_setting 1s
 #設定完了スコアが1の場合、設定情報表示削除、観覧プレイヤーをスペクテイターに、numを0に
