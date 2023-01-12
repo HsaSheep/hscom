@@ -38,7 +38,8 @@ execute unless score @e[tag=game,limit=1] update matches 0 if entity @p[tag=wwp,
 #停止・終了処理
 ##updateが-1の場合、setting呼出
 execute if score @e[tag=game,limit=1] update matches -1 run function hsfunc:werewolf/utility/setting
+execute if score @e[tag=game,limit=1] update matches -1 if entity @e[tag=shop_position] run function hsfunc:werewolf/shop/remove_shop
 ##updateが1の時、次回呼出
 execute if score @e[tag=game,limit=1] update matches 1 run schedule function hsfunc:werewolf/utility/update_time 1s replace
-##updateが2の場合、gameset呼出
+##updateが2の場合、gameset呼出、ショップ削除
 execute if score @e[tag=game,limit=1] update matches 2 run function hsfunc:werewolf/utility/gameset

@@ -47,7 +47,7 @@ execute at @a[tag=wwp,scores={death_count=0}] run scoreboard players add @e[tag=
 
 #夜敵Mobスポーン関係
 ##summon_skeのエンティティ削除、呼出削除(時間内に終了しなかったとき用)
-kill @e[tag=ww,tag=ske]
+kill @e[tag=ske]
 schedule clear hsfunc:werewolf/utility/summon_ske
 ##夜の場合、summon_ske呼出
 execute if score @e[tag=game,limit=1] night matches 0 run kill @e[tag=ske]

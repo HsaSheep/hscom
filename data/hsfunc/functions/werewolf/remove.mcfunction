@@ -56,7 +56,7 @@ scoreboard objectives remove time_night_first_s
 scoreboard objectives remove wwlist
 
 #エンティティ削除
-kill @e[tag=ww,tag=!shop]
+kill @e[tag=ww,tag=!shop_position]
 
 #アイテム削除
 clear @a[tag=wwp]

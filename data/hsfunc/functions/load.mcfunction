@@ -1,1 +1,1 @@
-tellraw @a ["",{"text": "[ ","color": "green"},{"text": "HsFunc", "color": "gold","clickEvent": {"action": "suggest_command","value": "/function hsfunc:werewolf/init"}},{"text": " ] is load.","color": "green"}]
+tellraw @a ["",{"text": "[ ","color": "green"},{"text": "HsFunc", "color": "gold","clickEvent": {"action": "suggest_command","value": "/function hsfunc:werewolf/init"}},{"text": " ] ","color":"green"},{"text": "is load.","color": "green","clickEvent": {"action": "run_command","value": "/function hsfunc:werewolf/shop/setting"}}]

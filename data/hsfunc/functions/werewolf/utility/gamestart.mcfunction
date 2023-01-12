@@ -34,5 +34,8 @@ execute as @a[tag=wwps] run playsound minecraft:entity.player.levelup master @s 
 execute if score @e[tag=game,limit=1] update matches 0 run scoreboard players set @e[tag=game,limit=1] update 1
 execute if score @e[tag=game,limit=1] update matches -1 run scoreboard players set @e[tag=game,limit=1] update 1
 
+#ショップ設置
+execute if entity @e[tag=shop_position] run function hsfunc:werewolf/shop/set_shop
+
 #update_time呼び出し
 function hsfunc:werewolf/utility/update_time

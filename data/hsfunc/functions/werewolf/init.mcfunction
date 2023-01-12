@@ -54,7 +54,7 @@ team modify wwt seeFriendlyInvisibles true
 function hsfunc:werewolf/utility/update_endless
 
 #DP削除
-execute if entity @e[tag=ww] run kill @e[tag=ww]
+execute if entity @e[tag=ww] run kill @e[tag=ww,tag=!shop_position]
 
 #仮DP召喚
 summon armor_stand ~ ~ ~ {Tags:["dummy","ww","game"],CustomName:'{"text":"人狼ゲーム"}',CustomNameVisible:true,Marker:true,Invisible:true,NoGravity:true}

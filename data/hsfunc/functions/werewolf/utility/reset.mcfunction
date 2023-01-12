@@ -29,6 +29,9 @@ scoreboard objectives setdisplay sidebar
 #占い看板削除
 execute if entity @e[tag=game] at @e[tag=game,limit=1] run fill ~-10 ~ ~-10 ~10 ~ ~10 air replace acacia_sign
 
+#ショップ削除
+execute if entity @e[tag=shop_position] run function hsfunc:werewolf/shop/remove_shop
+
 #タグ初期化
 execute if entity @e[tag=wolf] run tag @e[tag=wolf] remove wolf
 execute if entity @e[tag=mani] run tag @e[tag=mani] remove mani

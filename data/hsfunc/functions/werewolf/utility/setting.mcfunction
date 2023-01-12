@@ -27,6 +27,5 @@ execute as @e[tag=game,limit=1] run tellraw @a[tag=gm] ["",{"text":"["},{"select
 execute as @e[tag=game,limit=1] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"・          "},{"text":"---一時停止--- ","color":"dark_purple","clickEvent":{"action":"run_command","value":"/scoreboard players set @e[tag=game,limit=1] update -1"}},{"text":" ---中断--- ","color":"dark_purple","clickEvent":{"action":"run_command","value":"/scoreboard players set @e[tag=game,limit=1] update 2"}}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-------------------------------------------"}]
 
-
 #設定中のループを呼出
 function hsfunc:werewolf/utility/update_setting
