@@ -24,6 +24,9 @@ scoreboard objectives add p_id dummy "プレイヤーID"
 scoreboard objectives add seer_id dummy "占い先ID"
 scoreboard objectives add death_count deathCount "死亡確認用"
 scoreboard objectives add shop_rightClick minecraft.custom:minecraft.talked_to_villager "shop右クリック検知用"
+###アイテム関係
+scoreboard objectives add carrot_on_a_stick_rightClick minecraft.used:minecraft.carrot_on_a_stick "人参棒右クリック検知用"
+scoreboard objectives add warped_fungus_on_a_stick_rightClick minecraft.used:minecraft.warped_fungus_on_a_stick "ネザーキノコ棒右クリック検知用"
 ###ゲーム関係
 scoreboard objectives add p_count dummy "参加プレイヤー数"
 scoreboard objectives add r_wolf dummy "人狼の数"
@@ -75,14 +78,17 @@ scoreboard objectives add time_night_first_s dummy
 scoreboard players set @e p_id 0 
 scoreboard players set @e seer_id 0
 scoreboard players set @e death_count 0
+###アイテム関係
+scoreboard players set @e carrot_on_a_stick_rightClick 0
+scoreboard players set @e warped_fungus_on_a_stick_rightClick 0
 ###ゲーム関係
 scoreboard players set @e[tag=game] p_count 0 
 scoreboard players set @e[tag=game] r_wolf 2
-scoreboard players set @e[tag=game] r_mani 1
-scoreboard players set @e[tag=game] r_drac 0
+scoreboard players set @e[tag=game] r_mani 0
+scoreboard players set @e[tag=game] r_drac 1
 scoreboard players set @e[tag=game] r_vill 0
 scoreboard players set @e[tag=game] r_set 0
-scoreboard players set @e[tag=game] s_multi 10
+scoreboard players set @e[tag=game] s_multi 17
 scoreboard players set @e[tag=game] s_count 0
 scoreboard players set @e s_posy 0
 scoreboard players reset @e day
@@ -98,9 +104,9 @@ scoreboard players set @e[tag=game] 3600 3600
 scoreboard players set @e[tag=game] time 0
 scoreboard players set @e[tag=game] time_total 0
 scoreboard players set @e[tag=game] countdown 3
-scoreboard players set @e[tag=game] time_day 180
+scoreboard players set @e[tag=game] time_day 120
 scoreboard players set @e[tag=game] time_night 180
-scoreboard players set @e[tag=game] time_day_first 60
+scoreboard players set @e[tag=game] time_day_first 30
 scoreboard players set @e[tag=game] time_night_first 180
 ###時間関係(時)
 scoreboard players reset @e time_total_h
@@ -128,6 +134,7 @@ scoreboard players reset @e wwlist
 
 #設定呼出
 function hsfunc:werewolf/utility/setting
+function hsfunc:werewolf/shop/setting
 
 #GM自動参加
 tag @s add wwp

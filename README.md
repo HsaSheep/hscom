@@ -16,8 +16,9 @@ hscom - Minecraft Datapacks
 [x] Summon(Skeleton)
 [x] Shop
 [x] SystemTest
-[ ] TestPlay
-[ ] AddRore
+[X] TestPlay
+[ ] AddRore(Thief)
+[ ] ChengeTestItems(Drac,Glow)
 
 [ ] Elements not available in the Bedrock Edition (book, click on text in chat to execute command) are processed differently.
 

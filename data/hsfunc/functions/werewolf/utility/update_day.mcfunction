@@ -43,13 +43,17 @@ execute if score @e[tag=game,limit=1] night matches 1 run time set night
 
 #生存者のカウント
 scoreboard players set @e[tag=game,limit=1] p_count 0
-execute at @a[tag=wwp,scores={death_count=0}] run scoreboard players add @e[tag=game,limit=1] p_count 1
+execute as @a[tag=wwp,scores={death_count=0}] run scoreboard players add @e[tag=game,limit=1] p_count 1
 ##デバック　人数表示
 #title @a[tag=gm] actionbar ["",{"text": "生存者："},{"score":{"name": "@e[tag=game,limit=1]","objective": "p_count"}}]
 
 #夜ショップ再設置
 execute if score @e[tag=game,limit=1] night matches 1 run function hsfunc:werewolf/shop/remove_shop
 execute if score @e[tag=game,limit=1] night matches 1 run function hsfunc:werewolf/shop/set_shop
+
+#吸血処理
+execute if score @e[tag=game,limit=1] night matches 0 run effect clear @a[tag=drac]
+execute if score @e[tag=game,limit=1] night matches 1 run effect give @a[tag=drac] minecraft:resistance 1000000 255 true
 
 #夜敵Mobスポーン関係
 ##summon_skeのエンティティ削除、呼出削除(時間内に終了しなかったとき用)
@@ -59,7 +63,7 @@ kill @e[tag=ske]
 execute if score @e[tag=game,limit=1] night matches 0 run kill @e[tag=ske]
 execute if score @e[tag=game,limit=1] night matches 1 run scoreboard players set @e[tag=game,limit=1] num 0
 execute if score @e[tag=game,limit=1] night matches 1 run scoreboard players operation @e[tag=game,limit=1] s_count = @e[tag=game,limit=1] s_multi
-execute if score @e[tag=game,limit=1] night matches 1 run function hsfunc:werewolf/utility/summon_ske
+execute if score @e[tag=game,limit=1] night matches 1 run schedule function hsfunc:werewolf/utility/summon_ske 5s replace
 
 #昼・夜の通知・ミュート指示(プラグインにdiscordのmute足したらここで呼出)
 execute if score @e[tag=game,limit=1] night matches 0 unless score @e[tag=game,limit=1] day matches 1 run title @a[tag=wwps] subtitle ["",{"text":"[ ミュートを 解除 してください ]","color":"white"}]

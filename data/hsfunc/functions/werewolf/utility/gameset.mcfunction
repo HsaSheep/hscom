@@ -1,4 +1,4 @@
-say @a[tag=gm] gameset
+#say @a[tag=gm] gameset
 #トータル時間計算
 scoreboard players operation @e[tag=game,limit=1] time_total_h = @e[tag=game,limit=1] time_total
 scoreboard players operation @e[tag=game,limit=1] time_total_h /= @e[tag=game,limit=1] 3600

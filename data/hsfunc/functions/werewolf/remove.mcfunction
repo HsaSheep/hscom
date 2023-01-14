@@ -3,6 +3,8 @@ function hsfunc:werewolf/utility/reset
 
 #設定遅延呼出削除
 schedule clear hsfunc:werewolf/utility/setting
+#アイテム無限ループ削除
+schedule clear hsfunc:werewolf/utility/update_item
 #無限ループ削除
 schedule clear hsfunc:werewolf/utility/update_endless
 
@@ -11,6 +13,9 @@ schedule clear hsfunc:werewolf/utility/update_endless
 scoreboard objectives remove p_id
 scoreboard objectives remove seer_id
 scoreboard objectives remove death_count
+###アイテム関係
+scoreboard objectives remove carrot_on_a_stick_rightClick
+scoreboard objectives remove warped_fungus_on_a_stick_rightClick
 ###ゲーム関係
 scoreboard objectives remove p_count
 scoreboard objectives remove r_wolf

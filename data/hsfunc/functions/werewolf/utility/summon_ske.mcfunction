@@ -22,10 +22,11 @@ execute as @e[tag=ske,tag=!first] run effect clear @s
 #numが0以外の時、次回呼出
 execute if score @e[tag=game,limit=1] num matches 1.. run function hsfunc:werewolf/utility/summon_ske
 #num=0の時、s_countを1減算
-execute if score @e[tag=game,limit=1] num matches 0 run scoreboard players remove @e[tag=game] s_count 1
-#num=0かつs_count=!0の時、numにp_countを代入
-execute if score @e[tag=game,limit=1] num matches 0 unless score @e[tag=game,limit=1] s_count matches 0 run scoreboard players operation @e[tag=game,limit=1] num = @e[tag=game,limit=1] p_count
+execute if score @e[tag=game,limit=1] num matches ..0 run scoreboard players remove @e[tag=game] s_count 1
+#num=0の時、numにp_countを代入
+execute if score @e[tag=game,limit=1] num matches ..0 run scoreboard players operation @e[tag=game,limit=1] num = @e[tag=game,limit=1] p_count
 #num=p_countの時、scheduleで次回呼出
-execute if score @e[tag=game,limit=1] num = @e[tag=game,limit=1] p_count run schedule function hsfunc:werewolf/utility/summon_ske 2.5s replace
+execute if score @e[tag=game,limit=1] num = @e[tag=game,limit=1] p_count run schedule function hsfunc:werewolf/utility/summon_ske 5s replace
 execute if score @e[tag=game,limit=1] s_count matches ..0 run schedule clear hsfunc:werewolf/utility/summon_ske
-execute if score @e[tag=game,limit=1] num = @e[tag=game,limit=1] p_count run title @a[tag=gm] actionbar ["",{"text": "-- SummonWave: "},{"score":{"name": "@e[tag=game,limit=1]","objective": "s_count"}},{"text": " --"}]
+execute if score @e[tag=game,limit=1] s_count matches ..0 run scoreboard players set @e[tag=ww,tag=game,limit=1] num 0
+execute if score @e[tag=game,limit=1] num = @e[tag=game,limit=1] p_count run title @a[tag=wwps] actionbar ["",{"text": "-- SummonWave: "},{"score":{"name": "@e[tag=game,limit=1]","objective": "s_count"}},{"text": " --"}]
