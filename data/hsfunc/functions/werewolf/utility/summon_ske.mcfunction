@@ -6,7 +6,7 @@ execute unless score @e[tag=game,limit=1] num matches 0 at @e[tag=game,limit=1] 
 #減算
 execute unless score @e[tag=game,limit=1] num matches 0 run scoreboard players remove @e[tag=game,limit=1] num 1
 #スポーンしたskeletonを指定(gameの周囲50x50)エリア内で拡散(最低1.0m間隔)
-execute at @e[tag=game,limit=1] run spreadplayers ~ ~ 1.0 25.0 false @e[tag=ske,tag=first]
+execute at @e[tag=game,limit=1] run spreadplayers ~11 ~41 1.0 145.0 false @e[tag=ske,tag=first]
 #スポーンしたskeletonから初期タグ削除
 tag @e[tag=ske,tag=first] remove first
 

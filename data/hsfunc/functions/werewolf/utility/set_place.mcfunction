@@ -5,13 +5,14 @@ summon armor_stand ~ ~ ~ {Tags:["dummy","ww","game"],CustomName:'{"text":"人狼
 #execute as @e[tag=game,limit=1] run tell @a[tag=gm] ゲーム地点を設定しました
 
 #スポーン地点設定
-setworldspawn
+execute at @e[tag=ww,tag=game,limit=1] run setworldspawn ~ ~ ~
 
 #ワールドボーダー設定
-worldborder center ~ ~
-worldborder set 50 0
-worldborder warning distance 3.0
-worldborder warning time 3.0
+execute at @e[tag=ww,tag=game,limit=1] run worldborder center ~11 ~41
+#worldborder set 50 0
+worldborder set 145 0
+worldborder warning distance 3
+worldborder warning time 3
 worldborder damage amount 0.1
 worldborder damage buffer 5.0
 

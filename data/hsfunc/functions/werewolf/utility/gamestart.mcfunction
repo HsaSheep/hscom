@@ -13,19 +13,19 @@ team modify wwt seeFriendlyInvisibles false
 
 #updateが0の時、役職通知(サブタイトル、tellraw)
 ##tellraw
-execute if score @e[tag=game,limit=1] update matches 0 as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=!wolf,tag=!mani,tag=!drac] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text": "あなたは "},{"text": "村人","color": "green"},{"text": " です"}]
+execute if score @e[tag=game,limit=1] update matches 0 as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=!wolf,tag=!mani,tag=!drac] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text": "あなたは "},{"text": "村人","color": "green"},{"text": " です","color": "white"}]
 execute if score @e[tag=game,limit=1] update matches 0 as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=!wolf,tag=!mani,tag=!drac] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text": "勝利条件： すべての人狼を倒す"}]
-execute if score @e[tag=game,limit=1] update matches 0 as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=wolf] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text": "あなたは "},{"text": "人狼","color": "red"},{"text": " です"}]
+execute if score @e[tag=game,limit=1] update matches 0 as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=wolf] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text": "あなたは "},{"text": "人狼","color": "red"},{"text": " です","color": "white"}]
 execute if score @e[tag=game,limit=1] update matches 0 as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=wolf] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text": "勝利条件： すべての村人を倒す"}]
-execute if score @e[tag=game,limit=1] update matches 0 as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=mani] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text": "あなたは "},{"text": "狂人","color": "gold"},{"text": " です"}]
+execute if score @e[tag=game,limit=1] update matches 0 as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=mani] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text": "あなたは "},{"text": "狂人","color": "gold"},{"text": " です","color": "white"}]
 execute if score @e[tag=game,limit=1] update matches 0 as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=mani] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text": "勝利条件： 村人に悟られないよう人狼に協力し、すべての村人を倒す"}]
-execute if score @e[tag=game,limit=1] update matches 0 as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=drac] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text": "あなたは "},{"text": "吸血","color": "dark_purple"},{"text": " です"}]
+execute if score @e[tag=game,limit=1] update matches 0 as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=drac] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text": "あなたは "},{"text": "吸血","color": "dark_purple"},{"text": " です","color": "white"}]
 execute if score @e[tag=game,limit=1] update matches 0 as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=drac] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text": "勝利条件： 村人または人狼いずれかを壊滅させる"}]
 ##subtitle
-execute if score @e[tag=game,limit=1] update matches 0 run title @a[tag=wwp,tag=!wolf,tag=!mani,tag=!drac] subtitle ["",{"text": "あなたは "},{"text": "村人","color": "green"},{"text": " です"}]
-execute if score @e[tag=game,limit=1] update matches 0 run title @a[tag=wwp,tag=wolf] subtitle ["",{"text": "あなたは "},{"text": "人狼","color": "red"},{"text": " です"}]
-execute if score @e[tag=game,limit=1] update matches 0 run title @a[tag=wwp,tag=mani] subtitle ["",{"text": "あなたは "},{"text": "狂人","color": "gold"},{"text": " です"}]
-execute if score @e[tag=game,limit=1] update matches 0 run title @a[tag=wwp,tag=drac] subtitle ["",{"text": "あなたは "},{"text": "吸血","color": "dark_purple"},{"text": " です"}]
+execute if score @e[tag=game,limit=1] update matches 0 run title @a[tag=wwp,tag=!wolf,tag=!mani,tag=!drac] subtitle ["",{"text": "あなたは "},{"text": "村人","color": "green"},{"text": " です","color": "white"}]
+execute if score @e[tag=game,limit=1] update matches 0 run title @a[tag=wwp,tag=wolf] subtitle ["",{"text": "あなたは "},{"text": "人狼","color": "red"},{"text": " です","color": "white"}]
+execute if score @e[tag=game,limit=1] update matches 0 run title @a[tag=wwp,tag=mani] subtitle ["",{"text": "あなたは "},{"text": "狂人","color": "gold"},{"text": " です","color": "white"}]
+execute if score @e[tag=game,limit=1] update matches 0 run title @a[tag=wwp,tag=drac] subtitle ["",{"text": "あなたは "},{"text": "吸血","color": "dark_purple"},{"text": " です","color": "white"}]
 
 #title表示
 execute if score @e[tag=game,limit=1] update matches 0 run title @a[tag=wwps] title ["",{"text": "--- "},{"text": "ゲーム開始"},{"text": " ---"}]

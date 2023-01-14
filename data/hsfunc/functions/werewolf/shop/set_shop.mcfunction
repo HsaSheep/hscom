@@ -17,7 +17,7 @@ execute as @e[tag=shop_position] at @s positioned ~ ~-1 ~ run summon villager ~ 
 execute as @e[tag=shop_position] at @s run data modify entity @e[tag=shop,sort=nearest,limit=1] VillagerData set value {level:5b}
 
 #透明化付与
-execute as @e[tag=shop_position] at @s run effect give @e[tag=shop,sort=nearest,limit=1] invisibility 1000000 0 true
+#execute as @e[tag=shop_position] at @s run effect give @e[tag=shop,sort=nearest,limit=1] invisibility 1000000 0 true
 
 #ショップのOffers設定
 execute as @e[tag=ww,tag=shop_position] run function hsfunc:werewolf/shop/reset_shop_offers
