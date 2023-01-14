@@ -102,7 +102,7 @@ effect give @a[tag=wwp] minecraft:saturation 1 250 true
 clear @a[tag=wwp]
 #テスト用アイテム
 give @a[tag=wwp] minecraft:stick{display:{Name:'{"text":"木の棒","color":"dark_purple","bold":true}'},Unbreakable:1b,Enchantments:[{id:"minecraft:smite",lvl:1s},{id:"minecraft:knockback",lvl:1s}]} 1
-give @a[tag=wwp] minecraft:emerald 64
+#give @a[tag=wwp] minecraft:emerald 64
 #give @a[tag=wwp] minecraft:blaze_rod{display:{Name:'{"text":"占い","color":"dark_purple","bold":true}'}} 64
 ##ちょっと強い弓
 #give @a[tag=wwp] bow{display:{Name:'{"text":"弓","color":"dark_purple","bold":true}',Lore:['{"text":"人狼ゲーム用の弓","color":"dark_purple"}','{"text":"※1発で壊れる","color":"dark_red"}']},Damage:384,Enchantments:[{id:"minecraft:sharpness",lvl:255s}]} 10

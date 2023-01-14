@@ -16,6 +16,7 @@ worldborder warning time 3
 worldborder damage amount 0.1
 worldborder damage buffer 5.0
 
+difficulty hard
 
 #scoreboard初期化（宣言）
 ###プレイヤー関係
@@ -32,6 +33,7 @@ scoreboard objectives add r_vill dummy "村人の数(結果表示用)"
 scoreboard objectives add r_set dummy "ロール設定用、役職ごとに増やす"
 scoreboard objectives add s_multi dummy "夜敵Mobの沸きセット数(15秒間隔でs_multi体x p_count沸く)"
 scoreboard objectives add s_count dummy "夜敵Mobの沸き数(処理用)"
+scoreboard objectives add s_posy dummy "夜敵MobのY座標(処理用)"
 scoreboard objectives add day dummy
 scoreboard objectives add night dummy
 scoreboard objectives add night_swap dummy
@@ -79,8 +81,9 @@ scoreboard players set @e[tag=game] r_mani 1
 scoreboard players set @e[tag=game] r_drac 0
 scoreboard players set @e[tag=game] r_vill 0
 scoreboard players set @e[tag=game] r_set 0
-scoreboard players set @e[tag=game] s_multi 3
+scoreboard players set @e[tag=game] s_multi 100
 scoreboard players set @e[tag=game] s_count 0
+scoreboard players set @e s_posy 0
 scoreboard players reset @e day
 scoreboard players reset @e night
 scoreboard players reset @e night_swap

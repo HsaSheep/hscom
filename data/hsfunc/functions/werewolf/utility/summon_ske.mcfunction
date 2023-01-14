@@ -5,8 +5,12 @@ execute if score @e[tag=game,limit=1] num matches 0 if score @e[tag=game,limit=1
 execute unless score @e[tag=game,limit=1] num matches 0 at @e[tag=game,limit=1] run summon skeleton ~ ~ ~ {DeathLootTable:"hsfunc:s_emerald",NoAI:0b,CanPickUpLoot:0b,Health:6f,Tags:["ww","ske","first"],Attributes:[{Name:"generic.attack_damage",Base:1}]}
 #減算
 execute unless score @e[tag=game,limit=1] num matches 0 run scoreboard players remove @e[tag=game,limit=1] num 1
+#高さ座標をs_posyに保存
+execute as @e[tag=ske,tag=!first,limit=1] store result score @s s_posy run data get entity @s Pos[1]
+#既定の高さにいない場合、firstタグ付与（再ワープ）
+execute as @e[tag=ske,tag=!first,limit=1] if score @s s_posy > @e[tag=ww,tag=game,limit=1] s_posy run tag @s add first
 #スポーンしたskeletonを指定(gameの周囲50x50)エリア内で拡散(最低1.0m間隔)
-execute at @e[tag=game,limit=1] run spreadplayers ~11 ~41 1.0 145.0 false @e[tag=ske,tag=first]
+execute at @e[tag=game,limit=1] run spreadplayers ~11 ~41 1.0 72.5 false @e[tag=ske,tag=first]
 #スポーンしたskeletonから初期タグ削除
 tag @e[tag=ske,tag=first] remove first
 
@@ -17,4 +21,4 @@ execute if score @e[tag=game,limit=1] num matches 0 run scoreboard players remov
 #num=0かつs_count=!0の時、numにp_countを代入
 execute if score @e[tag=game,limit=1] num matches 0 unless score @e[tag=game,limit=1] s_count matches 0 run scoreboard players operation @e[tag=game,limit=1] num = @e[tag=game,limit=1] p_count
 #num=p_countの時、scheduleで次回呼出
-execute if score @e[tag=game,limit=1] num = @e[tag=game,limit=1] p_count run schedule function hsfunc:werewolf/utility/summon_ske 15s replace
+execute if score @e[tag=game,limit=1] num = @e[tag=game,limit=1] p_count run schedule function hsfunc:werewolf/utility/summon_ske 2.5s replace
