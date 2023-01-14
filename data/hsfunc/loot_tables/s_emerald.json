@@ -16,7 +16,7 @@
                 "conditions": [
                     {
                         "condition": "killed_by_player",
-                        "inverse": false
+                        "inverse": true
                     }
                 ],
                 "functions": [

@@ -4,12 +4,13 @@ schedule clear hsfunc:werewolf/utility/update_day
 schedule clear hsfunc:werewolf/utility/update_item
 schedule clear hsfunc:werewolf/utility/update_setting
 schedule clear hsfunc:werewolf/utility/update_time
+schedule clear hsfunc:werewolf/utility/summon_ske
 
 #scoreboard初期化（初期値代入・コメントアウトは他所で初期化）
 ###プレイヤー関係
 scoreboard players set @e p_id 0
-scoreboard players set @e seer_id 0
-scoreboard players set @e death_count 0
+scoreboard players set @a seer_id 0
+scoreboard players set @a death_count 0
 ###ゲーム関係
 scoreboard players set @e[tag=game] p_count 0
 scoreboard players set @e[tag=game] r_set 0
@@ -29,7 +30,10 @@ scoreboard objectives setdisplay sidebar
 #占い看板削除
 execute if entity @e[tag=game] at @e[tag=game,limit=1] run fill ~-10 ~ ~-10 ~10 ~ ~10 air replace acacia_sign
 
-#ショップ削除
+#モブ削除
+##ske
+execute if entity @e[tag=ske] run kill @e[tag=ske]
+##shop
 execute if entity @e[tag=shop_position] run function hsfunc:werewolf/shop/remove_shop
 
 #タグ初期化
@@ -39,7 +43,8 @@ execute if entity @e[tag=drac] run tag @e[tag=darc] remove darc
 #execute if entity @e[tag=vill] run tag @e[tag=vill] remove vill
 
 #tag=gameへtp
-tp @a[tag=wwp] @e[tag=game,limit=1]
+tp @a[tag=wwp] @e[tag=ww,tag=game,limit=1]
 
 #gamemode変更
 gamemode adventure @a[tag=wwp]
+

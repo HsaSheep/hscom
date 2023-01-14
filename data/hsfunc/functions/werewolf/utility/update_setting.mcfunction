@@ -23,7 +23,7 @@ tag @a[tag=wwp,tag=!wwfirst] add wwps
 tag @a[tag=wws,tag=!wwfirst] add wwps
 
 #wwpsタグのプレイヤーをtp、ゲームモード変更
-tp @a[tag=wwps,tag=!wwfirst] @e[tag=ww,limit=1]
+tp @a[tag=wwps,tag=!wwfirst] @e[tag=ww,tag=game,limit=1]
 gamemode adventure @a[tag=wwps,tag=!wwfirst]
 
 #wwpチーム参加、通知
@@ -51,11 +51,11 @@ execute at @a[tag=wwp] run scoreboard players add "--プレイヤー数" wwlist 
 ##他スコアからの代入
 scoreboard players operation "人狼の数(+100000000)" wwlist = @e[tag=game,limit=1] r_wolf
 scoreboard players operation "狂人の数(+10000000)" wwlist = @e[tag=game,limit=1] r_mani
-#scoreboard players operation "吸血の数(+1000000)" wwlist = @e[tag=game,limit=1] r_drac
+scoreboard players operation "吸血の数(+1000000)" wwlist = @e[tag=game,limit=1] r_drac
 ##ソート対応用加算
 scoreboard players add "人狼の数(+100000000)" wwlist 100000000
 scoreboard players add "狂人の数(+10000000)" wwlist 10000000
-#scoreboard players add "吸血の数(+1000000)" wwlist 1000000
+scoreboard players add "吸血の数(+1000000)" wwlist 1000000
 
 #時間表示
 scoreboard players operation @e[tag=game,limit=1] time_day_m = @e[tag=game,limit=1] time_day
@@ -75,6 +75,10 @@ scoreboard players operation @e[tag=game,limit=1] time_night_first_m /= @e[tag=g
 scoreboard players operation @e[tag=game,limit=1] time_night_first_s = @e[tag=game,limit=1] time_night_first
 scoreboard players operation @e[tag=game,limit=1] time_night_first_s %= @e[tag=game,limit=1] 60
 title @a[tag=wwps] actionbar ["",{"text":"昼…"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_day_m"}},{"text":":"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_day_s"}},{"text":" 夜…"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_night_m"}},{"text":":"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_night_s"}},{"text":" (初日昼…"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_day_first_m"}},{"text":":"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_day_first_s"}},{"text":" 初日夜…"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_night_first_m"}},{"text":":"},{"score":{"name":"@e[tag=game,limit=1]","objective":"time_night_first_s"}},{"text":")"}]
+
+#各種ステータス回復エフェクト
+#耐性付与（死亡防止）
+effect give @a[tag=wwp] minecraft:resistance 16 250 true
 
 #設定完了スコアが0の場合、次回呼び出し
 execute if score @e[tag=game,limit=1] setting_done matches 0 run schedule function hsfunc:werewolf/utility/update_setting 1s

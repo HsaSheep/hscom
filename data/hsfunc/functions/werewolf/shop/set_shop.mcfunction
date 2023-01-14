@@ -16,5 +16,15 @@ execute as @e[tag=shop_position] at @s run effect give @e[tag=shop,sort=nearest,
 
 #データ初期化
 execute as @e[tag=shop_position] at @s run data modify entity @e[tag=shop,sort=nearest,limit=1] Offers.Recipes set value {}
+
 #データ追加
-execute as @e[tag=shop_position] at @s run data modify entity @e[tag=shop,sort=nearest,limit=1] Offers.Recipes append value {rewardExp:0b,buy:{id:"minecraft:emerald",Count:1b},sell:{id:"stick",Count:1b,tag:{display:{Name:'{"text":"test"}',Lore:['{"text":"testtest","color":"#8B00A1","bold":true}']}}}}
+##おにく
+execute as @e[tag=shop_position] at @s run data modify entity @e[tag=shop,sort=nearest,limit=1] Offers.Recipes append value {rewardExp:0b,buy:{id:"minecraft:emerald",Count:1b},sell:{id:"cooked_beef",Count:5b,tag:{display:{Name:'{"text":"おにく","color":"dark_purple","bold":true}',Lore:['{"text":"ただのにく","color":"#8B00A1"}']}}}}
+##占い
+execute as @e[tag=shop_position] at @s run data modify entity @e[tag=shop,sort=nearest,limit=1] Offers.Recipes append value {rewardExp:0b,buy:{id:"minecraft:emerald",Count:4b},sell:{id:"blaze_rod",Count:1b,tag:{display:{Name:'{"text":"占い","color":"dark_purple","bold":true}'}}}}
+##弓
+execute as @e[tag=shop_position] at @s run data modify entity @e[tag=shop,sort=nearest,limit=1] Offers.Recipes append value {rewardExp:0b,buy:{id:"minecraft:emerald",Count:2b},sell:{id:"bow",Count:1b,tag:{display:{Name:'{"text":"弓","color":"dark_purple","bold":true}',Lore:['{"text":"人狼ゲーム用の弓","color":"dark_purple"}','{"text":"※1発で壊れる","color":"dark_red"}']},Damage:384,Enchantments:[{id:"minecraft:power",lvl:255s}]}}}
+##矢
+execute as @e[tag=shop_position] at @s run data modify entity @e[tag=shop,sort=nearest,limit=1] Offers.Recipes append value {rewardExp:0b,buy:{id:"minecraft:emerald",Count:2b},sell:{id:"arrow",Count:1b,tag:{display:{Name:'{"text":"矢","color":"dark_purple","bold":true}',Lore:['{"text":"人狼ゲーム用の矢","color":"dark_purple"}','{"text":"弓がないと意味がない","color":"dark_purple"}']},PickupDelay:10000}}}
+##斧
+execute as @e[tag=shop_position] at @s run data modify entity @e[tag=shop,sort=nearest,limit=1] Offers.Recipes append value {rewardExp:0b,buy:{id:"minecraft:emerald",Count:2b},sell:{id:"netherite_axe",Count:1b,tag:{display:{Name:'{"text":"斧","color":"dark_purple","bold":true}',Lore:['{"text":"人狼ゲーム用の斧","color":"dark_purple"}','{"text":"※1発で壊れる","color":"dark_red"}']},Damage:2031,Enchantments:[{id:"minecraft:sharpness",lvl:255s}]}}}

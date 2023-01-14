@@ -24,8 +24,8 @@ execute if score @e[tag=game,limit=1] update matches 0 run title @a[tag=wwps,tag
 execute if score @e[tag=game,limit=1] update matches 0 run title @a[tag=wwps,tag=mani] subtitle ["",{"text": "あなたは "},{"text": "狂人","color": "gold"},{"text": " です"}]
 
 #title表示
-execute if score @e[tag=game,limit=1] update matches 0 run title @a[tag=wwps] subtitle ["",{"text": "--- "},{"text": "ゲーム開始"},{"text": " ---"}]
-execute if score @e[tag=game,limit=1] update matches -1 run title @a[tag=wwps] subtitle ["",{"text": "--- "},{"text": "ゲーム再開"},{"text": " ---"}]
+execute if score @e[tag=game,limit=1] update matches 0 run title @a[tag=wwps] title ["",{"text": "--- "},{"text": "ゲーム開始"},{"text": " ---"}]
+execute if score @e[tag=game,limit=1] update matches -1 run title @a[tag=wwps] title ["",{"text": "--- "},{"text": "ゲーム再開"},{"text": " ---"}]
 #サウンド再生
 stopsound @a[tag=wwps]
 execute as @a[tag=wwps] run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 0.5 1 0.5

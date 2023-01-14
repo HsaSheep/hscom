@@ -17,6 +17,8 @@ bossbar remove hsfunc:werewolf/time_bar
 scoreboard players set @e[tag=game,limit=1] num 0
 #人狼の勝利：numを1に
 execute if entity @p[tag=wwp,tag=wolf,scores={death_count=0}] run scoreboard players set @e[tag=game,limit=1] num 1
+#吸血の勝利：numを2に
+execute if entity @p[tag=wwp,tag=drac,scores={death_count=0}] run scoreboard players set @e[tag=game,limit=1] num 2
 #どちらも生きているとき(中断)
 execute if entity @p[tag=wwp,tag=wolf,scores={death_count=0}] if entity @p[tag=wwp,tag=!wolf,tag=!mani,scores={death_count=0}] run scoreboard players set @e[tag=game,limit=1] num 100
 
@@ -35,16 +37,19 @@ execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"sele
 ##勝利陣営表示(メッセージ)
 execute if score @e[tag=game,limit=1] num matches 0 as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"・勝利陣営: "},{"text":"村人","color":"green"}]
 execute if score @e[tag=game,limit=1] num matches 1 as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"・勝利陣営: "},{"text":"人狼","color":"red"}]
-execute if score @e[tag=game,limit=1] num matches 1 as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":" "},{"text":"ゲーム中断","color":"white"}]
+execute if score @e[tag=game,limit=1] num matches 2 as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"・勝利陣営: "},{"text":"吸血","color":"dark_purple"}]
+execute if score @e[tag=game,limit=1] num matches 100 as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":" "},{"text":"ゲーム中断","color":"white"}]
 ##区切り表示
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-------------------------------------------"}]
 ##役職表示
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"- 役職内訳 -","color":"white"}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"人狼","color":"red"},{"text":" : ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"r_wolf"},"color":"white"},{"text":" --","color":"white"}]
 execute as @e[tag=wwp,tag=wolf] run tellraw @a[tag=wwps] ["",{"text":"            "},{"selector":"@s","color":"red"}]
-execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"狂人","color":"gold"},{"text":" : ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"r_mani"},"color":"white"},{"text":" --","color":"white"}]
-execute as @e[tag=wwp,tag=mani] run tellraw @a[tag=wwps] ["",{"text":"            "},{"selector":"@s","color":"gold"}]
-execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"村人","color":"green"},{"text":" : ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"r_vill"},"color":"white"},{"text":" --","color":"white"}]
+execute if entity @a[tag=wwp,tag=mani] as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"\n["},{"selector":"@s"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"狂人","color":"gold"},{"text":" : ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"r_mani"},"color":"white"},{"text":" --","color":"white"}]
+execute if entity @a[tag=wwp,tag=mani] as @a[tag=wwp,tag=mani] run tellraw @a[tag=wwps] ["",{"text":"            "},{"selector":"@s","color":"gold"}]
+execute if entity @a[tag=wwp,tag=drac] as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"\n["},{"selector":"@s"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"狂人","color":"dark_purple"},{"text":" : ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"r_drac"},"color":"white"},{"text":" --","color":"white"}]
+execute if entity @a[tag=wwp,tag=drac] as @a[tag=wwp,tag=drac] run tellraw @a[tag=wwps] ["",{"text":"            "},{"selector":"@s","color":"dark_purple"}]
+execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"\n["},{"selector":"@s"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"村人","color":"green"},{"text":" : ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"r_vill"},"color":"white"},{"text":" --","color":"white"}]
 execute as @e[tag=wwp,tag=!wolf,tag=!mani] run tellraw @a[tag=wwps] ["",{"text":"            "},{"selector":"@s","color":"green"}]
 ##プレイ時間表示
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"- その他情報 -","color":"white"}]
@@ -60,19 +65,25 @@ execute as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"sele
 ##勝利陣営表示(タイトル)
 execute if score @e[tag=game,limit=1] num matches 0 run title @a[tag=wwps] subtitle ["",{"text":""},{"text":"村人の勝利","color":"green"}]
 execute if score @e[tag=game,limit=1] num matches 1 run title @a[tag=wwps] subtitle ["",{"text":""},{"text":"人狼の勝利","color":"red"}]
+execute if score @e[tag=game,limit=1] num matches 2 run title @a[tag=wwps] subtitle ["",{"text":""},{"text":"吸血の勝利","color":"dark_purple"}]
 ##タイトル
 title @a[tag=wwps] title ["",{"text":"--- "},{"text":"ゲーム終了","color":"white"},{"text":" ---"}]
 
 #サウンド再生
 stopsound @a[tag=wwps]
+execute as @a[tag=wwps] run playsound minecraft:ui.toast.challenge_complete master @a ~ ~ ~ 0.5 1.0 0.5
 ##村人が勝ったとき
-execute if score @e[tag=game,limit=1] num matches 0 as @a[tag=wwps] run playsound minecraft:entity.villager.ambient master @a ~ ~ ~ 0.9 1.0 0.9
+#execute if score @e[tag=game,limit=1] num matches 0 as @a[tag=wwps] run playsound minecraft:entity.villager.ambient master @a ~ ~ ~ 0.9 1.0 0.9
 execute if score @e[tag=game,limit=1] num matches 0 as @a[tag=wwps] run playsound minecraft:entity.wolf.death master @a ~ ~ ~ 0.5 1.0 0.5
 ##人狼が勝ったとき
 execute if score @e[tag=game,limit=1] num matches 1 as @a[tag=wwps] run playsound minecraft:entity.wolf.howl master @a ~ ~ ~ 0.5 1.0 0.5
-execute if score @e[tag=game,limit=1] num matches 1 as @a[tag=wwps] run playsound minecraft:entity.villager.death master @a ~ ~ ~ 0.7 1.0 0.7
+#execute if score @e[tag=game,limit=1] num matches 1 as @a[tag=wwps] run playsound minecraft:entity.villager.death master @a ~ ~ ~ 0.7 1.0 0.7
+##吸血が勝ったとき
+#execute if score @e[tag=game,limit=1] num matches 2 as @a[tag=wwps] run playsound minecraft:entity.villager.death master @a ~ ~ ~ 0.7 1.0 0.7
+execute if score @e[tag=game,limit=1] num matches 2 as @a[tag=wwps] run playsound minecraft:entity.wolf.death master @a ~ ~ ~ 0.5 1.0 0.5
 
 #初期化呼出
 function hsfunc:werewolf/utility/reset
+#
 #設定呼出
 function hsfunc:werewolf/utility/setting

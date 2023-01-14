@@ -14,8 +14,8 @@ hscom - Minecraft Datapacks
 [x] UnitTest
 [x] Decision
 [x] Summon(Skeleton)
-[ ] Shop
-[ ] SystemTest
+[x] Shop
+[x] SystemTest
 [ ] TestPlay
 [ ] AddRore
 
