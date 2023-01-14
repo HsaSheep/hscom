@@ -43,6 +43,7 @@ scoreboard objectives add update dummy
 scoreboard objectives add setting_done dummy
 scoreboard objectives add num dummy "各処理での作業用変数"
 ###時間関係
+scoreboard objectives add 2 dummy
 scoreboard objectives add 60 dummy
 scoreboard objectives add 3600 dummy
 scoreboard objectives add time dummy
@@ -81,7 +82,7 @@ scoreboard players set @e[tag=game] r_mani 1
 scoreboard players set @e[tag=game] r_drac 0
 scoreboard players set @e[tag=game] r_vill 0
 scoreboard players set @e[tag=game] r_set 0
-scoreboard players set @e[tag=game] s_multi 100
+scoreboard players set @e[tag=game] s_multi 10
 scoreboard players set @e[tag=game] s_count 0
 scoreboard players set @e s_posy 0
 scoreboard players reset @e day
@@ -91,6 +92,7 @@ scoreboard players reset @e update
 scoreboard players reset @e setting_done
 scoreboard players reset @e num
 ###時間関係
+scoreboard players set @e[tag=game] 2 2
 scoreboard players set @e[tag=game] 60 60
 scoreboard players set @e[tag=game] 3600 3600
 scoreboard players set @e[tag=game] time 0

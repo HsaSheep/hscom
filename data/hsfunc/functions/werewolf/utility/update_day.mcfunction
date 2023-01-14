@@ -10,6 +10,8 @@ execute if score @e[tag=game,limit=1] night matches 0 run scoreboard players ope
 execute if score @e[tag=game,limit=1] night matches 1 run scoreboard players operation @e[tag=game,limit=1] time = @e[tag=game,limit=1] time_night
 execute if score @e[tag=game,limit=1] night matches 0 if score @e[tag=game,limit=1] day matches 1 run scoreboard players operation @e[tag=game,limit=1] time = @e[tag=game,limit=1] time_day_first
 execute if score @e[tag=game,limit=1] night matches 1 if score @e[tag=game,limit=1] day matches 1 run scoreboard players operation @e[tag=game,limit=1] time = @e[tag=game,limit=1] time_night_first
+#2日目以降はs_multi /= 2
+#execute if score @e[tag=game,limit=1] night matches 1 if score @e[tag=game,limit=1] day matches 2 run scoreboard players operation @e[tag=game,limit=1] s_multi /= @e[tag=game,limit=1] 2
 
 #bossbar削除
 bossbar add hsfunc:werewolf/time_bar "-"

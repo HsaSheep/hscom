@@ -3,7 +3,12 @@
 #give @p minecraft:blaze_rod{display:{Name:'{"text":"占い"}'}} 1
 #give @p minecraft:blaze_rod{display:{Name:'{"text":"占い","color":"dark_purple","bold":true}'}} 64
 #execute if entity @s[scores={seer_id=0..},nbt={Inventory:[{id:"minecraft:blaze_rod",tag:{display:{Name:'{"text":"占い"}'}}}]}] run tag @s add seer_set
-execute if entity @s[scores={seer_id=0..},nbt={Inventory:[{id:"minecraft:blaze_rod"}]}] run tag @s add seer_set
+
+#昼夜占い可能
+#execute if entity @s[scores={seer_id=0..},nbt={Inventory:[{id:"minecraft:blaze_rod"}]}] run tag @s add seer_set
+#夜のみ占い可能
+execute if score @e[tag=ww,tag=game,limit=1] night matches 1 if entity @s[scores={seer_id=0..},nbt={Inventory:[{id:"minecraft:blaze_rod"}]}] run tag @s add seer_set
+
 #占い先のIDを持つプレイヤーにseer_targetタグ付与(プレイ人数分必要)
 execute if entity @s[tag=seer_set,scores={seer_id=1}] run tag @p[scores={p_id=1}] add seer_target
 execute if entity @s[tag=seer_set,scores={seer_id=2}] run tag @p[scores={p_id=2}] add seer_target
