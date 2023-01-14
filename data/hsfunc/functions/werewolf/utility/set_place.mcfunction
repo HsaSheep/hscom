@@ -4,11 +4,24 @@ execute if entity @e[tag=ww] run kill @e[tag=ww,tag=!shop_position]
 summon armor_stand ~ ~ ~ {Tags:["dummy","ww","game"],CustomName:'{"text":"人狼ゲーム"}',CustomNameVisible:true,Marker:true,Invisible:true,NoGravity:true}
 #execute as @e[tag=game,limit=1] run tell @a[tag=gm] ゲーム地点を設定しました
 
+#スポーン地点設定
+setworldspawn
+
+#ワールドボーダー設定
+worldborder center ~ ~
+worldborder set 50 0
+worldborder warning distance 3.0
+worldborder warning time 3.0
+worldborder damage amount 0.1
+worldborder damage buffer 5.0
+
+
 #scoreboard初期化（宣言）
 ###プレイヤー関係
 scoreboard objectives add p_id dummy "プレイヤーID"
 scoreboard objectives add seer_id dummy "占い先ID"
 scoreboard objectives add death_count deathCount "死亡確認用"
+scoreboard objectives add shop_rightClick minecraft.custom:minecraft.talked_to_villager "shop右クリック検知用"
 ###ゲーム関係
 scoreboard objectives add p_count dummy "参加プレイヤー数"
 scoreboard objectives add r_wolf dummy "人狼の数"

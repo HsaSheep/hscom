@@ -1,6 +1,8 @@
 #reset呼出
 function hsfunc:werewolf/utility/reset
 
+#設定遅延呼出削除
+schedule clear hsfunc:werewolf/utility/setting
 #無限ループ削除
 schedule clear hsfunc:werewolf/utility/update_endless
 
@@ -64,6 +66,9 @@ clear @a[tag=wwp]
 #ゲームルール変更
 gamemode survival @a[tag=!gm,tag=wwps]
 gamemode creative @a[tag=gm]
+
+#リセット通知
+title @a[tag=wwps] actionbar ["",{"text": "-- ゲームを削除しました --"}]
 
 #チーム削除
 team remove wwt

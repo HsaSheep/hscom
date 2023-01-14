@@ -11,6 +11,7 @@ schedule clear hsfunc:werewolf/utility/summon_ske
 scoreboard players set @e p_id 0
 scoreboard players set @a seer_id 0
 scoreboard players set @a death_count 0
+scoreboard players set @a shop_rightClick 0
 ###ゲーム関係
 scoreboard players set @e[tag=game] p_count 0
 scoreboard players set @e[tag=game] r_set 0
@@ -39,12 +40,13 @@ execute if entity @e[tag=shop_position] run function hsfunc:werewolf/shop/remove
 #タグ初期化
 execute if entity @e[tag=wolf] run tag @e[tag=wolf] remove wolf
 execute if entity @e[tag=mani] run tag @e[tag=mani] remove mani
-execute if entity @e[tag=drac] run tag @e[tag=darc] remove darc
+execute if entity @e[tag=drac] run tag @e[tag=drac] remove drac
 #execute if entity @e[tag=vill] run tag @e[tag=vill] remove vill
+
+time set day
 
 #tag=gameへtp
 tp @a[tag=wwp] @e[tag=ww,tag=game,limit=1]
 
 #gamemode変更
 gamemode adventure @a[tag=wwp]
-

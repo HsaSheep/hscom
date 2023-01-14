@@ -1,0 +1,18 @@
+#tell @s 1
+#execute if entity @e[tag=shop,sort=nearest,limit=1,distance=..5] run tell @s 2
+#データ初期化
+execute at @s run data modify entity @e[tag=shop,sort=nearest,limit=1,distance=..5] Offers.Recipes set value {}
+
+#データ追加
+##おにく
+execute at @s run data modify entity @e[tag=shop,sort=nearest,limit=1,distance=..5] Offers.Recipes append value {rewardExp:0b,maxUses:5b,buy:{id:"minecraft:emerald",Count:1b},sell:{id:"cooked_beef",Count:5b,tag:{display:{Name:'{"text":"おにく","color":"dark_purple","bold":true}',Lore:['{"text":"人狼ゲーム用のアイテム","color":"dark_purple"}','{"text":"ただのにく","color":"#8B00A1"}']}}}}
+##占い
+execute at @s run data modify entity @e[tag=shop,sort=nearest,limit=1,distance=..5] Offers.Recipes append value {rewardExp:0b,maxUses:5b,buy:{id:"minecraft:emerald",Count:4b},sell:{id:"blaze_rod",Count:1b,tag:{display:{Name:'{"text":"占い","color":"dark_purple","bold":true}',Lore:['{"text":"人狼ゲーム用のアイテム","color":"dark_purple"}','[{"text":"※看板を右クリックで使用","color":"white"}]']}}}}
+##弓
+execute at @s run data modify entity @e[tag=shop,sort=nearest,limit=1,distance=..5] Offers.Recipes append value {rewardExp:0b,maxUses:5b,buy:{id:"minecraft:emerald",Count:2b},sell:{id:"bow",Count:1b,tag:{display:{Name:'{"text":"弓","color":"dark_purple","bold":true}',Lore:['{"text":"人狼ゲーム用の弓","color":"dark_purple"}','[{"text":"※1発で壊れる","color":"white"}]']},Damage:384,Enchantments:[{id:"minecraft:power",lvl:255s}]}}}
+##矢
+execute at @s run data modify entity @e[tag=shop,sort=nearest,limit=1,distance=..5] Offers.Recipes append value {rewardExp:0b,maxUses:5b,buy:{id:"minecraft:emerald",Count:2b},sell:{id:"arrow",Count:1b,tag:{display:{Name:'{"text":"矢","color":"dark_purple","bold":true}',Lore:['{"text":"人狼ゲーム用の矢","color":"dark_purple"}','{"text":"弓がないと意味がない","color":"dark_purple"}']},PickupDelay:10000}}}
+##斧(人狼、吸血用)
+execute at @s run data modify entity @e[tag=shop,sort=nearest,limit=1,distance=..5] Offers.Recipes append value {rewardExp:0b,maxUses:5b,buy:{id:"minecraft:emerald",Count:2b},sell:{id:"netherite_axe",Count:1b,tag:{display:{Name:'{"text":"斧","color":"dark_purple","bold":true}',Lore:['{"text":"人狼ゲーム用の斧","color":"dark_purple"}','{"text":"※1発で壊れる","color":"white"}','[{"text":"※","color":"white"},{"text":"人狼","color":"dark_red"},{"text":"、","color":"white"},{"text":"吸血","color":"dark_purple"},{"text":"用","color":"white"}]']},Damage:2031,Enchantments:[{id:"minecraft:sharpness",lvl:255s}]}}}
+#execute if entity @s[tag=wolf] run execute at @s run data modify entity @e[tag=shop,sort=nearest,limit=1,distance=..5] Offers.Recipes append value {rewardExp:0b,maxUses:5b,buy:{id:"minecraft:emerald",Count:2b},sell:{id:"netherite_axe",Count:1b,tag:{display:{Name:'{"text":"斧","color":"dark_purple","bold":true}',Lore:['{"text":"人狼ゲーム用の斧","color":"dark_purple"}','{"text":"※1発で壊れる","color":"white"}','[{"text":"※","color":"white"},{"text":"人狼","color":"dark_red"},{"text":"、","color":"white"},{"text":"吸血","color":"dark_purple"},{"text":"用","color":"white"}]']},Damage:2031,Enchantments:[{id:"minecraft:sharpness",lvl:255s}]}}}
+#execute if entity @s[tag=drac] run execute at @s run data modify entity @e[tag=shop,sort=nearest,limit=1,distance=..5] Offers.Recipes append value {rewardExp:0b,maxUses:5b,buy:{id:"minecraft:emerald",Count:2b},sell:{id:"netherite_axe",Count:1b,tag:{display:{Name:'{"text":"斧","color":"dark_purple","bold":true}',Lore:['{"text":"人狼ゲーム用の斧","color":"dark_purple"}','{"text":"※1発で壊れる","color":"white"}','[{"text":"※","color":"white"},{"text":"人狼","color":"dark_red"},{"text":"、","color":"white"},{"text":"吸血","color":"dark_purple"},{"text":"用","color":"white"}]']},Damage:2031,Enchantments:[{id:"minecraft:sharpness",lvl:255s}]}}}

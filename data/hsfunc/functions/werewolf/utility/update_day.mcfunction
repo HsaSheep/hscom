@@ -45,10 +45,14 @@ execute at @a[tag=wwp,scores={death_count=0}] run scoreboard players add @e[tag=
 ##デバック　人数表示
 #title @a[tag=gm] actionbar ["",{"text": "生存者："},{"score":{"name": "@e[tag=game,limit=1]","objective": "p_count"}}]
 
+#夜ショップ再設置
+execute if score @e[tag=game,limit=1] night matches 1 run function hsfunc:werewolf/shop/remove_shop
+execute if score @e[tag=game,limit=1] night matches 1 run function hsfunc:werewolf/shop/set_shop
+
 #夜敵Mobスポーン関係
 ##summon_skeのエンティティ削除、呼出削除(時間内に終了しなかったとき用)
-kill @e[tag=ske]
 schedule clear hsfunc:werewolf/utility/summon_ske
+kill @e[tag=ske]
 ##夜の場合、summon_ske呼出
 execute if score @e[tag=game,limit=1] night matches 0 run kill @e[tag=ske]
 execute if score @e[tag=game,limit=1] night matches 1 run scoreboard players set @e[tag=game,limit=1] num 0
@@ -56,7 +60,7 @@ execute if score @e[tag=game,limit=1] night matches 1 run scoreboard players ope
 execute if score @e[tag=game,limit=1] night matches 1 run function hsfunc:werewolf/utility/summon_ske
 
 #昼・夜の通知・ミュート指示(プラグインにdiscordのmute足したらここで呼出)
-execute if score @e[tag=game,limit=1] night matches 0 run title @a[tag=wwps] subtitle ["",{"text":"[ ミュートを 解除 してください ]","color":"white"}]
-execute if score @e[tag=game,limit=1] night matches 0 run title @a[tag=wwps] title ["",{"text":"--- 昼 ---","color":"yellow"}]
+execute if score @e[tag=game,limit=1] night matches 0 unless score @e[tag=game,limit=1] day matches 1 run title @a[tag=wwps] subtitle ["",{"text":"[ ミュートを 解除 してください ]","color":"white"}]
+execute if score @e[tag=game,limit=1] night matches 0 unless score @e[tag=game,limit=1] day matches 1 run title @a[tag=wwps] title ["",{"text":"--- 昼 ---","color":"yellow"}]
 execute if score @e[tag=game,limit=1] night matches 1 run title @a[tag=wwps] subtitle ["",{"text":"[ ミュートを","color":"white"},{"text":" 設定 ","color":"red"},{"text":"してください ]","color":"white"}]
 execute if score @e[tag=game,limit=1] night matches 1 run title @a[tag=wwps] title ["",{"text":"--- 夜 ---","color":"purple"}]

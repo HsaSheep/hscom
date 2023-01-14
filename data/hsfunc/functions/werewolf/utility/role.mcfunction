@@ -16,7 +16,7 @@ execute if score @e[tag=game,limit=1] r_set matches 2 if score @e[tag=game,limit
 ##r_setが2かつnum>1の時、tag=maniをランダムに与える。
 execute if score @e[tag=game,limit=1] r_set matches 2 if score @e[tag=game,limit=1] num matches 1.. run tag @a[tag=wwp,tag=!wolf,tag=!mani,sort=random,limit=1] add mani
 
-#狂人処理
+#吸血処理
 ##r_setが3でnumが0の時、r_dracを代入
 execute if score @e[tag=game,limit=1] r_set matches 3 if score @e[tag=game,limit=1] num matches 0 run scoreboard players operation @e[tag=game,limit=1] num = @e[tag=game,limit=1] r_drac
 ##r_setが3かつnum>1の時、tag=dracをランダムに与える。
