@@ -78,7 +78,7 @@ title @a[tag=wwps] actionbar ["",{"text":"昼…"},{"score":{"name":"@e[tag=game
 
 #各種ステータス回復エフェクト
 #耐性付与（死亡防止）
-effect give @a[tag=wwp] minecraft:resistance 16 250 true
+effect give @a[tag=wwp] minecraft:resistance 16 255 true
 
 #設定完了スコアが0の場合、次回呼び出し
 execute if score @e[tag=game,limit=1] setting_done matches 0 run schedule function hsfunc:werewolf/utility/update_setting 1s

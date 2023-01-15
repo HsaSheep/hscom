@@ -11,6 +11,9 @@ schedule clear hsfunc:werewolf/utility/summon_ske
 scoreboard players set @e p_id 0
 scoreboard players set @a seer_id 0
 scoreboard players set @a death_count 0
+scoreboard players set @a damage_give 0
+scoreboard players set @a damage_taken 0
+scoreboard players set @a damage_resis 0
 scoreboard players set @a shop_rightClick 0
 ###ゲーム関係
 scoreboard players set @e[tag=game] p_count 0

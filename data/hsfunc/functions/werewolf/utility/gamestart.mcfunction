@@ -46,8 +46,10 @@ execute if score @e[tag=game,limit=1] update matches -1 run scoreboard players s
 execute as @e[tag=ww,tag=game,limit=1] store result score @s s_posy run data get entity @s Pos[1] 
 tellraw @a[tag=wwps] ["",{"text": "開始点Y: "},{"score":{"name": "@e[tag=game,limit=1]","objective": "s_posy"}}]
 ##s_posy+高さ座標マージン（skeleton召喚時判定用）
-execute as @e[tag=ww,tag=game,limit=1] run scoreboard players add @e[tag=ww,tag=game,limit=1] s_posy 8
+scoreboard players add @e[tag=ww,tag=game,limit=1] s_posy 8
 tellraw @a[tag=wwps] ["",{"text": "スポーン限界点Y: "},{"score":{"name": "@e[tag=game,limit=1]","objective": "s_posy"}}]
+##ダメージカウント初期化（update_itemで使用）
+
 
 #ポーション効果削除
 effect clear @a[tag=wwp]
