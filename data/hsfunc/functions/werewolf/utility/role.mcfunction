@@ -1,6 +1,10 @@
 #tellraw @a[tag=gm] ["",{"text":"--- [ROLE設定:"},{"score":{"name": "@e[tag=game,limit=1]","objective": "r_set"},"color": "gold"},{"text":"/"},{"score":{"name": "@e[tag=game,limit=1]","objective": "num"},"color": "gold"},{"text":"] ---"}]
 #r_setが0の時、numを0に
 execute if score @e[tag=game,limit=1] r_set matches 0 run scoreboard players set @e[tag=game,limit=1] num 0
+#r_setが0の時、タグ初期化（途中抜け終了した場合のため）
+execute if score @e[tag=game,limit=1] r_set matches 0 run tag @a[tag=wwp] remove wolf
+execute if score @e[tag=game,limit=1] r_set matches 0 run tag @a[tag=wwp] remove mani
+execute if score @e[tag=game,limit=1] r_set matches 0 run tag @a[tag=wwp] remove drac
 #numが0の時、r_setに+1する。
 execute if score @e[tag=game,limit=1] num matches 0 run scoreboard players add @e[tag=game,limit=1] r_set 1
 

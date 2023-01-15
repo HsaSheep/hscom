@@ -30,10 +30,13 @@ execute as @a[tag=wwp,scores={death_count=1..}] run gamemode spectator @s
 #終了条件チェック
 ##条件チェック
 #人狼全滅または村人全滅時
-##updateが0以外の時、updateに2(ゲーム終了)をセット
-execute unless score @e[tag=game,limit=1] update matches 0 run scoreboard players set @e[tag=game,limit=1] update 2
-##updateが0以外の時、両陣営が生存していればupdateに1(ゲーム中)をセット
-execute unless score @e[tag=game,limit=1] update matches 0 if entity @p[tag=wwp,tag=wolf,scores={death_count=0}] if entity @p[tag=wwp,tag=!wolf,tag=!mani,tag=!drac,scores={death_count=0}] run scoreboard players set @e[tag=game,limit=1] update 1
+##updateが1の時、updateに2(ゲーム終了)をセット
+execute if score @e[tag=game,limit=1] update matches 1 run scoreboard players set @e[tag=game,limit=1] update 2
+##updateが1の時、両陣営が生存していればupdateに1(ゲーム中)をセット
+execute if score @e[tag=game,limit=1] update matches 2 if entity @p[tag=wwp,tag=wolf,scores={death_count=0}] if entity @p[tag=wwp,tag=!wolf,tag=!mani,tag=!drac,scores={death_count=0}] run scoreboard players set @e[tag=game,limit=1] update 1
+
+#中断確認（updateが3の時、updateに2をセット）
+execute if score @e[tag=game,limit=1] update matches 3 run scoreboard players set @e[tag=game,limit=1] update 2
 
 #停止・終了処理
 ##updateが-1の場合、setting呼出

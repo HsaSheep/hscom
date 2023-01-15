@@ -98,8 +98,13 @@ effect give @a[tag=wwp] minecraft:instant_health 1 250 true
 #空腹回復
 effect give @a[tag=wwp] minecraft:saturation 1 250 true
 
+#ゲームモード変更
+gamemode adventure @a[tag=wwp]
+
 #アイテム初期化
 clear @a[tag=wwp]
+#GMへゲーム管理を表示（本、スロット7/右端から2番目）
+execute as @a[tag=gm] run function hsfunc:werewolf/utility/setting_give
 #テスト用アイテム
 give @a[tag=wwp] minecraft:stick{display:{Name:'{"text":"木の棒","color":"dark_purple","bold":true}'},Unbreakable:1b,Enchantments:[{id:"minecraft:smite",lvl:1s},{id:"minecraft:knockback",lvl:1s}]} 1
 #give @a[tag=wwp] minecraft:emerald 64

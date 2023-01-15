@@ -44,10 +44,10 @@ execute if score @e[tag=game,limit=1] update matches -1 run scoreboard players s
 #scoreboard関係
 ##s_posyに高さ座標保存（skeleton召喚時判定用）
 execute as @e[tag=ww,tag=game,limit=1] store result score @s s_posy run data get entity @s Pos[1] 
-tellraw @a[tag=wwps] ["",{"text": "開始点Y: "},{"score":{"name": "@e[tag=game,limit=1]","objective": "s_posy"}}]
+
 ##s_posy+高さ座標マージン（skeleton召喚時判定用）
 scoreboard players add @e[tag=ww,tag=game,limit=1] s_posy 8
-tellraw @a[tag=wwps] ["",{"text": "スポーン限界点Y: "},{"score":{"name": "@e[tag=game,limit=1]","objective": "s_posy"}}]
+#execute as @e[tag=ww,tag=game,limit=1] run tellraw @a[tag=wwps,tag=gm] ["",{"text": "["},{"selector":"@s"},{"text": "] "},{"text": "開始点Y: "},{"score":{"name": "@e[tag=game,limit=1]","objective": "s_posy"}},{"text": "  スポーン限界点Y: "},{"score":{"name": "@e[tag=game,limit=1]","objective": "s_posy"}}]
 ##ダメージカウント初期化（update_itemで使用）
 
 
@@ -59,6 +59,3 @@ execute if entity @e[tag=shop_position] run function hsfunc:werewolf/shop/set_sh
 
 #update_time呼出
 function hsfunc:werewolf/utility/update_time
-
-#update_item呼出
-function hsfunc:werewolf/utility/update_item

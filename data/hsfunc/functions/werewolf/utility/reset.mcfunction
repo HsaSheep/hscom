@@ -1,7 +1,6 @@
 #各種ループ停止(endless以外)
 schedule clear hsfunc:werewolf/utility/update_countdown
 schedule clear hsfunc:werewolf/utility/update_day
-schedule clear hsfunc:werewolf/utility/update_item
 schedule clear hsfunc:werewolf/utility/update_setting
 schedule clear hsfunc:werewolf/utility/update_time
 schedule clear hsfunc:werewolf/utility/summon_ske
@@ -29,7 +28,11 @@ scoreboard players set @e[tag=game] time 0
 scoreboard players set @e[tag=game] time_total 0
 
 #スコア表示削除
-scoreboard objectives setdisplay sidebar 
+scoreboard objectives setdisplay sidebar
+
+#bossbar削除
+bossbar set hsfunc:werewolf/time_bar players
+bossbar remove hsfunc:werewolf/time_bar
 
 #占い看板削除
 execute if entity @e[tag=game] at @e[tag=game,limit=1] run fill ~-10 ~ ~-10 ~10 ~ ~10 air replace acacia_sign

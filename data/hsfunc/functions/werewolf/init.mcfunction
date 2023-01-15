@@ -52,6 +52,8 @@ team modify wwt seeFriendlyInvisibles true
 
 #無限ループ呼出
 function hsfunc:werewolf/utility/update_endless
+#update_item呼出
+function hsfunc:werewolf/utility/update_item
 
 #DP削除
 execute if entity @e[tag=ww] run kill @e[tag=ww,tag=!shop_position]

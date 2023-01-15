@@ -141,7 +141,6 @@ scoreboard players reset @e wwlist
 
 #設定呼出
 function hsfunc:werewolf/utility/setting
-function hsfunc:werewolf/shop/setting
 
 #GM自動参加
 tag @s add wwp

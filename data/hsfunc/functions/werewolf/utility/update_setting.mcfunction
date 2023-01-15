@@ -12,7 +12,6 @@ execute as @e[tag=game,limit=1] run tellraw @a[tag=!gm,tag=!first] ["",{"text":"
 execute as @e[tag=game,limit=1] run tellraw @a[tag=!gm,tag=!first] ["",{"text":"          HsCom 人狼ゲーム","color":"gold"}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=!gm,tag=!first] ["",{"text":"-------------------------------------------","color":"gold"}]
 #プレイヤーへ参加するか通知
-execute as @e[tag=game,limit=1] run tellraw @a[tag=!first] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"ゲームに参加する場合、参加をクリックしてください。(見るだけの場合、観戦をクリックしてください。)"}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=!first] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"   --- 参加 ---","color":"green","clickEvent":{"action":"run_command","value":"/execute if entity @s[tag=!wwp] run tag @s add wwp"}},{"text":"   "},{"text":"--- 観戦 ---","color":"blue","clickEvent":{"action":"run_command","value":"/execute if entity @s[tag=!wws] run tag @s add wws"}}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=!first] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-------------------------------------------"}]
 #すべてのプレイヤーにfirstタグ付与
@@ -28,17 +27,15 @@ gamemode adventure @a[tag=wwps,tag=!wwfirst]
 
 #wwpチーム参加、通知
 team join wwt @a[tag=wwp,tag=!wwfirst]
-execute as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"\n参加しました。"}]
-execute as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"Discordの「MINECTAFTイベント」-「Minecraft人狼 生存者」通話に参加してください。"}]
-execute as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"参加を取り消す場合、参加取消をクリックしてください。"}]
+execute as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"指定された通話に参加してください。"}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"--- 参加取消 ---","color":"red","clickEvent":{"action":"run_command","value":"/execute if score @e[tag=game,limit=1] setting_done matches 0 run tag @s add leave"}},{"text":"   ※カウントダウン開始後は取消できません。"}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-------------------------------------------"}]
 #wws通知
-execute as @e[tag=game,limit=1] run tellraw @a[tag=wws,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"\n観戦に登録しました。"}]
-execute as @e[tag=game,limit=1] run tellraw @a[tag=wws,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"Discordの「MINECTAFTイベント」-「Minecraft人狼 生存者」通話に参加してください。"}]
-execute as @e[tag=game,limit=1] run tellraw @a[tag=wws,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"観戦を取り消す場合、観戦取消をクリックしてください。"}]
+execute as @e[tag=game,limit=1] run tellraw @a[tag=wws,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"指定された通話に参加してください。"}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wws,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"--- 観戦取消 ---","color":"red","clickEvent":{"action":"run_command","value":"/execute if score @e[tag=game,limit=1] setting_done matches 0 run tag @s add leave"}},{"text":"   ※カウントダウン開始後は取消できません。"}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wws,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-------------------------------------------"}]
+#gmにwwpsタグがなかった場合、setting_tellraw表示
+execute as @a[tag=gm,tag=wwps,tag=first,tag=!wwfirst] run schedule function hsfunc:werewolf/utility/setting_tellraw 1t replace
 #wwpsタグのプレイヤーにwwfirstタグ付与
 tag @e[tag=wwps,tag=!wwfirst] add wwfirst
 
@@ -93,4 +90,4 @@ execute if score @e[tag=game,limit=1] setting_done matches 1 if score @e[tag=gam
 #設定完了スコアが1かつupdateが-1の場合、タイトル表示し、ID設定から呼出
 execute if score @e[tag=game,limit=1] setting_done matches 1 if score @e[tag=game,limit=1] update matches -1 run title @a[tag=wwps] title [{"text":"まもなく再開します…"}]
 execute if score @e[tag=game,limit=1] setting_done matches 1 if score @e[tag=game,limit=1] update matches -1 run title @a[tag=wwps] actionbar ["",{"text":"--- [設定完了] ---","color":"gold"}]
-execute if score @e[tag=game,limit=1] setting_done matches 1 if score @e[tag=game,limit=1] update matches -1 run schedule function hsfunc:werewolf/utility/countdown 3s
+execute if score @e[tag=game,limit=1] setting_done matches 1 if score @e[tag=game,limit=1] update matches -1 run schedule function hsfunc:werewolf/utility/countdown 1s
