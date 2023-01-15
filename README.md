@@ -16,7 +16,7 @@ hscom - Minecraft Datapacks
 [x] Summon(Skeleton)
 [x] Shop
 [x] SystemTest
-[X] TestPlay
+[x] TestPlay
 [ ] AddRore(Thief)
 [ ] ChengeTestItems(Drac,Glow)
 
