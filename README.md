@@ -18,9 +18,10 @@ hscom - Minecraft Datapacks
 - [x] SystemTest
 - [x] TestPlay
 - [ ] AddRore(Thief)
-- [ ] ChengeTestItems(Drac,Glow)
+- [ ] ChengeTestItems(Drac:...,Glow:done)
+- [ ] Use DiscordMutePlugin
 
-[ ] Elements not available in the Bedrock Edition (book, click on text in chat to execute command) are processed differently.
+- [ ] Elements not available in the Bedrock Edition (book, click on text in chat to execute command) are processed differently.
 
 # Note
 
