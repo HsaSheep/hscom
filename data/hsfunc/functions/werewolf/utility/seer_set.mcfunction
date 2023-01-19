@@ -1,5 +1,6 @@
 #say @a[tag=gm] seer_set
 execute if entity @a[tag=wwp,scores={p_id=1}] at @e[tag=game,limit=1] run setblock ~ ~ ~-6 acacia_sign destroy
+#execute if entity @a[tag=wwp,scores={p_id=1}] at @e[tag=game,limit=1] run setblock ~ ~1 ~-6 
 execute if entity @a[tag=wwp,scores={p_id=1}] at @e[tag=game,limit=1] run data modify block ~ ~ ~-6 Text2 set value '{"selector":"@a[scores={p_id=1}]","clickEvent":{"action":"run_command","value":"/scoreboard players operation @s seer_id = @a[scores={p_id=1}] p_id"}}'
 execute if entity @a[tag=wwp,scores={p_id=1}] at @e[tag=game,limit=1] run data modify block ~ ~ ~-6 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/seer_run"}}'
 

@@ -40,6 +40,7 @@ scoreboard objectives add r_set dummy "ロール設定用、役職ごとに増�
 scoreboard objectives add s_multi dummy "夜敵Mobの沸きセット数(15秒間隔でs_multi体x p_count沸く)"
 scoreboard objectives add s_count dummy "夜敵Mobの沸き数(処理用)"
 scoreboard objectives add s_posy dummy "夜敵MobのY座標(処理用)"
+scoreboard objectives add enable_vc dummy "SimpleVoiceChatが有効かどうか(0...無効 1...有効)"
 scoreboard objectives add day dummy
 scoreboard objectives add night dummy
 scoreboard objectives add night_swap dummy
@@ -97,6 +98,7 @@ scoreboard players set @e[tag=game] r_vill 0
 scoreboard players set @e[tag=game] r_set 0
 scoreboard players set @e[tag=game] s_multi 17
 scoreboard players set @e[tag=game] s_count 0
+scoreboard players set @e[tag=game] enable_vc 0
 scoreboard players set @e s_posy 0
 scoreboard players reset @e day
 scoreboard players reset @e night
@@ -104,6 +106,7 @@ scoreboard players reset @e night_swap
 scoreboard players reset @e update
 scoreboard players reset @e setting_done
 scoreboard players reset @e num
+
 ###時間関係
 scoreboard players set @e[tag=game] 2 2
 scoreboard players set @e[tag=game] 60 60

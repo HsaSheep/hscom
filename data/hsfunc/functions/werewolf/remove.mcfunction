@@ -25,6 +25,7 @@ scoreboard objectives remove r_vill
 scoreboard objectives remove r_set
 scoreboard objectives remove s_multi
 scoreboard objectives remove s_count
+scoreboard objectives remove enable_vc
 scoreboard objectives remove day
 scoreboard objectives remove night
 scoreboard objectives remove night_swap
@@ -79,6 +80,7 @@ title @a[tag=wwps] actionbar ["",{"text": "-- ゲームを削除しました --"
 team remove wwt
 
 #タグ削除
+execute if entity @e[tag=voice] run tag @e[tag=voice] remove voice
 execute if entity @e[tag=gm] run tag @e[tag=gm] remove gm
 execute if entity @e[tag=wwp] run tag @e[tag=wwp] remove wwp
 execute if entity @e[tag=wws] run tag @e[tag=wws] remove wws

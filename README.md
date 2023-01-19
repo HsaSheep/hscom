@@ -2,11 +2,16 @@
 
 hscom - Minecraft Datapacks
 
+
 # Minecraft Version
 
 * 1.19.3
 
-# Todo
+
+# Change Log 
+
+### --V1.00--
+
 - [x] Timer
 - [x] Bossbar
 - [x] ID
@@ -17,11 +22,14 @@ hscom - Minecraft Datapacks
 - [x] Shop
 - [x] SystemTest
 - [x] TestPlay
-- [ ] AddRore(Thief)
-- [ ] ChengeTestItems(Drac:...,Glow:done)
-- [ ] Use DiscordMutePlugin
 
+### --V1.01-- 
+
+- [ ] ChengeTestItems(Drac:done,Glow:...)
+- [ ] Use DiscordMutePlugin
+- [ ] AddRore(Thief)
 - [ ] Elements not available in the Bedrock Edition (book, click on text in chat to execute command) are processed differently.
+
 
 # Note
 
