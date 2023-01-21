@@ -24,10 +24,13 @@ hscom - Minecraft Datapacks
 - [x] TestPlay
 
 ### --V1.01-- 
+- [x] ChengeTestItems(Drac)
+- [x] AddRore(Thief)
+- [ ] TestPlay
 
-- [ ] ChengeTestItems(Drac:done,Glow:...)
+### --TODO--
+- [ ] ChengeTestItems(Glow)
 - [ ] Use DiscordMutePlugin
-- [ ] AddRore(Thief)
 - [ ] Elements not available in the Bedrock Edition (book, click on text in chat to execute command) are processed differently.
 
 
