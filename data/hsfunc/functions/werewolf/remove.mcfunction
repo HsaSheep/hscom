@@ -8,6 +8,7 @@ function hsfunc:werewolf/utility/reset
 ###プレイヤー関係
 scoreboard objectives remove p_id
 scoreboard objectives remove seer_id
+scoreboard objectives remove thie_id
 scoreboard objectives remove death_count
 scoreboard objectives remove damage_give
 scoreboard objectives remove damage_taken
@@ -21,6 +22,7 @@ scoreboard objectives remove p_count
 scoreboard objectives remove r_wolf
 scoreboard objectives remove r_mani
 scoreboard objectives remove r_drac
+scoreboard objectives remove r_thie
 scoreboard objectives remove r_vill
 scoreboard objectives remove r_set
 scoreboard objectives remove s_multi

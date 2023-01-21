@@ -2,83 +2,83 @@
 execute if entity @a[tag=wwp,scores={p_id=1}] at @e[tag=game,limit=1] run setblock ~ ~ ~-6 acacia_sign destroy
 #execute if entity @a[tag=wwp,scores={p_id=1}] at @e[tag=game,limit=1] run setblock ~ ~1 ~-6 
 execute if entity @a[tag=wwp,scores={p_id=1}] at @e[tag=game,limit=1] run data modify block ~ ~ ~-6 Text2 set value '{"selector":"@a[scores={p_id=1}]","clickEvent":{"action":"run_command","value":"/scoreboard players operation @s seer_id = @a[scores={p_id=1}] p_id"}}'
-execute if entity @a[tag=wwp,scores={p_id=1}] at @e[tag=game,limit=1] run data modify block ~ ~ ~-6 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/seer_run"}}'
+execute if entity @a[tag=wwp,scores={p_id=1}] at @e[tag=game,limit=1] run data modify block ~ ~ ~-6 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/sign_rightclick"}}'
 
 execute if entity @a[tag=wwp,scores={p_id=2}] at @e[tag=game,limit=1] run setblock ~2 ~ ~-6 acacia_sign destroy
 execute if entity @a[tag=wwp,scores={p_id=2}] at @e[tag=game,limit=1] run data modify block ~2 ~ ~-6 Text2 set value '{"selector":"@a[scores={p_id=2}]","clickEvent":{"action":"run_command","value":"/scoreboard players operation @s seer_id = @a[scores={p_id=2}] p_id"}}'
-execute if entity @a[tag=wwp,scores={p_id=2}] at @e[tag=game,limit=1] run data modify block ~2 ~ ~-6 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/seer_run"}}'
+execute if entity @a[tag=wwp,scores={p_id=2}] at @e[tag=game,limit=1] run data modify block ~2 ~ ~-6 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/sign_rightclick"}}'
 
 execute if entity @a[tag=wwp,scores={p_id=3}] at @e[tag=game,limit=1] run setblock ~4 ~ ~-6 acacia_sign destroy
 execute if entity @a[tag=wwp,scores={p_id=3}] at @e[tag=game,limit=1] run data modify block ~4 ~ ~-6 Text2 set value '{"selector":"@a[scores={p_id=3}]","clickEvent":{"action":"run_command","value":"/scoreboard players operation @s seer_id = @a[scores={p_id=3}] p_id"}}'
-execute if entity @a[tag=wwp,scores={p_id=3}] at @e[tag=game,limit=1] run data modify block ~4 ~ ~-6 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/seer_run"}}'
+execute if entity @a[tag=wwp,scores={p_id=3}] at @e[tag=game,limit=1] run data modify block ~4 ~ ~-6 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/sign_rightclick"}}'
 
 execute if entity @a[tag=wwp,scores={p_id=4}] at @e[tag=game,limit=1] run setblock ~6 ~ ~-4 acacia_sign destroy
 execute if entity @a[tag=wwp,scores={p_id=4}] at @e[tag=game,limit=1] run data modify block ~6 ~ ~-4 Text2 set value '{"selector":"@a[scores={p_id=4}]","clickEvent":{"action":"run_command","value":"/scoreboard players operation @s seer_id = @a[scores={p_id=4}] p_id"}}'
-execute if entity @a[tag=wwp,scores={p_id=4}] at @e[tag=game,limit=1] run data modify block ~6 ~ ~-4 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/seer_run"}}'
+execute if entity @a[tag=wwp,scores={p_id=4}] at @e[tag=game,limit=1] run data modify block ~6 ~ ~-4 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/sign_rightclick"}}'
 
 execute if entity @a[tag=wwp,scores={p_id=5}] at @e[tag=game,limit=1] run setblock ~6 ~ ~-2 acacia_sign destroy
 execute if entity @a[tag=wwp,scores={p_id=5}] at @e[tag=game,limit=1] run data modify block ~6 ~ ~-2 Text2 set value '{"selector":"@a[scores={p_id=5}]","clickEvent":{"action":"run_command","value":"/scoreboard players operation @s seer_id = @a[scores={p_id=5}] p_id"}}'
-execute if entity @a[tag=wwp,scores={p_id=5}] at @e[tag=game,limit=1] run data modify block ~6 ~ ~-2 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/seer_run"}}'
+execute if entity @a[tag=wwp,scores={p_id=5}] at @e[tag=game,limit=1] run data modify block ~6 ~ ~-2 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/sign_rightclick"}}'
 
 execute if entity @a[tag=wwp,scores={p_id=6}] at @e[tag=game,limit=1] run setblock ~6 ~ ~ acacia_sign destroy
 execute if entity @a[tag=wwp,scores={p_id=6}] at @e[tag=game,limit=1] run data modify block ~6 ~ ~ Text2 set value '{"selector":"@a[scores={p_id=6}]","clickEvent":{"action":"run_command","value":"/scoreboard players operation @s seer_id = @a[scores={p_id=6}] p_id"}}'
-execute if entity @a[tag=wwp,scores={p_id=6}] at @e[tag=game,limit=1] run data modify block ~6 ~ ~ Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/seer_run"}}'
+execute if entity @a[tag=wwp,scores={p_id=6}] at @e[tag=game,limit=1] run data modify block ~6 ~ ~ Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/sign_rightclick"}}'
 
 execute if entity @a[tag=wwp,scores={p_id=7}] at @e[tag=game,limit=1] run setblock ~6 ~ ~2 acacia_sign destroy
 execute if entity @a[tag=wwp,scores={p_id=7}] at @e[tag=game,limit=1] run data modify block ~6 ~ ~2 Text2 set value '{"selector":"@a[scores={p_id=7}]","clickEvent":{"action":"run_command","value":"/scoreboard players operation @s seer_id = @a[scores={p_id=7}] p_id"}}'
-execute if entity @a[tag=wwp,scores={p_id=7}] at @e[tag=game,limit=1] run data modify block ~6 ~ ~2 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/seer_run"}}'
+execute if entity @a[tag=wwp,scores={p_id=7}] at @e[tag=game,limit=1] run data modify block ~6 ~ ~2 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/sign_rightclick"}}'
 
 execute if entity @a[tag=wwp,scores={p_id=8}] at @e[tag=game,limit=1] run setblock ~6 ~ ~4 acacia_sign destroy
 execute if entity @a[tag=wwp,scores={p_id=8}] at @e[tag=game,limit=1] run data modify block ~6 ~ ~4 Text2 set value '{"selector":"@a[scores={p_id=8}]","clickEvent":{"action":"run_command","value":"/scoreboard players operation @s seer_id = @a[scores={p_id=8}] p_id"}}'
-execute if entity @a[tag=wwp,scores={p_id=8}] at @e[tag=game,limit=1] run data modify block ~6 ~ ~4 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/seer_run"}}'
+execute if entity @a[tag=wwp,scores={p_id=8}] at @e[tag=game,limit=1] run data modify block ~6 ~ ~4 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/sign_rightclick"}}'
 
 execute if entity @a[tag=wwp,scores={p_id=9}] at @e[tag=game,limit=1] run setblock ~4 ~ ~6 acacia_sign destroy
 execute if entity @a[tag=wwp,scores={p_id=9}] at @e[tag=game,limit=1] run data modify block ~4 ~ ~6 Text2 set value '{"selector":"@a[scores={p_id=9}]","clickEvent":{"action":"run_command","value":"/scoreboard players operation @s seer_id = @a[scores={p_id=9}] p_id"}}'
-execute if entity @a[tag=wwp,scores={p_id=9}] at @e[tag=game,limit=1] run data modify block ~4 ~ ~6 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/seer_run"}}'
+execute if entity @a[tag=wwp,scores={p_id=9}] at @e[tag=game,limit=1] run data modify block ~4 ~ ~6 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/sign_rightclick"}}'
 
 execute if entity @a[tag=wwp,scores={p_id=10}] at @e[tag=game,limit=1] run setblock ~2 ~ ~6 acacia_sign destroy
 execute if entity @a[tag=wwp,scores={p_id=10}] at @e[tag=game,limit=1] run data modify block ~2 ~ ~6 Text2 set value '{"selector":"@a[scores={p_id=10}]","clickEvent":{"action":"run_command","value":"/scoreboard players operation @s seer_id = @a[scores={p_id=10}] p_id"}}'
-execute if entity @a[tag=wwp,scores={p_id=10}] at @e[tag=game,limit=1] run data modify block ~2 ~ ~6 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/seer_run"}}'
+execute if entity @a[tag=wwp,scores={p_id=10}] at @e[tag=game,limit=1] run data modify block ~2 ~ ~6 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/sign_rightclick"}}'
 
 execute if entity @a[tag=wwp,scores={p_id=11}] at @e[tag=game,limit=1] run setblock ~ ~ ~6 acacia_sign destroy
 execute if entity @a[tag=wwp,scores={p_id=11}] at @e[tag=game,limit=1] run data modify block ~ ~ ~6 Text2 set value '{"selector":"@a[scores={p_id=11}]","clickEvent":{"action":"run_command","value":"/scoreboard players operation @s seer_id = @a[scores={p_id=11}] p_id"}}'
-execute if entity @a[tag=wwp,scores={p_id=11}] at @e[tag=game,limit=1] run data modify block ~ ~ ~6 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/seer_run"}}'
+execute if entity @a[tag=wwp,scores={p_id=11}] at @e[tag=game,limit=1] run data modify block ~ ~ ~6 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/sign_rightclick"}}'
 
 execute if entity @a[tag=wwp,scores={p_id=12}] at @e[tag=game,limit=1] run setblock ~-2 ~ ~6 acacia_sign destroy
 execute if entity @a[tag=wwp,scores={p_id=12}] at @e[tag=game,limit=1] run data modify block ~-2 ~ ~6 Text2 set value '{"selector":"@a[scores={p_id=12}]","clickEvent":{"action":"run_command","value":"/scoreboard players operation @s seer_id = @a[scores={p_id=12}] p_id"}}'
-execute if entity @a[tag=wwp,scores={p_id=12}] at @e[tag=game,limit=1] run data modify block ~-2 ~ ~6 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/seer_run"}}'
+execute if entity @a[tag=wwp,scores={p_id=12}] at @e[tag=game,limit=1] run data modify block ~-2 ~ ~6 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/sign_rightclick"}}'
 
 execute if entity @a[tag=wwp,scores={p_id=13}] at @e[tag=game,limit=1] run setblock ~-4 ~ ~6 acacia_sign destroy
 execute if entity @a[tag=wwp,scores={p_id=13}] at @e[tag=game,limit=1] run data modify block ~-4 ~ ~6 Text2 set value '{"selector":"@a[scores={p_id=13}]","clickEvent":{"action":"run_command","value":"/scoreboard players operation @s seer_id = @a[scores={p_id=13}] p_id"}}'
-execute if entity @a[tag=wwp,scores={p_id=13}] at @e[tag=game,limit=1] run data modify block ~-4 ~ ~6 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/seer_run"}}'
+execute if entity @a[tag=wwp,scores={p_id=13}] at @e[tag=game,limit=1] run data modify block ~-4 ~ ~6 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/sign_rightclick"}}'
 
 execute if entity @a[tag=wwp,scores={p_id=14}] at @e[tag=game,limit=1] run setblock ~-6 ~ ~4 acacia_sign destroy
 execute if entity @a[tag=wwp,scores={p_id=14}] at @e[tag=game,limit=1] run data modify block ~-6 ~ ~4 Text2 set value '{"selector":"@a[scores={p_id=14}]","clickEvent":{"action":"run_command","value":"/scoreboard players operation @s seer_id = @a[scores={p_id=14}] p_id"}}'
-execute if entity @a[tag=wwp,scores={p_id=14}] at @e[tag=game,limit=1] run data modify block ~-6 ~ ~4 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/seer_run"}}'
+execute if entity @a[tag=wwp,scores={p_id=14}] at @e[tag=game,limit=1] run data modify block ~-6 ~ ~4 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/sign_rightclick"}}'
 
 execute if entity @a[tag=wwp,scores={p_id=15}] at @e[tag=game,limit=1] run setblock ~-6 ~ ~2 acacia_sign destroy
 execute if entity @a[tag=wwp,scores={p_id=15}] at @e[tag=game,limit=1] run data modify block ~-6 ~ ~2 Text2 set value '{"selector":"@a[scores={p_id=15}]","clickEvent":{"action":"run_command","value":"/scoreboard players operation @s seer_id = @a[scores={p_id=15}] p_id"}}'
-execute if entity @a[tag=wwp,scores={p_id=15}] at @e[tag=game,limit=1] run data modify block ~-6 ~ ~2 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/seer_run"}}'
+execute if entity @a[tag=wwp,scores={p_id=15}] at @e[tag=game,limit=1] run data modify block ~-6 ~ ~2 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/sign_rightclick"}}'
 
 execute if entity @a[tag=wwp,scores={p_id=16}] at @e[tag=game,limit=1] run setblock ~-6 ~ ~ acacia_sign destroy
 execute if entity @a[tag=wwp,scores={p_id=16}] at @e[tag=game,limit=1] run data modify block ~-6 ~ ~ Text2 set value '{"selector":"@a[scores={p_id=16}]","clickEvent":{"action":"run_command","value":"/scoreboard players operation @s seer_id = @a[scores={p_id=16}] p_id"}}'
-execute if entity @a[tag=wwp,scores={p_id=16}] at @e[tag=game,limit=1] run data modify block ~-6 ~ ~ Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/seer_run"}}'
+execute if entity @a[tag=wwp,scores={p_id=16}] at @e[tag=game,limit=1] run data modify block ~-6 ~ ~ Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/sign_rightclick"}}'
 
 execute if entity @a[tag=wwp,scores={p_id=17}] at @e[tag=game,limit=1] run setblock ~-6 ~ ~-2 acacia_sign destroy
 execute if entity @a[tag=wwp,scores={p_id=17}] at @e[tag=game,limit=1] run data modify block ~-6 ~ ~-2 Text2 set value '{"selector":"@a[scores={p_id=17}]","clickEvent":{"action":"run_command","value":"/scoreboard players operation @s seer_id = @a[scores={p_id=17}] p_id"}}'
-execute if entity @a[tag=wwp,scores={p_id=17}] at @e[tag=game,limit=1] run data modify block ~-6 ~ ~-2 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/seer_run"}}'
+execute if entity @a[tag=wwp,scores={p_id=17}] at @e[tag=game,limit=1] run data modify block ~-6 ~ ~-2 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/sign_rightclick"}}'
 
 execute if entity @a[tag=wwp,scores={p_id=18}] at @e[tag=game,limit=1] run setblock ~-6 ~ ~-4 acacia_sign destroy
 execute if entity @a[tag=wwp,scores={p_id=18}] at @e[tag=game,limit=1] run data modify block ~-6 ~ ~-4 Text2 set value '{"selector":"@a[scores={p_id=18}]","clickEvent":{"action":"run_command","value":"/scoreboard players operation @s seer_id = @a[scores={p_id=18}] p_id"}}'
-execute if entity @a[tag=wwp,scores={p_id=18}] at @e[tag=game,limit=1] run data modify block ~-6 ~ ~-4 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/seer_run"}}'
+execute if entity @a[tag=wwp,scores={p_id=18}] at @e[tag=game,limit=1] run data modify block ~-6 ~ ~-4 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/sign_rightclick"}}'
 
 execute if entity @a[tag=wwp,scores={p_id=19}] at @e[tag=game,limit=1] run setblock ~-4 ~ ~-6 acacia_sign destroy
 execute if entity @a[tag=wwp,scores={p_id=19}] at @e[tag=game,limit=1] run data modify block ~-4 ~ ~-6 Text2 set value '{"selector":"@a[scores={p_id=19}]","clickEvent":{"action":"run_command","value":"/scoreboard players operation @s seer_id = @a[scores={p_id=19}] p_id"}}'
-execute if entity @a[tag=wwp,scores={p_id=19}] at @e[tag=game,limit=1] run data modify block ~-4 ~ ~-6 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/seer_run"}}'
+execute if entity @a[tag=wwp,scores={p_id=19}] at @e[tag=game,limit=1] run data modify block ~-4 ~ ~-6 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/sign_rightclick"}}'
 
 execute if entity @a[tag=wwp,scores={p_id=20}] at @e[tag=game,limit=1] run setblock ~-2 ~ ~-6 acacia_sign destroy
 execute if entity @a[tag=wwp,scores={p_id=20}] at @e[tag=game,limit=1] run data modify block ~-2 ~ ~-6 Text2 set value '{"selector":"@a[scores={p_id=20}]","clickEvent":{"action":"run_command","value":"/scoreboard players operation @s seer_id = @a[scores={p_id=20}] p_id"}}'
-execute if entity @a[tag=wwp,scores={p_id=20}] at @e[tag=game,limit=1] run data modify block ~-2 ~ ~-6 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/seer_run"}}'
+execute if entity @a[tag=wwp,scores={p_id=20}] at @e[tag=game,limit=1] run data modify block ~-2 ~ ~-6 Text4 set value '{"text":"< 右クリックで占う >","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/sign_rightclick"}}'
 
 title @a[tag=wwps] actionbar ["",{"text":"--- [初期化完了] ---","color":"gold"}]
 tellraw @a[tag=gm] ["",{"text":"--- [初期化完了"},{"text":"] ---"}]

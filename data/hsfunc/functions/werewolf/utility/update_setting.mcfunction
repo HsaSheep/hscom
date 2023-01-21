@@ -51,10 +51,12 @@ execute at @a[tag=wwp] run scoreboard players add "--プレイヤー数" wwlist 
 scoreboard players operation "人狼の数(+100000000)" wwlist = @e[tag=game,limit=1] r_wolf
 scoreboard players operation "狂人の数(+10000000)" wwlist = @e[tag=game,limit=1] r_mani
 scoreboard players operation "吸血の数(+1000000)" wwlist = @e[tag=game,limit=1] r_drac
+scoreboard players operation "怪盗の数(+100000)" wwlist = @e[tag=game,limit=1] r_thie
 ##ソート対応用加算
 scoreboard players add "人狼の数(+100000000)" wwlist 100000000
 scoreboard players add "狂人の数(+10000000)" wwlist 10000000
 scoreboard players add "吸血の数(+1000000)" wwlist 1000000
+scoreboard players add "怪盗の数(+100000)" wwlist 100000
 
 #時間表示
 scoreboard players operation @e[tag=game,limit=1] time_day_m = @e[tag=game,limit=1] time_day

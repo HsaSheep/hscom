@@ -22,6 +22,7 @@ difficulty hard
 ###プレイヤー関係
 scoreboard objectives add p_id dummy "プレイヤーID"
 scoreboard objectives add seer_id dummy "占い先ID"
+scoreboard objectives add thie_id dummy "怪盗ID(怪盗…変更元ID、対象…怪盗ID)"
 scoreboard objectives add death_count deathCount "死亡確認用"
 scoreboard objectives add damage_give minecraft.custom:minecraft.damage_dealt "与ダメージ"
 scoreboard objectives add damage_taken minecraft.custom:minecraft.damage_taken "受ダメージ"
@@ -35,6 +36,7 @@ scoreboard objectives add p_count dummy "参加プレイヤー数"
 scoreboard objectives add r_wolf dummy "人狼の数"
 scoreboard objectives add r_mani dummy "狂人の数"
 scoreboard objectives add r_drac dummy "吸血の数"
+scoreboard objectives add r_thie dummy "怪盗の数"
 scoreboard objectives add r_vill dummy "村人の数(結果表示用)"
 scoreboard objectives add r_set dummy "ロール設定用、役職ごとに増やす"
 scoreboard objectives add s_multi dummy "夜敵Mobの沸きセット数(15秒間隔でs_multi体x p_count沸く)"
@@ -81,6 +83,7 @@ scoreboard objectives add time_night_first_s dummy
 ###プレイヤー関係
 scoreboard players set @a p_id 0 
 scoreboard players set @a seer_id 0
+scoreboard players set @a thie_id 0
 scoreboard players set @a death_count 0
 scoreboard players set @a damage_give 0
 scoreboard players set @a damage_taken 0
@@ -94,6 +97,7 @@ scoreboard players set @e[tag=game] p_count 0
 scoreboard players set @e[tag=game] r_wolf 2
 scoreboard players set @e[tag=game] r_mani 0
 scoreboard players set @e[tag=game] r_drac 1
+scoreboard players set @e[tag=game] r_thie 0
 scoreboard players set @e[tag=game] r_vill 0
 scoreboard players set @e[tag=game] r_set 0
 scoreboard players set @e[tag=game] s_multi 17

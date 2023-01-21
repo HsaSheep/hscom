@@ -13,22 +13,13 @@ team modify wwt seeFriendlyInvisibles false
 
 #updateが0の時、役職通知(サブタイトル、tellraw)
 ##tellraw
-execute if score @e[tag=game,limit=1] update matches 0 as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=!wolf,tag=!mani,tag=!drac] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text": "あなたは "},{"text": "村人","color": "green"},{"text": " です","color": "white"}]
-execute if score @e[tag=game,limit=1] update matches 0 as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=!wolf,tag=!mani,tag=!drac] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text": "勝利条件： すべての人狼を倒す"}]
-execute if score @e[tag=game,limit=1] update matches 0 as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=wolf] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text": "あなたは "},{"text": "人狼","color": "red"},{"text": " です","color": "white"}]
-execute if score @e[tag=game,limit=1] update matches 0 as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=wolf] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text": "勝利条件： すべての村人を倒す"}]
-execute if score @e[tag=game,limit=1] update matches 0 as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=mani] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text": "あなたは "},{"text": "狂人","color": "gold"},{"text": " です","color": "white"}]
-execute if score @e[tag=game,limit=1] update matches 0 as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=mani] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text": "勝利条件： 村人に悟られないよう人狼に協力し、すべての村人を倒す"}]
-execute if score @e[tag=game,limit=1] update matches 0 as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=drac] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text": "あなたは "},{"text": "吸血","color": "dark_purple"},{"text": " です","color": "white"}]
-execute if score @e[tag=game,limit=1] update matches 0 as @e[tag=game,limit=1] run tellraw @a[tag=wwp,tag=drac] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text": "勝利条件： 村人または人狼いずれかを壊滅させる"}]
-##仲間の通知（人狼）
-tellraw @a[tag=wwp,tag=wolf] ["",{"text":" 仲間の人狼：","color": "red"}]
-execute as @a[tag=wwp,tag=wolf] run tellraw @a[tag=wwp,tag=wolf] ["",{"text":"            "},{"selector":"@s","color":"red"}]
+execute if score @e[tag=game,limit=1] update matches 0 as @a[tag=wwp] run function hsfunc:werewolf/utility/role_tellraw
 ##subtitle
 execute if score @e[tag=game,limit=1] update matches 0 run title @a[tag=wwp,tag=!wolf,tag=!mani,tag=!drac] subtitle ["",{"text": "あなたは "},{"text": "村人","color": "green"},{"text": " です","color": "white"}]
 execute if score @e[tag=game,limit=1] update matches 0 run title @a[tag=wwp,tag=wolf] subtitle ["",{"text": "あなたは "},{"text": "人狼","color": "red"},{"text": " です","color": "white"}]
 execute if score @e[tag=game,limit=1] update matches 0 run title @a[tag=wwp,tag=mani] subtitle ["",{"text": "あなたは "},{"text": "狂人","color": "gold"},{"text": " です","color": "white"}]
 execute if score @e[tag=game,limit=1] update matches 0 run title @a[tag=wwp,tag=drac] subtitle ["",{"text": "あなたは "},{"text": "吸血","color": "dark_purple"},{"text": " です","color": "white"}]
+execute if score @e[tag=game,limit=1] update matches 0 run title @a[tag=wwp,tag=thie] subtitle ["",{"text": "あなたは "},{"text": "怪盗","color": "blue"},{"text": " です","color": "white"}]
 
 #title表示
 execute if score @e[tag=game,limit=1] update matches 0 run title @a[tag=wwps] title ["",{"text": "--- "},{"text": "ゲーム開始"},{"text": " ---"}]
@@ -48,14 +39,6 @@ execute as @e[tag=ww,tag=game,limit=1] store result score @s s_posy run data get
 ##s_posy+高さ座標マージン（skeleton召喚時判定用）
 scoreboard players add @e[tag=ww,tag=game,limit=1] s_posy 8
 #execute as @e[tag=ww,tag=game,limit=1] run tellraw @a[tag=wwps,tag=gm] ["",{"text": "["},{"selector":"@s"},{"text": "] "},{"text": "開始点Y: "},{"score":{"name": "@e[tag=game,limit=1]","objective": "s_posy"}},{"text": "  スポーン限界点Y: "},{"score":{"name": "@e[tag=game,limit=1]","objective": "s_posy"}}]
-##ダメージカウント初期化（update_itemで使用）
 
-
-#ポーション効果削除
-effect clear @a[tag=wwp]
-
-#ショップ設置
-execute if entity @e[tag=shop_position] run function hsfunc:werewolf/shop/set_shop
-
-#update_time呼出
-function hsfunc:werewolf/utility/update_time
+#thieの設定に移動
+function hsfunc:werewolf/utility/thie_update
