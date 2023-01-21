@@ -49,7 +49,10 @@ execute if entity @e[tag=wolf] run tag @e[tag=wolf] remove wolf
 execute if entity @e[tag=mani] run tag @e[tag=mani] remove mani
 execute if entity @e[tag=drac] run tag @e[tag=drac] remove drac
 execute if entity @e[tag=thie] run tag @e[tag=thie] remove thie
-execute if entity @e[tag=thie_done] run tag @e[tag=thie] remove thie_done
+execute if entity @e[tag=thie_done] run tag @e[tag=thie_done] remove thie_done
+execute if entity @e[tag=thie_done_wolf] run tag @e[tag=thie_done_wolf] remove thie_done_wolf
+execute if entity @e[tag=thie_done_mani] run tag @e[tag=thie_done_mani] remove thie_done_mani
+execute if entity @e[tag=thie_done_drac] run tag @e[tag=thie_done_drac] remove thie_done_drac
 #execute if entity @e[tag=vill] run tag @e[tag=vill] remove vill
 
 time set day

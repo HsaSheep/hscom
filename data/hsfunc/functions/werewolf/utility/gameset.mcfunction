@@ -44,27 +44,36 @@ execute if score @e[tag=game,limit=1] num matches 100 as @e[tag=game,limit=1] ru
 tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"text":"-------------------------------------------"}]
 ##役職表示
 tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"text":"- 役職内訳 -","color":"white"}]
-###人狼
-tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"人狼","color":"red"},{"text":" : ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"r_wolf"},"color":"white"},{"text":" --","color":"white"}]
-execute as @e[tag=wwp,tag=wolf,tag=!thie,tag=!thie_done] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"red"}]
-execute as @e[tag=wwp,tag=wolf,tag=thie_done] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"red","strikethrough":true}]
-###狂人
-execute if entity @a[tag=wwp,tag=mani] as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"狂人","color":"gold"},{"text":" : ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"r_mani"},"color":"white"},{"text":" --","color":"white"}]
-execute if entity @a[tag=wwp,tag=mani] as @a[tag=wwp,tag=mani,tag=!thie,tag=!thie_done] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"gold"}]
-execute if entity @a[tag=wwp,tag=mani] as @a[tag=wwp,tag=mani,tag=thie_done] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"gold","strikethrough":true}]
-###吸血
-execute if entity @a[tag=wwp,tag=drac] as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"吸血","color":"dark_purple"},{"text":" : ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"r_drac"},"color":"white"},{"text":" --","color":"white"}]
-execute if entity @a[tag=wwp,tag=drac] as @a[tag=wwp,tag=drac,tag=!thie,tag=!thie_done] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"dark_purple"}]
-execute if entity @a[tag=wwp,tag=drac] as @a[tag=wwp,tag=drac,tag=thie_done] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"dark_purple","strikethrough":true}]
-###怪盗
-execute if entity @a[tag=wwp,tag=thie] as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"怪盗","color":"blue"},{"text":" : (","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"r_thie"},"color":"white"},{"text":") --","color":"white"}]
-execute if entity @a[tag=wwp,tag=thie] as @a[tag=wwp,tag=thie,tag=wolf] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"blue"},{"text":" -> ","color":"white"},{"text":"人狼","color":"red"}]
-execute if entity @a[tag=wwp,tag=thie] as @a[tag=wwp,tag=thie,tag=mani] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"blue"},{"text":" -> ","color":"white"},{"text":"狂人","color":"gold"}]
-execute if entity @a[tag=wwp,tag=thie] as @a[tag=wwp,tag=thie,tag=drac] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"blue"},{"text":" -> ","color":"white"},{"text":"吸血","color":"dark_purple"}]
-execute if entity @a[tag=wwp,tag=thie] as @a[tag=wwp,tag=thie,tag=!wolf,tag=!mani,tag=!drac] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"blue"},{"text":" -> ","color":"white"},{"text":"村人","color":"green"}]
+
 ###村人
 tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"村人","color":"green"},{"text":" : ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"r_vill"},"color":"white"},{"text":" --","color":"white"}]
-execute as @e[tag=wwp,tag=!wolf,tag=!mani,tag=!drac,tag=!thie] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"green"}]
+execute as @e[tag=wwp,tag=!wolf,tag=!mani,tag=!drac,tag=!thie,tag=!thie_done] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"green"}]
+execute as @e[tag=wwp,tag=!wolf,tag=!mani,tag=!drac,tag=!thie,tag=thie_done] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"green"},{"text":"(怪盗被害者)","color": "blue"}]
+###人狼
+tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"人狼","color":"red"},{"text":" : ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"r_wolf"},"color":"white"},{"text":" --","color":"white"}]
+execute as @e[tag=wwp,tag=wolf,tag=!thie] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"red"}]
+execute as @e[tag=wwp,tag=!thie,tag=thie_done_wolf] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"red","strikethrough":true}]
+###狂人
+tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"狂人","color":"gold"},{"text":" : ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"r_mani"},"color":"white"},{"text":" --","color":"white"}]
+execute if entity @a[tag=wwp,tag=mani] as @a[tag=wwp,tag=mani,tag=!thie] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"gold"}]
+execute if entity @a[tag=wwp,tag=mani] as @a[tag=wwp,tag=!thie,tag=thie_done_mani] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"gold","strikethrough":true}]
+###吸血
+tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"吸血","color":"dark_purple"},{"text":" : ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"r_drac"},"color":"white"},{"text":" --","color":"white"}]
+execute if entity @a[tag=wwp,tag=drac] as @a[tag=wwp,tag=drac,tag=!thie] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"dark_purple"}]
+execute if entity @a[tag=wwp,tag=drac] as @a[tag=wwp,tag=!thie,tag=thie_done_drac] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"dark_purple","strikethrough":true}]
+###怪盗
+tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"怪盗","color":"blue"},{"text":" : (","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"r_thie"},"color":"white"},{"text":") --","color":"white"}]
+execute if entity @a[tag=wwp,tag=thie] as @a[tag=wwp,tag=thie,tag=!wolf,tag=!mani,tag=!drac,tag=!thie_done] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"blue"},{"text":" -> ","color":"white"},{"text":"村人","color":"green"}]
+execute if entity @a[tag=wwp,tag=thie] as @a[tag=wwp,tag=thie,tag=wolf,tag=!thie_done] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"blue"},{"text":" -> ","color":"white"},{"text":"人狼","color":"red"}]
+execute if entity @a[tag=wwp,tag=thie] as @a[tag=wwp,tag=thie,tag=mani,tag=!thie_done] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"blue"},{"text":" -> ","color":"white"},{"text":"狂人","color":"gold"}]
+execute if entity @a[tag=wwp,tag=thie] as @a[tag=wwp,tag=thie,tag=drac,tag=!thie_done] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"blue"},{"text":" -> ","color":"white"},{"text":"吸血","color":"dark_purple"}]
+####怪盗が怪盗された場合
+execute if entity @a[tag=wwp,tag=thie] as @a[tag=wwp,tag=thie,tag=!wolf,tag=!mani,tag=!drac,tag=thie_done] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"blue"},{"text":" -> ","color":"white"},{"text":"村人","color":"green"},{"text":"(怪盗被害者)","color":"blue"}]
+execute if entity @a[tag=wwp,tag=thie] as @a[tag=wwp,tag=thie,tag=wolf,tag=thie_done] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"blue"},{"text":" -> ","color":"white"},{"text":"人狼","color":"red"},{"text":"(怪盗被害者)","color":"blue"}]
+execute if entity @a[tag=wwp,tag=thie] as @a[tag=wwp,tag=thie,tag=mani,tag=thie_done] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"blue"},{"text":" -> ","color":"white"},{"text":"狂人","color":"gold"},{"text":"(怪盗被害者)","color":"blue"}]
+execute if entity @a[tag=wwp,tag=thie] as @a[tag=wwp,tag=thie,tag=drac,tag=thie_done] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"blue"},{"text":" -> ","color":"white"},{"text":"吸血","color":"dark_purple"},{"text":"(怪盗被害者)","color":"blue"}]
+
+
 ##プレイ時間表示
 tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"text":"- その他情報 -","color":"white"}]
 execute if score @e[tag=game,limit=1] night matches 0 as @e[tag=game,limit=1] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"日数… ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"day"},"color":"white"},{"text":"・","color":"white"},{"text":"昼","color":"yellow"},{"text":" --","color":"white"}]

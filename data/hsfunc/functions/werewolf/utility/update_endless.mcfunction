@@ -20,6 +20,8 @@ execute as @e[tag=game,limit=1] run execute if score @s r_wolf matches ..0 run s
 execute as @e[tag=game,limit=1] run execute if score @s r_mani matches ..-1 run scoreboard players set @s r_mani 0
 ##r_dracが-1の場合、0を代入
 execute as @e[tag=game,limit=1] run execute if score @s r_drac matches ..-1 run scoreboard players set @s r_drac 0
+##r_thieが-1の場合、0を代入
+execute as @e[tag=game,limit=1] run execute if score @s r_thie matches ..-1 run scoreboard players set @s r_thie 0
 ##time_dayが1以下の時、最低値を代入
 execute as @e[tag=game,limit=1] run execute if score @s time_day matches ..0 run scoreboard players set @s time_day 30
 ##time_nightが1以下の時、最低値を代入

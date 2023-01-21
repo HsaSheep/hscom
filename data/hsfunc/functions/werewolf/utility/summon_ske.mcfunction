@@ -29,4 +29,5 @@ execute if score @e[tag=game,limit=1] num matches ..0 run scoreboard players ope
 execute if score @e[tag=game,limit=1] num = @e[tag=game,limit=1] p_count run schedule function hsfunc:werewolf/utility/summon_ske 5s replace
 execute if score @e[tag=game,limit=1] s_count matches ..0 run schedule clear hsfunc:werewolf/utility/summon_ske
 execute if score @e[tag=game,limit=1] s_count matches ..0 run scoreboard players set @e[tag=ww,tag=game,limit=1] num 0
-execute if score @e[tag=game,limit=1] num = @e[tag=game,limit=1] p_count run title @a[tag=wwps] actionbar ["",{"text": "-- SummonWave: "},{"score":{"name": "@e[tag=game,limit=1]","objective": "s_count"}},{"text": " --"}]
+#デバック用（残り召喚回数表示）
+#execute if score @e[tag=game,limit=1] num = @e[tag=game,limit=1] p_count run title @a[tag=wwps] actionbar ["",{"text": "-- SummonWave: "},{"score":{"name": "@e[tag=game,limit=1]","objective": "s_count"}},{"text": " --"}]
