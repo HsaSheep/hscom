@@ -103,6 +103,9 @@ execute if score @e[tag=game,limit=1] num matches 1 as @a[tag=wwps] run playsoun
 #execute if score @e[tag=game,limit=1] num matches 2 as @a[tag=wwps] run playsound minecraft:entity.villager.death master @a ~ ~ ~ 0.7 1.0 0.7
 execute if score @e[tag=game,limit=1] num matches 2 as @a[tag=wwps] run playsound minecraft:entity.wolf.death master @a ~ ~ ~ 0.5 1.0 0.5
 
+#通知完了タグ削除
+tag @a[tag=wwfirst] remove wwfirst
+
 #初期化呼出
 schedule function hsfunc:werewolf/utility/reset 1s replace
 #

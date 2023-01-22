@@ -7,7 +7,7 @@ execute if score @e[tag=game,limit=1] update matches 1.. run scoreboard players 
 scoreboard objectives setdisplay sidebar wwlist
 
 #数値設定を表示
-execute if entity @s[tag=wwps] run function hsfunc:werewolf/utility/setting_tellraw
+#execute if entity @s[tag=wwps] run function hsfunc:werewolf/utility/setting_tellraw
 
 #GMへゲーム管理を表示（本、スロット7/右端から2番目）
 execute as @a[tag=gm] run function hsfunc:werewolf/utility/setting_give

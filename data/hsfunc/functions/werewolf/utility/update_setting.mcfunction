@@ -38,10 +38,11 @@ execute unless entity @a[tag=voice] as @e[tag=game,limit=1] run tellraw @a[tag=w
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wws,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"--- 観戦取消 ---","color":"red","clickEvent":{"action":"run_command","value":"/execute if score @e[tag=game,limit=1] setting_done matches 0 run tag @s add leave"}}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wws,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"※カウントダウン開始後は取消できません。"}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=wws,tag=!wwfirst] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-------------------------------------------"}]
-#gmにwwpsタグがなかった場合、setting_tellraw表示
-execute as @a[tag=gm,tag=wwps,tag=first,tag=!wwfirst] run schedule function hsfunc:werewolf/utility/setting_tellraw 1t replace
+#gmにwwpsタグがあり、setting_firstタグがなかった場合、setting_tellraw表示
+execute as @a[tag=gm,tag=wwps,tag=first,tag=!setting_first] run schedule function hsfunc:werewolf/utility/setting_tellraw 1t replace
 #wwpsタグのプレイヤーにwwfirstタグ付与
-tag @e[tag=wwps,tag=!wwfirst] add wwfirst
+tag @a[tag=wwps,tag=!wwfirst] add wwfirst
+tag @a[tag=gm,tag=wwps,tag=!setting_first] add setting_first
 
 
 #設定(時間以外)表示
