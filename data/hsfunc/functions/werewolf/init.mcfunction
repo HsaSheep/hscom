@@ -55,8 +55,12 @@ function hsfunc:werewolf/utility/update_endless
 #update_item呼出
 function hsfunc:werewolf/utility/update_item
 
-#DP削除
+#DP削除(ショップ以外すべて)
 execute if entity @e[tag=ww] run kill @e[tag=ww,tag=!shop_position]
+
+#デバック用DP召喚
+##アイテムデバック
+#summon armor_stand ~ ~2 ~ {Tags:["dummy","ww","debug_item"],CustomName:'{"text":"アイテム常時有効"}',CustomNameVisible:true,Marker:true,Invisible:true,NoGravity:true}
 
 #仮DP召喚
 summon armor_stand ~ ~ ~ {Tags:["dummy","ww","game"],CustomName:'{"text":"人狼ゲーム"}',CustomNameVisible:true,Marker:true,Invisible:true,NoGravity:true}

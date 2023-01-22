@@ -21,26 +21,34 @@ execute as @a[tag=wwp,scores={death_count=0,damage_give=1..}] run tag @s add dam
 #事前処理（受ダメージまたは防ダメージ確認tag付与）
 execute as @a[tag=wwp,scores={death_count=0,damage_taken=1..}] run tag @s add damage_take
 execute as @a[tag=wwp,scores={death_count=0,damage_resis=1..}] run tag @s add damage_take
+#デバック用
+#execute as @a[tag=damage_give] run tell @a[tag=gm] damage_give
+#execute as @a[tag=damage_take] run tell @a[tag=gm] damage_take
 
 ##nether_star
 ###ダメージを与えたプレイヤーがネザースターを持っている場合、タグ付与
+####テスト用、とにかくインベントリ内にあれば判定
+#execute as @a[tag=damage_give] if entity @s[nbt={Inventory:[{id:"minecraft:nether_star"}]}] run tag @s add using_nether_star
 execute as @a[tag=damage_give] if entity @s[nbt={SelectedItem:{id:"minecraft:nether_star"}}] run tag @s add using_nether_star
 ###周辺のダメージを受けた生存プレイヤーがtag=dracかどうか判定し、タグ付与
-execute as @a[tag=using_nether_star] run tag @a[tag=damage_take,sort=nearest,limit=1,distance=..5,tag=drac] add damage_nether_star
+#execute as @a[tag=using_nether_star] at @s run tag @a[tag=damage_take,sort=nearest,limit=1,distance=..5,tag=drac] add damage_nether_star
+execute as @a[tag=using_nether_star] at @s run tag @a[tag=damage_take,sort=nearest,limit=1,tag=drac] add damage_nether_star
 ###アイテム削除（距離条件適用）
-execute as @a[tag=using_nether_star] at @s if entity @a[tag=damage_nether_star,distance=..5] run clear @s nether_star 1
+execute as @a[tag=using_nether_star] if entity @a[tag=damage_nether_star] run clear @s nether_star 1
 ###ダメージを受けたdarcプレイヤー周辺でエフェクト、サウンド
 #execute as @a[tag=damage_nether_star] run stopsound @a[tag=damage_nether_star]
-execute as @a[tag=damage_nether_star] at @s run playsound minecraft:entity.lightning_bolt.thunder master @s ~ ~0.5 ~ 0.7 1.0 0.0
+execute as @a[tag=damage_nether_star] at @s run playsound minecraft:entity.lightning_bolt.thunder master @a[tag=wwps] ~ ~0.5 ~ 0.7 1.0 0.0
 execute as @a[tag=damage_nether_star] at @s run particle minecraft:explosion_emitter ~ ~0.5 ~
 ###キル
 execute as @a[tag=damage_nether_star] run kill @s
+###デバック用
+#execute as @a[tag=using_nether_star] run tell @a[tag=gm] using_nether_star
+#execute as @a[tag=damage_nether_star] run tell @a[tag=gm] damage_nether_star
 ###処理終了（タグ削除）
-execute as @a[tag=damage_nether_star] run tag @s remove damage_take
+execute as @a[tag=using_nether_star] run tag @s remove damage_give
 execute as @a[tag=using_nether_star] run tag @s remove using_nether_star
+execute as @a[tag=damage_nether_star] run tag @s remove damage_take
 execute as @a[tag=damage_nether_star] run tag @s remove damage_nether_star
-
-
 
 
 ##左クリック処理タグ削除（スコア初期化は基本的にitem_updateで。
