@@ -44,7 +44,6 @@ execute if score @e[tag=game,limit=1] num matches 100 as @e[tag=game,limit=1] ru
 tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"text":"-------------------------------------------"}]
 ##役職表示
 tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"text":"- 役職内訳 -","color":"white"}]
-
 ###村人
 tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"text":"-- ","color":"white"},{"text":"村人","color":"green"},{"text":" : ","color":"white"},{"score":{"name":"@e[tag=game,limit=1]","objective":"r_vill"},"color":"white"},{"text":" --","color":"white"}]
 execute as @e[tag=wwp,tag=!wolf,tag=!mani,tag=!drac,tag=!thie,tag=!thie_done] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"green"}]
@@ -72,7 +71,6 @@ execute if entity @a[tag=wwp,tag=thie] as @a[tag=wwp,tag=thie,tag=!wolf,tag=!man
 execute if entity @a[tag=wwp,tag=thie] as @a[tag=wwp,tag=thie,tag=wolf,tag=thie_done] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"blue"},{"text":" -> ","color":"white"},{"text":"人狼","color":"red"},{"text":"(怪盗被害者)","color":"blue"}]
 execute if entity @a[tag=wwp,tag=thie] as @a[tag=wwp,tag=thie,tag=mani,tag=thie_done] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"blue"},{"text":" -> ","color":"white"},{"text":"狂人","color":"gold"},{"text":"(怪盗被害者)","color":"blue"}]
 execute if entity @a[tag=wwp,tag=thie] as @a[tag=wwp,tag=thie,tag=drac,tag=thie_done] run tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"selector":"@s","color":"blue"},{"text":" -> ","color":"white"},{"text":"吸血","color":"dark_purple"},{"text":"(怪盗被害者)","color":"blue"}]
-
 
 ##プレイ時間表示
 tellraw @a[tag=wwps] ["",{"text":"["},{"selector":"@e[tag=game,limit=1]"},{"text":"] "},{"text":"- その他情報 -","color":"white"}]
