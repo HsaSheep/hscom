@@ -1,5 +1,5 @@
 #仮DP削除
-execute if entity @e[tag=ww] run kill @e[tag=ww,tag=!shop_position]
+execute if entity @e[tag=ww] run kill @e[tag=ww]
 #DP召喚
 summon armor_stand ~ ~ ~ {Tags:["dummy","ww","game"],CustomName:'{"text":"人狼ゲーム"}',CustomNameVisible:true,Marker:true,Invisible:true,NoGravity:true}
 #execute as @e[tag=game,limit=1] run tell @a[tag=gm] ゲーム地点を設定しました
@@ -150,4 +150,4 @@ scoreboard players reset @e wwlist
 function hsfunc:werewolf/utility/setting
 
 #GM自動参加
-tag @s add wwp
+#tag @s add wwp

@@ -112,7 +112,7 @@ give @a[tag=wwp] minecraft:stick{display:{Name:'{"text":"木の棒","color":"dar
 #give @a[tag=wwp] minecraft:blaze_rod{display:{Name:'{"text":"占い","color":"dark_purple","bold":true}'}} 64
 
 #地面のアイテム削除
-kill @e[type=!player,tag=!ww,tag=!game,tag=!shop,tag=!shop_position]
+kill @e[type=!player,tag=!ww,tag=!game,tag=!shop,tag=!dummy]
 
 #カウントダウン呼出
 function hsfunc:werewolf/utility/countdown

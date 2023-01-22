@@ -44,7 +44,7 @@ execute if entity @e[tag=ww,tag=debug_item] run scoreboard players set @e[tag=ga
 #停止・終了処理
 ##updateが-1の場合、setting呼出
 execute if score @e[tag=game,limit=1] update matches -1 run schedule clear hsfunc:werewolf/utility/update_item
-execute if score @e[tag=game,limit=1] update matches -1 if entity @e[tag=shop_position] run function hsfunc:werewolf/shop/remove_shop
+execute if score @e[tag=game,limit=1] update matches -1 if entity @e[tag=ww_shop_position] run function hsfunc:werewolf/shop/remove_shop
 execute if score @e[tag=game,limit=1] update matches -1 run function hsfunc:werewolf/utility/setting
 ##updateが1の時、次回呼出
 execute if score @e[tag=game,limit=1] update matches 1 run schedule function hsfunc:werewolf/utility/update_time 1s replace

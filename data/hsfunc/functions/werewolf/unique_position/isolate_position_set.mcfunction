@@ -1,0 +1,2 @@
+execute if entity @e[tag=ww_isolate_position] run function hsfunc:werewolf/unique_position/isolate_position_remove
+execute at @s run summon armor_stand ~ ~1 ~ {Tags:["dummy","ww_isolate_position"],CustomName:'{"text":"隔離"}',CustomNameVisible:false,Marker:true,Invisible:true,NoGravity:true}

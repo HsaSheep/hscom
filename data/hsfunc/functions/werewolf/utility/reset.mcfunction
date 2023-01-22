@@ -42,7 +42,7 @@ execute if entity @e[tag=game] at @e[tag=game,limit=1] run fill ~-10 ~ ~-10 ~10 
 ##ske
 execute if entity @e[tag=ske] run kill @e[tag=ske]
 ##shop
-execute if entity @e[tag=shop_position] run function hsfunc:werewolf/shop/remove_shop
+execute if entity @e[tag=ww_shop_position] run function hsfunc:werewolf/shop/remove_shop
 
 #タグ初期化
 execute if entity @e[tag=wolf] run tag @e[tag=wolf] remove wolf
@@ -62,3 +62,4 @@ tp @a[tag=wwp] @e[tag=ww,tag=game,limit=1]
 
 #gamemode変更
 gamemode adventure @a[tag=wwp]
+gamemode creative @a[tag=gm]

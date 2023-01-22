@@ -1,0 +1,2 @@
+execute if entity @e[tag=ww_game_position] run function hsfunc:werewolf/unique_position/game_position_remove
+execute at @s run summon armor_stand ~ ~1 ~ {Tags:["dummy","ww_game_position"],CustomName:'{"text":"ゲーム"}',CustomNameVisible:false,Marker:true,Invisible:true,NoGravity:true}
