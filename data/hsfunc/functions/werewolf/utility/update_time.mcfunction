@@ -38,8 +38,8 @@ execute if score @e[tag=game,limit=1] update matches 2 if entity @p[tag=wwp,tag=
 execute if score @e[tag=game,limit=1] update matches 3 run scoreboard players set @e[tag=game,limit=1] update 2
 
 #デバック用
-##debug_itemタグを持つエンティティがいる場合、終了しない（強制継続）
-execute if entity @e[tag=ww,tag=debug_item] run scoreboard players set @e[tag=game,limit=1] update 1
+##debugタグを持つエンティティがいる場合、終了しない（強制継続）
+execute if entity @e[tag=debug] run scoreboard players set @e[tag=game,limit=1] update 1
 
 #停止・終了処理
 ##updateが-1の場合、setting呼出

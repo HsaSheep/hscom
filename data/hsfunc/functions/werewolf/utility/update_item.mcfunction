@@ -2,8 +2,8 @@ execute if score @e[tag=ww,tag=game,limit=1] update matches 1 run function hsfun
 
 #item関係score初期化
 ##アイテム使用回数初期化（待機中の使用対応用）
-scoreboard players set @s carrot_on_a_stick_rightClick 0
-scoreboard players set @s warped_fungus_on_a_stick_rightClick 0
+scoreboard players set @a[tag=wwp] carrot_on_a_stick_rightClick 0
+scoreboard players set @a[tag=wwp] warped_fungus_on_a_stick_rightClick 0
 ##与、受、防ダメージ初期化
 scoreboard players set @a[tag=wwp] damage_give 0
 scoreboard players set @a[tag=wwp] damage_taken 0

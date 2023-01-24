@@ -15,6 +15,8 @@ execute as @a[tag=using_warped_fungus_on_a_stick] run clear @s warped_fungus_on_
 execute as @a[tag=using_warped_fungus_on_a_stick] at @a[tag=using_warped_fungus_on_a_stick] run kill @p[tag=drac,distance=..7]
 execute as @a[tag=using_warped_fungus_on_a_stick] run tag @s remove using_warped_fungus_on_a_stick
 
+
+
 ## ##### 左クリック処理 #####
 #事前処理（与ダメージ確認tag付与）
 execute as @a[tag=wwp,scores={death_count=0,damage_give=1..}] run tag @s add damage_give
@@ -50,11 +52,29 @@ execute as @a[tag=using_nether_star] run tag @s remove using_nether_star
 execute as @a[tag=damage_nether_star] run tag @s remove damage_take
 execute as @a[tag=damage_nether_star] run tag @s remove damage_nether_star
 
-
 ##左クリック処理タグ削除（スコア初期化は基本的にitem_updateで。
 tag @a[tag=wwp,tag=damage_give] remove damage_give
 tag @a[tag=wwp,tag=damage_take] remove damage_take
 
-#その他
+
+
+## ##### オフハンド処理 #####
+
+##glowstone_dust
+execute as @a[tag=wwp,scores={death_count=0}] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:glowstone_dust"}]}] run tag @s add has_glowstone_dust
+#すでに使用しているかチェック（他プレイヤーに発光エフェクトが付与されているか）
+execute as @a[tag=wwp,scores={death_count=0},tag=has_glowstone_dust] if entity @a[nbt={ActiveEffects:[{Id:24}]}] run title @s actionbar ["",{"text": "-- すでに効果が付与されています --", "color": "red"}]
+execute as @a[tag=wwp,scores={death_count=0},tag=has_glowstone_dust] if entity @a[nbt={ActiveEffects:[{Id:24}]}] run tag @s remove has_glowstone_dust
+#発光、通知、アイテム削除処理
+execute as @a[tag=wwp,scores={death_count=0},tag=has_glowstone_dust] run effect give @a[tag=wwp,tag=!has_glowstone_dust] minecraft:glowing 60 255 true
+execute as @a[tag=wwp,scores={death_count=0},tag=has_glowstone_dust] at @s run playsound minecraft:entity.experience_orb.pickup master @s ~ ~0.5 ~ 0.7 0.5
+execute as @a[tag=wwp,scores={death_count=0},tag=has_glowstone_dust] run title @s actionbar ["",{"text": "-- 他のプレイヤーに発光を付与しました --", "color": "white"}]
+execute as @a[tag=wwp,scores={death_count=0},tag=has_glowstone_dust] run clear @s glowstone_dust 1
+execute as @a[tag=wwp,scores={death_count=0},tag=has_glowstone_dust] run tag @s remove has_glowstone_dust
+
+
+
+## ##### その他処理 #####
+
 ##空き瓶回収
 clear @a glass_bottle

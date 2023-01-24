@@ -27,6 +27,7 @@ scoreboard objectives remove r_vill
 scoreboard objectives remove r_set
 scoreboard objectives remove s_multi
 scoreboard objectives remove s_count
+scoreboard objectives remove s_posy
 scoreboard objectives remove enable_vc
 scoreboard objectives remove day
 scoreboard objectives remove night
@@ -37,6 +38,7 @@ scoreboard objectives remove update
 scoreboard objectives remove setting_done
 scoreboard objectives remove num
 ###時間関係
+scoreboard objectives remove 2
 scoreboard objectives remove 60
 scoreboard objectives remove 3600
 scoreboard objectives remove time
@@ -81,11 +83,15 @@ title @a[tag=wwps] actionbar ["",{"text": "-- ゲームを削除しました --"
 #チーム削除
 team remove wwt
 
+#debugタグのエンティティがいる場合、debug/setting_giveを実行
+execute as @a[tag=gm] run function hsfunc:werewolf/debug/setting_give
+
 #タグ削除
-execute if entity @e[tag=voice] run tag @e[tag=voice] remove voice
-execute if entity @e[tag=gm] run tag @e[tag=gm] remove gm
-execute if entity @e[tag=wwp] run tag @e[tag=wwp] remove wwp
-execute if entity @e[tag=wws] run tag @e[tag=wws] remove wws
-execute if entity @e[tag=wwps] run tag @e[tag=wwps] remove wwps
-execute if entity @e[tag=first] run tag @e[tag=first] remove first
-execute if entity @e[tag=wwfirst] run tag @e[tag=wwfirst] remove wwfirst
+execute as @e[tag=voice] run tag @s remove voice
+execute as @e[tag=gm] run tag @s remove gm
+execute as @e[tag=wwp] run tag @s remove wwp
+execute as @e[tag=wws] run tag @s remove wws
+execute as @e[tag=wwps] run tag @s remove wwps
+execute as @e[tag=first] run tag @s remove first
+execute as @e[tag=wwfirst] run tag @s remove wwfirst
+execute as @e[tag=setting_first] run tag @s remove setting_first
