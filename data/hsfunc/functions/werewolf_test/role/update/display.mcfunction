@@ -1,2 +1,0 @@
-title @a actionbar [{"text":"参加者数:"},{"score":{"name":"@e[tag=DummyPlayer,tag=Id,limit=1]","objective":"player_count"},"color":"gold"},{"text":" 人狼の数:","color":"white"},{"score":{"name":"@e[tag=DummyPlayer,tag=Role,limit=1]","objective":"role_wolf"},"color":"gold"},{"text":" 狂人の数:","color":"white"},{"score":{"name":"@e[tag=DummyPlayer,tag=Role,limit=1]","objective":"role_mani"},"color":"gold"}]
-schedule function hsfunc:werewolf_test/role/update/display 2s
