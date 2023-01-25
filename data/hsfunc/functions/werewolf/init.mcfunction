@@ -85,12 +85,28 @@ execute as @e[tag=game,limit=1] run tellraw @a[tag=gm] ["",{"text":"["},{"select
 execute as @e[tag=game,limit=1] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"・設定:  "},{"text":"--- 権限付与 ---","color":"red","clickEvent":{"action":"suggest_command","value":"op @a[tag=!gm]"},"hoverEvent": {"action": "show_text","value": "opコマンドは権限レベル2が必要なため、\nクリック後opの前に自ら/を入力してください。"}}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"SimpleVoiceChatを使用する場合は下記をクリック。"}]
 execute as @e[tag=game,limit=1] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"・設定:  "},{"text":"--- SVC有効 ---","color":"red","clickEvent":{"action":"run_command","value":"/tag @s add voice"},"hoverEvent": {"action": "show_text","value": "参加時にSimpleVoiceChatの導入をアナウンスします。"}}]
-execute as @e[tag=game,limit=1] if entity @e[tag=ww_game_position] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"既定のゲーム地点が設定されています","color": "green"}]
+#execute as @e[tag=game,limit=1] if entity @e[tag=ww_game_position] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"既定のゲーム地点が設定されています","color": "green"}]
 execute as @e[tag=game,limit=1] unless entity @e[tag=ww_game_position] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"ゲーム地点に移動し、設定開始をクリック。"}]
 execute as @e[tag=game,limit=1] unless entity @e[tag=ww_game_position] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"・設定:  "},{"text":"--- 設定開始 ---","color":"red","clickEvent":{"action":"run_command","value":"/function hsfunc:werewolf/utility/set_place"},"hoverEvent": {"action": "show_text","value": "占い看板設置10x10マスの中心点（夜はスポーン50x50の中心点にもなります）"}}]
-execute as @e[tag=game,limit=1] if entity @e[tag=ww_isolate_position] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"隔離地点が設定されています","color": "green"}]
-execute as @e[tag=game,limit=1] unless entity @e[tag=ww_isolate_position] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"!!! 注意!!!","color": "red"}]
-execute as @e[tag=game,limit=1] unless entity @e[tag=ww_isolate_position] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"・隔離地点が設定されていません！","color": "red"}]
+#position設定通知
+##判定用タグ付与
+execute unless entity @e[tag=ww_game_position] run tag @e[tag=game,limit=1] add no_ww_game_position
+execute unless entity @e[tag=ww_isolate_position] run tag @e[tag=game,limit=1] add no_ww_isolate_position
+execute unless entity @e[tag=ww_shop_position] run tag @e[tag=game,limit=1] add no_ww_shop_position
+execute as @e[tag=game,limit=1] if entity @s[tag=no_ww_game_position] run tag @s add no_ww_position
+execute as @e[tag=game,limit=1] if entity @s[tag=no_ww_isolate_position] run tag @s add no_ww_position
+execute as @e[tag=game,limit=1] if entity @s[tag=no_ww_shop_position] run tag @s add no_ww_position
+##通知
+execute as @e[tag=game,limit=1] if entity @s[tag=!no_ww_position] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"地点は全て設定されています","color": "green"}]
+execute as @e[tag=game,limit=1] if entity @s[tag=no_ww_position] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"!!! 注意!!!","color": "red"}]
+execute as @e[tag=game,limit=1] if entity @s[tag=no_ww_game_position] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"・既定のゲーム地点が設定されていません！","color": "red"}]
+execute as @e[tag=game,limit=1] if entity @s[tag=no_ww_isolate_position] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"・隔離地点が設定されていません！","color": "red"}]
+execute as @e[tag=game,limit=1] if entity @s[tag=no_ww_shop_position] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"・ショップ地点が設定されていません！","color": "red"}]
+##判定用タグ削除
+execute if entity @e[tag=no_ww_game_position] run tag @e[tag=game,limit=1] remove no_ww_game_position
+execute if entity @e[tag=no_ww_isolate_position] run tag @e[tag=game,limit=1] remove no_ww_isolate_position
+execute if entity @e[tag=no_ww_shop_position] run tag @e[tag=game,limit=1] remove no_ww_shop_position
+execute if entity @e[tag=no_ww_position] run tag @e[tag=game,limit=1] remove no_ww_position
 execute as @e[tag=game,limit=1] run tellraw @a[tag=gm] ["",{"text":"["},{"selector":"@s"},{"text":"] "},{"text":"-------------------------------------------"}]
 
 #ゲーム地点が設置されている場合、tpして呼出
