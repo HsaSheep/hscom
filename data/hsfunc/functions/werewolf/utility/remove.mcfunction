@@ -1,5 +1,5 @@
 #ループ停止
-function hsfunc:werewolf/remove_update
+function hsfunc:werewolf/utility/remove_update
 
 #reset呼出
 function hsfunc:werewolf/utility/reset

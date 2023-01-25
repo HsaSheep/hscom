@@ -24,8 +24,13 @@ execute unless score @e[tag=game,limit=1] time_s matches 10.. if score @e[tag=ga
 #bossbarの現在値更新
 execute store result bossbar hsfunc:werewolf/time_bar value run scoreboard players get @e[tag=game,limit=1] time
 
-#死亡したプレイヤーのゲームモード変更
-execute as @a[tag=wwp,scores={death_count=1..}] run gamemode spectator @s
+#ゲームモード、チーム設定
+##生存しているプレイヤーのゲームモード、チーム確認
+execute as @a[tag=wwp,scores={death_count=0},gamemode=spectator] run gamemode adventure @s
+execute as @a[tag=wwp,scores={death_count=0},team=wws] run team join wwt @s
+##死亡したプレイヤーのゲームモード、チーム変更
+execute as @a[tag=wwp,scores={death_count=1..},gamemode=adventure] run gamemode spectator @s
+execute as @a[tag=wwp,scores={death_count=1..},team=wwt] run team join wws @s
 
 #終了条件チェック
 ##条件チェック

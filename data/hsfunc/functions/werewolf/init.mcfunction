@@ -1,5 +1,5 @@
 #remove呼出
-function hsfunc:werewolf/remove
+function hsfunc:werewolf/utility/remove
 
 #GMタグ付与
 tag @p add gm
@@ -49,6 +49,17 @@ team modify wwt nametagVisibility always
 team modify wwt deathMessageVisibility always
 team modify wwt friendlyFire false
 team modify wwt seeFriendlyInvisibles true
+
+##観戦チーム削除、再作成、初期化
+team add wws "人狼観戦チーム"
+team empty wws
+##team設定
+team modify wws color gray
+team modify wws collisionRule never
+team modify wws nametagVisibility hideForOtherTeams
+team modify wws deathMessageVisibility always
+team modify wws friendlyFire false
+team modify wws seeFriendlyInvisibles true
 
 #無限ループ呼出
 function hsfunc:werewolf/utility/endless_update
