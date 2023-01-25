@@ -5,7 +5,7 @@ execute if score @e[tag=game,limit=1] update matches 1 run scoreboard players re
 execute unless score @e[tag=game,limit=1] day matches 0 run scoreboard players add @e[tag=game] time_total 1
 
 #updateが1かつ時間が-1の場合、update_day呼出
-execute if score @e[tag=game,limit=1] update matches 1 if score @e[tag=game,limit=1] time matches ..-1 run function hsfunc:werewolf/utility/update_day
+execute if score @e[tag=game,limit=1] update matches 1 if score @e[tag=game,limit=1] time matches ..-1 run function hsfunc:werewolf/utility/day_update
 
 #時間計算
 scoreboard players operation @e[tag=game,limit=1] time_m = @e[tag=game,limit=1] time
@@ -43,10 +43,10 @@ execute if entity @e[tag=debug] run scoreboard players set @e[tag=game,limit=1] 
 
 #停止・終了処理
 ##updateが-1の場合、setting呼出
-execute if score @e[tag=game,limit=1] update matches -1 run schedule clear hsfunc:werewolf/utility/update_item
+execute if score @e[tag=game,limit=1] update matches -1 run schedule clear hsfunc:werewolf/utility/item_update
 execute if score @e[tag=game,limit=1] update matches -1 if entity @e[tag=ww_shop_position] run function hsfunc:werewolf/shop/remove_shop
 execute if score @e[tag=game,limit=1] update matches -1 run function hsfunc:werewolf/utility/setting
 ##updateが1の時、次回呼出
-execute if score @e[tag=game,limit=1] update matches 1 run schedule function hsfunc:werewolf/utility/update_time 1s replace
+execute if score @e[tag=game,limit=1] update matches 1 run schedule function hsfunc:werewolf/utility/time_update 1s replace
 ##updateが2の場合、gameset呼出、ショップ削除
 execute if score @e[tag=game,limit=1] update matches 2 run function hsfunc:werewolf/utility/gameset

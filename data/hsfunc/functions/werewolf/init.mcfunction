@@ -51,9 +51,9 @@ team modify wwt friendlyFire false
 team modify wwt seeFriendlyInvisibles true
 
 #無限ループ呼出
-function hsfunc:werewolf/utility/update_endless
+function hsfunc:werewolf/utility/endless_update
 #update_item呼出
-function hsfunc:werewolf/utility/update_item
+function hsfunc:werewolf/utility/item_update
 
 #DP削除(position以外すべて)
 execute if entity @e[tag=ww] run kill @e[tag=ww]

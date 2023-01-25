@@ -5,4 +5,4 @@ scoreboard players set @e[tag=game] setting_done 1
 #サイドバー削除
 scoreboard objectives setdisplay sidebar 
 #update_countdownを呼出
-function hsfunc:werewolf/utility/update_countdown
+function hsfunc:werewolf/utility/countdown_update

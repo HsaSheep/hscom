@@ -32,4 +32,4 @@ execute as @e[tag=game,limit=1] run execute if score @s time_day_first matches .
 execute as @e[tag=game,limit=1] run execute if score @s time_night_first matches ..0 run scoreboard players set @s time_night_first 30
 
 #次回呼出
-schedule function hsfunc:werewolf/utility/update_endless 0.5s
+schedule function hsfunc:werewolf/utility/endless_update 0.5s

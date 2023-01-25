@@ -57,13 +57,13 @@ execute if score @e[tag=game,limit=1] night matches 1 run effect give @a[tag=dra
 
 #夜敵Mobスポーン関係
 ##summon_skeのエンティティ削除、呼出削除(時間内に終了しなかったとき用)
-schedule clear hsfunc:werewolf/utility/summon_ske
+schedule clear hsfunc:werewolf/utility/ske_summon
 kill @e[tag=ske]
 ##夜の場合、summon_ske呼出
 execute if score @e[tag=game,limit=1] night matches 0 run kill @e[tag=ske]
 execute if score @e[tag=game,limit=1] night matches 1 run scoreboard players set @e[tag=game,limit=1] num 0
 execute if score @e[tag=game,limit=1] night matches 1 run scoreboard players operation @e[tag=game,limit=1] s_count = @e[tag=game,limit=1] s_multi
-execute if score @e[tag=game,limit=1] night matches 1 run schedule function hsfunc:werewolf/utility/summon_ske 5s replace
+execute if score @e[tag=game,limit=1] night matches 1 run schedule function hsfunc:werewolf/utility/ske_summon 5s replace
 
 #昼・夜の通知・ミュート指示(プラグインにdiscordのmute足したらここで呼出)
 execute if score @e[tag=game,limit=1] night matches 0 unless score @e[tag=game,limit=1] day matches 1 run title @a[tag=wwps] subtitle ["",{"text":"[ ミュートを 解除 してください ]","color":"white"}]

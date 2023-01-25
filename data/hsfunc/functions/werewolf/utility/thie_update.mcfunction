@@ -35,4 +35,4 @@ execute unless entity @a[tag=wwp,tag=thie,scores={thie_id=0}] run effect clear @
 ##ショップ設置
 execute unless entity @a[tag=wwp,tag=thie,scores={thie_id=0}] run execute if entity @e[tag=ww_shop_position] run function hsfunc:werewolf/shop/set_shop
 ##update_time呼出
-execute unless entity @a[tag=wwp,tag=thie,scores={thie_id=0}] run function hsfunc:werewolf/utility/update_time
+execute unless entity @a[tag=wwp,tag=thie,scores={thie_id=0}] run function hsfunc:werewolf/utility/time_update

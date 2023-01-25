@@ -1,9 +1,9 @@
 #各種ループ停止(endless以外)
-schedule clear hsfunc:werewolf/utility/update_countdown
-schedule clear hsfunc:werewolf/utility/update_day
-schedule clear hsfunc:werewolf/utility/update_setting
-schedule clear hsfunc:werewolf/utility/update_time
-schedule clear hsfunc:werewolf/utility/summon_ske
+schedule clear hsfunc:werewolf/utility/countdown_update
+schedule clear hsfunc:werewolf/utility/day_update
+schedule clear hsfunc:werewolf/utility/setting_update
+schedule clear hsfunc:werewolf/utility/time_update
+schedule clear hsfunc:werewolf/utility/ske_summon
 
 #scoreboard初期化（初期値代入・コメントアウトは他所で初期化）
 ###プレイヤー関係

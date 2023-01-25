@@ -16,4 +16,4 @@ execute as @a[tag=gm] run function hsfunc:werewolf/utility/setting_give
 execute as @a[tag=gm] run function hsfunc:werewolf/shop/setting
 
 #設定中のループを呼出
-function hsfunc:werewolf/utility/update_setting
+function hsfunc:werewolf/utility/setting_update

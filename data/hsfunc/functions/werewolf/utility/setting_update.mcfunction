@@ -87,7 +87,7 @@ effect give @a[tag=wwp] minecraft:resistance 16 255 true
 #effect clear @a[tag=wwp]
 
 #設定完了スコアが0の場合、次回呼び出し
-execute if score @e[tag=game,limit=1] setting_done matches 0 run schedule function hsfunc:werewolf/utility/update_setting 1s
+execute if score @e[tag=game,limit=1] setting_done matches 0 run schedule function hsfunc:werewolf/utility/setting_update 1s
 #設定完了スコアが1の場合、設定情報表示削除、観覧プレイヤーをスペクテイターに、numを0に
 execute if score @e[tag=game,limit=1] setting_done matches 1 run scoreboard objectives setdisplay sidebar
 execute if score @e[tag=game,limit=1] setting_done matches 1 run gamemode spectator @a[tag=wws]

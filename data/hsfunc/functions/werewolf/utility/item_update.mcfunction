@@ -10,4 +10,4 @@ scoreboard players set @a[tag=wwp] damage_taken 0
 scoreboard players set @a[tag=wwp] damage_resis 0
 
 #次回呼出
-schedule function hsfunc:werewolf/utility/update_item 10t replace
+schedule function hsfunc:werewolf/utility/item_update 10t replace
