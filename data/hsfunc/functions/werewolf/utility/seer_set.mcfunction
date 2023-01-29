@@ -108,6 +108,7 @@ clear @a[tag=wwp]
 execute as @a[tag=gm] run function hsfunc:werewolf/utility/setting_give
 #テスト用アイテム
 give @a[tag=wwp] minecraft:stick{display:{Name:'{"text":"木の棒","color":"dark_purple","bold":true}'},Unbreakable:1b,Enchantments:[{id:"minecraft:smite",lvl:1s},{id:"minecraft:knockback",lvl:1s}]} 1
+give @a[tag=wwp] minecraft:cooked_beef{display:{Name:'{"text":"おにく","color":"dark_purple","bold":true}',Lore:['{"text":"人狼ゲーム用のアイテム","color":"dark_purple"}','{"text":"ただのにく","color":"#8B00A1"}']}} 5
 #give @a[tag=wwp] minecraft:emerald 64
 #give @a[tag=wwp] minecraft:blaze_rod{display:{Name:'{"text":"占い","color":"dark_purple","bold":true}'}} 64
 
