@@ -32,6 +32,7 @@ scoreboard objectives add shop_rightClick minecraft.custom:minecraft.talked_to_v
 scoreboard objectives add carrot_on_a_stick_rightClick minecraft.used:minecraft.carrot_on_a_stick "人参棒右クリック検知用"
 scoreboard objectives add warped_fungus_on_a_stick_rightClick minecraft.used:minecraft.warped_fungus_on_a_stick "ネザーキノコ棒右クリック検知用"
 scoreboard objectives add snowball_rightClick minecraft.used:minecraft.snowball "雪玉右クリック検知用"
+scoreboard objectives add use_axe minecraft.used:minecraft.netherite_axe "斧使用検知用"
 ###ゲーム関係
 scoreboard objectives add p_count dummy "参加プレイヤー数"
 scoreboard objectives add r_wolf dummy "人狼の数"
@@ -94,6 +95,7 @@ scoreboard players set @a shop_rightClick 0
 scoreboard players set @a carrot_on_a_stick_rightClick 0
 scoreboard players set @a warped_fungus_on_a_stick_rightClick 0
 scoreboard players set @a snowball_rightClick 0
+scoreboard players set @a use_axe 0
 ###ゲーム関係
 scoreboard players set @e[tag=game] p_count 0 
 scoreboard players set @e[tag=game] r_wolf 2

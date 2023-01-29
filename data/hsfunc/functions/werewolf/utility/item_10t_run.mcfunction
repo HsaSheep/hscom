@@ -73,6 +73,8 @@ execute as @a[tag=wwp,scores={death_count=0},tag=has_glowstone_dust] run tag @s 
 
 
 ## ##### その他処理 #####
+##斧使用処理
+execute as @a[tag=wwp,scores={death_count=0,use_axe=1..}] at @s run playsound minecraft:entity.wither.death master @a ~ ~ ~ 0.5 2.0 0.0
 
 ##空き瓶回収
 clear @a glass_bottle
