@@ -13,8 +13,8 @@ execute as @a run playsound minecraft:block.note_block.bit master @s ~ ~ ~ 1.0 0
 scoreboard players remove @e[tag=game] num 1
 
 #1秒後にもう次回呼出
-schedule function hsfunc:werewolf/utility/update_countdown 1s replace
+schedule function hsfunc:werewolf/utility/countdown_update 1s replace
 #1以下の場合、次回呼出をクリアし、1秒後にgamestartを呼出し、numを初期化
-execute if score @e[tag=game,limit=1] num matches ..0 run schedule clear hsfunc:werewolf/utility/update_countdown
+execute if score @e[tag=game,limit=1] num matches ..0 run schedule clear hsfunc:werewolf/utility/countdown_update
 execute if score @e[tag=game,limit=1] num matches ..0 run schedule function hsfunc:werewolf/utility/gamestart 1s replace
 execute if score @e[tag=game,limit=1] num matches ..0 run scoreboard players reset @e[tag=game] num

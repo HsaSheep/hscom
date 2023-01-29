@@ -52,7 +52,7 @@ execute if score @e[tag=game,limit=1] night matches 1 run function hsfunc:werewo
 execute if score @e[tag=game,limit=1] night matches 1 run function hsfunc:werewolf/shop/set_shop
 
 #吸血処理
-execute if score @e[tag=game,limit=1] night matches 0 run effect clear @a[tag=drac]
+execute if score @e[tag=game,limit=1] night matches 0 run effect give @a[tag=drac] minecraft:resistance 1 255 true
 execute if score @e[tag=game,limit=1] night matches 1 run effect give @a[tag=drac] minecraft:resistance 1000000 255 true
 
 #夜敵Mobスポーン関係
@@ -60,7 +60,6 @@ execute if score @e[tag=game,limit=1] night matches 1 run effect give @a[tag=dra
 schedule clear hsfunc:werewolf/utility/ske_summon
 kill @e[tag=ske]
 ##夜の場合、summon_ske呼出
-execute if score @e[tag=game,limit=1] night matches 0 run kill @e[tag=ske]
 execute if score @e[tag=game,limit=1] night matches 1 run scoreboard players set @e[tag=game,limit=1] num 0
 execute if score @e[tag=game,limit=1] night matches 1 run scoreboard players operation @e[tag=game,limit=1] s_count = @e[tag=game,limit=1] s_multi
 execute if score @e[tag=game,limit=1] night matches 1 run schedule function hsfunc:werewolf/utility/ske_summon 5s replace

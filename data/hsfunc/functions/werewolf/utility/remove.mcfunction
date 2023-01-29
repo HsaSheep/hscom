@@ -17,6 +17,7 @@ scoreboard objectives remove shop_rightClick
 ###アイテム関係
 scoreboard objectives remove carrot_on_a_stick_rightClick
 scoreboard objectives remove warped_fungus_on_a_stick_rightClick
+scoreboard objectives remove snowball_rightClick
 ###ゲーム関係
 scoreboard objectives remove p_count
 scoreboard objectives remove r_wolf

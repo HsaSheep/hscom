@@ -1,3 +1,4 @@
+#tell @a item_run
 ## ##### 右クリック処理 #####
 ##carrot_on_a_stick
 execute as @a[tag=wwp,scores={death_count=0}] if score @s carrot_on_a_stick_rightClick matches 1.. run tag @s add using_carrot_on_a_stick
@@ -14,7 +15,6 @@ execute as @a[tag=using_warped_fungus_on_a_stick] run scoreboard players set @s 
 execute as @a[tag=using_warped_fungus_on_a_stick] run clear @s warped_fungus_on_a_stick 1
 execute as @a[tag=using_warped_fungus_on_a_stick] at @a[tag=using_warped_fungus_on_a_stick] run kill @p[tag=drac,distance=..7]
 execute as @a[tag=using_warped_fungus_on_a_stick] run tag @s remove using_warped_fungus_on_a_stick
-
 
 
 ## ##### 左クリック処理 #####
@@ -59,7 +59,6 @@ tag @a[tag=wwp,tag=damage_take] remove damage_take
 
 
 ## ##### オフハンド処理 #####
-
 ##glowstone_dust
 execute as @a[tag=wwp,scores={death_count=0}] if entity @s[nbt={Inventory:[{Slot:-106b,id:"minecraft:glowstone_dust"}]}] run tag @s add has_glowstone_dust
 #すでに使用しているかチェック（他プレイヤーに発光エフェクトが付与されているか）
@@ -71,7 +70,6 @@ execute as @a[tag=wwp,scores={death_count=0},tag=has_glowstone_dust] at @s run p
 execute as @a[tag=wwp,scores={death_count=0},tag=has_glowstone_dust] run title @s actionbar ["",{"text": "-- 他のプレイヤーに発光を付与しました --", "color": "white"}]
 execute as @a[tag=wwp,scores={death_count=0},tag=has_glowstone_dust] run clear @s glowstone_dust 1
 execute as @a[tag=wwp,scores={death_count=0},tag=has_glowstone_dust] run tag @s remove has_glowstone_dust
-
 
 
 ## ##### その他処理 #####

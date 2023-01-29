@@ -63,8 +63,10 @@ team modify wws seeFriendlyInvisibles true
 
 #無限ループ呼出
 function hsfunc:werewolf/utility/endless_update
-#update_item呼出
-function hsfunc:werewolf/utility/item_update
+#item_update呼出
+function hsfunc:werewolf/utility/item_10t_update
+#item_update_1t呼出
+function hsfunc:werewolf/utility/item_1t_update
 
 #DP削除(position以外すべて)
 execute if entity @e[tag=ww] run kill @e[tag=ww]

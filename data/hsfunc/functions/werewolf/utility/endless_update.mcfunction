@@ -1,6 +1,6 @@
 #エンティティ関係
 ##関係ないMOB(点火したTNT等)をキル
-kill @e[type=!minecraft:player,type=!minecraft:arrow,type=!item,tag=]
+kill @e[type=!minecraft:player,type=!minecraft:arrow,type=!minecraft:snowball,type=!item,tag=]
 ##着弾した矢を削除
 kill @e[type=minecraft:arrow,nbt={inGround:true}]
 ##バリアーブロックが落ちていたら削除
